@@ -2,12 +2,23 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.2.1",
+      "date": "2026-07-13",
+      "title": "Old World Rescue",
+      "changed": [
+        "The old world button now restores your old private world directly as your save in one click, no more copying a code that could get lost"
+      ],
+      "fixed": [
+        "Exporting your old world could lose it forever if the code never made it to your clipboard, that whole flow is gone"
+      ]
+    },
+    {
       "version": "1.2.0",
       "date": "2026-07-13",
       "title": "One Public World",
       "added": [
         "This changelog board! Patch notes now update live without a world update",
-        "Old private world saves can leave as a share code, grab it under IMPORT/EXPORT before it goes"
+        "Old private worlds can come back: hit RESTORE OLD WORLD under IMPORT/EXPORT to make yours the live save again"
       ],
       "changed": [
         "The game is one shared public world now, private code lobbies are gone",
