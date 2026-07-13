@@ -2,6 +2,23 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.3.0",
+      "date": "2026-07-13",
+      "title": "The Big Journal Diet",
+      "added": [
+        "EDITS counter in the settings menu shows how much of the world edit budget is used"
+      ],
+      "changed": [
+        "Flowing water and lava no longer count against the world edit limit, only the placed source block does",
+        "Trees grown from saplings now count as one edit instead of about sixty",
+        "Fires that burn out over open ground clean their edits up completely",
+        "Old saves shed their water and fire bloat automatically the next time the world tidies itself"
+      ],
+      "fixed": [
+        "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should"
+      ]
+    },
+    {
       "version": "1.2.1",
       "date": "2026-07-13",
       "title": "Old World Rescue",
