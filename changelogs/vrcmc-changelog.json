@@ -1,0 +1,69 @@
+{
+  "title": "Minecraft VRChat Edition",
+  "updates": [
+    {
+      "version": "1.2.0",
+      "date": "2026-07-13",
+      "title": "One Public World",
+      "added": [
+        "This changelog board! Patch notes now update live without a world update",
+        "Old private world saves can leave as a share code, grab it under IMPORT/EXPORT before it goes"
+      ],
+      "changed": [
+        "The game is one shared public world now, private code lobbies are gone",
+        "Everyone gets one saved world, loadable as the public world by the instance master",
+        "World edit limit doubled from 10,000 to 20,000 blocks, big builds keep going",
+        "The world lobbies board got a cleaner single column layout"
+      ]
+    },
+    {
+      "version": "1.1.2",
+      "date": "2026-07-13",
+      "title": "Spiders",
+      "added": [
+        "Spiders! They come out at night, they climb, they pounce, and they drop string, so bows are finally craftable",
+        "Mixed version lobbies work now, blocks from newer versions show as placeholders instead of breaking everything, and chat warns you when a lobby is outdated"
+      ],
+      "fixed": [
+        "Dying no longer sends you into an uncontrollable spin",
+        "Same spin fix while floating during world load"
+      ]
+    },
+    {
+      "version": "1.1.1",
+      "date": "2026-07-12",
+      "title": "Armor & Furnaces",
+      "added": [
+        "Armor now shows on the health bars above other players' heads"
+      ],
+      "fixed": [
+        "Furnace contents were getting wiped when you left the world or respawned, they save with the world now like chests"
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-07-12",
+      "title": "Mutton",
+      "added": [
+        "Sheep drop 1-2 raw mutton along with their wool, cook it in a furnace for a proper meal"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-07-12",
+      "title": "We're Live!",
+      "added": [
+        "Minecraft VRChat Edition is out of beta and live on VRChat!",
+        "Full survival loop: punch trees, craft tools, mine to diamond, build anything",
+        "Mobs spawn at night, craft armor to soften the hits",
+        "Buckets: scoop water and lava, milk cows, fuel furnaces with lava",
+        "Chests and furnaces dump their contents when broken instead of eating them",
+        "Dropped items merge into stacks on the ground",
+        "Share whole worlds with friends as import/export codes"
+      ],
+      "changed": [
+        "Everyone starts fresh, earn your first tools the honest way"
+      ]
+    }
+  ]
+}
