@@ -3,19 +3,26 @@
   "updates": [
     {
       "version": "1.3.0",
-      "date": "2026-07-13",
-      "title": "The Big Journal Diet",
+      "date": "2026-07-14",
+      "title": "Spawn Protection & The Journal Diet",
       "added": [
+        "Spawn protection! Blocks can't be placed or broken within 10 blocks of the world spawn, so no more lava traps and clutter where everyone drops in",
         "EDITS counter in the settings menu shows how much of the world edit budget is used"
       ],
       "changed": [
+        "Double chests got a proper facelift, split lids, no stretched planks, and the latch shades right from every angle",
+        "The VR chat box moved to the right so it sits above the hotbar instead of covering it",
+        "The public world moved closer to the map center so far out builds are less jittery",
         "Flowing water and lava no longer count against the world edit limit, only the placed source block does",
         "Trees grown from saplings now count as one edit instead of about sixty",
+        "Opening and closing doors no longer bloats your world save",
         "Fires that burn out over open ground clean their edits up completely",
         "Old saves shed their water and fire bloat automatically the next time the world tidies itself"
       ],
       "fixed": [
-        "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should"
+        "Chest and furnace items could vanish from your save when reloading your world, they stick properly now",
+        "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should",
+        "Staff tag toggle applies instantly instead of lagging behind"
       ]
     },
     {
