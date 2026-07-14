@@ -20,6 +20,7 @@
         "Old saves shed their water and fire bloat automatically the next time the world tidies itself"
       ],
       "fixed": [
+        "Item duping is dead: spamming items in and out of chests, shift-click racing, and two players grabbing the same stack all conserve items properly now",
         "Chest and furnace items could vanish from your save when reloading your world, they stick properly now",
         "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should",
         "Staff tag toggle applies instantly instead of lagging behind"
