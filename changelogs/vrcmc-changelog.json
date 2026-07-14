@@ -2,6 +2,21 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.3.1",
+      "date": "2026-07-14",
+      "title": "Polish Pass",
+      "changed": [
+        "Menus and HUD text render sharper, especially in VR",
+        "Tearing your own builds back down gives the world edit budget back",
+        "When the edit budget fills up the world now tidies itself on the spot instead of blocking building"
+      ],
+      "fixed": [
+        "No more spawning in the ocean, the spawn search finds dry land properly now",
+        "Health and armor bars above players no longer show through walls",
+        "Options menu buttons no longer overlap"
+      ]
+    },
+    {
       "version": "1.3.0",
       "date": "2026-07-14",
       "title": "Spawn Protection & The Journal Diet",
