@@ -2,6 +2,19 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.5.0",
+      "date": "2026-07-15",
+      "title": "Room To Build",
+      "changed": [
+        "World edit limit raised from 20,000 to 150,000 blocks, build over seven times bigger",
+        "Big worlds stream to joining players in pieces instead of one giant blob, so a maxed out world loads in clean",
+        "World tidying and autosaves spread their work across frames, no more hitching in huge worlds",
+        "The block and item numbering got a lot more room under the hood, future updates can add hundreds of new blocks without breaking old lobbies",
+        "Your existing saves and world share codes carry over untouched",
+        "Truly enormous worlds that outgrow VRChat's save storage keep as much as fits and say so in the log, nothing disappears silently"
+      ]
+    },
+    {
       "version": "1.3.1",
       "date": "2026-07-14",
       "title": "Polish Pass",
