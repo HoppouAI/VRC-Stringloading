@@ -5,6 +5,9 @@
       "version": "1.5.0",
       "date": "2026-07-15",
       "title": "Room To Build",
+      "added": [
+        "Chat speaks every language now: Korean, Japanese, Chinese, Cyrillic and more render properly in messages, names and join messages instead of vanishing"
+      ],
       "changed": [
         "World edit limit raised from 20,000 to 150,000 blocks, build over seven times bigger",
         "Big worlds stream to joining players in pieces instead of one giant blob, so a maxed out world loads in clean",
