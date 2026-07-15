@@ -2,6 +2,20 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.5.1",
+      "date": "2026-07-15",
+      "title": "Chat For Everyone",
+      "added": [
+        "Chat speaks every language now: Korean, Japanese, Chinese, Cyrillic and more render properly in messages, names and join messages instead of vanishing",
+        "The MASTER name on the lobby board and options screen shows every language too",
+        "Early beta testers from the thanks board got their own amber BETA TESTER tag, wear it proud",
+        "The tag menu shows each tag in its real colors so you can see what you are picking, and it sizes itself to your collection"
+      ],
+      "fixed": [
+        "Tags behave now: your pick saves between visits, applies reliably instead of sometimes snapping to a different tag you own, and late joiners see the right one"
+      ]
+    },
+    {
       "version": "1.5.0",
       "date": "2026-07-15",
       "title": "Room To Build",
