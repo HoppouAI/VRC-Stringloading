@@ -2,6 +2,19 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.5.2",
+      "date": "2026-07-15",
+      "title": "Codes Keep Your Stuff",
+      "removed": [
+        "The chat box is gone. Some people used hacked clients to spam and impersonate players in it, so it had to go. Death, join and leave messages still show, and those can no longer be faked or carry made up text"
+      ],
+      "fixed": [
+        "World codes now carry your chest and furnace items, so importing a code brings everything back instead of empty chests. Codes made before this update only contain blocks, re-export your worlds to protect your items",
+        "Lava flows downward properly now instead of stopping one block under the source",
+        "Beds model and textures are fixed."
+      ]
+    },
+    {
       "version": "1.5.1",
       "date": "2026-07-15",
       "title": "Chat For Everyone",
