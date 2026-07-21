@@ -2,6 +2,46 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.6.0",
+      "date": "2026-07-21",
+      "title": "The Block Update",
+      "added": [
+        "Storage blocks: coal, iron, gold, diamond, emerald, lapis and redstone all pack into blocks in a 3x3 and craft back out, and a coal block fuels a furnace for 80 smelts",
+        "Stone bricks in plain, mossy, cracked and chiseled, with slabs and stairs, smelt plain ones to crack them",
+        "Carrots and potatoes: plant them, grow them, and zombies rarely drop them, bake potatoes in a furnace for a proper meal",
+        "Pumpkins and melons: carve a jack o'lantern, grow stems that sprout their fruit beside them, and slice melons for a snack",
+        "Hay bales pack up your wheat and clay pockets smelt into bricks",
+        "Ten new flowers, red and brown mushrooms, dead bushes, and mushroom stew with craftable bowls",
+        "Wool in fifteen colors! Craft dyes from flowers and bone meal, and beds now take any wool color",
+        "Skeletons drop bones, craft them into bone meal to instant-grow crops and saplings",
+        "Glass panes, iron bars and cobblestone walls that connect to their neighbors as you build",
+        "Trapdoors in all three woods, they swing open on use like gates",
+        "Cactus and sugar cane grow in the world and stack three tall, watch the spikes, cactus prickles anyone who touches it and smelts into green dye",
+        "Paper, books and bookshelves, the writing desk trio finally exists",
+        "Shears! Snip a sheep for one to three wool and the coat grows back, shears also harvest leaves, grass and bushes as the block itself and cut wool and leaves way faster",
+        "The world grew in: deserts sprout cactus clusters and dead bushes, sugar cane lines the water, mushrooms hide on forest floors, clay sits under lakes and shores, and wild pumpkin and melon patches turn up if you look around",
+        "Every biome now blooms its own flowers, keep an eye out for the rare ones",
+        "Stairs can be placed upside down: click the underside of a block or the top half of a face, same as slabs",
+        "Stairs bend around corners now, two stairs meeting at a right angle join into a clean L inside and out",
+        "Grass spreads! Dirt next to grass turns grassy over time like it should, and grass buried under a block dies back to dirt",
+        "PVP is now opt-in: a PVP button sits right on the options screen, both players need it on for hits to land, and after dealing or taking a hit it locks on for 15 seconds so nobody toggles out of losing a fight",
+        "New GAMEPLAY page in the options for the VR tweaks: HUD placement lives there now, quick swap (the reach-behind-your-head slot hop) can be turned off if you keep grabbing it mid-swing, and a new swing mining option lets swings chip blocks with no trigger, off by default",
+        "Held torches light your way now, the most asked-for thing on the Discord: carry one and a warm glow follows your hand, and you can see other torch carriers glowing too",
+        "Crouching! Duck for real in VR or hold the desktop sneak key, you move at mc sneak speed and a little silhouette at the left end of the hotbar shows whether you are standing or down",
+        "The spawn area is a pvp safe zone in both directions, so nobody camps fresh spawns",
+        "Avatar size no longer matters in a fight: everyone shares the same fixed mc player hitbox and avatar height is clamped, going tiny or giant buys nothing"
+      ],
+      "fixed": [
+        "Double doors hang properly: the right-hand door mirrors its art so the handles meet in the middle and both doors swing apart instead of opening the same way",
+        "Arrows, books, shears and the offset flint and steel shapes were uncraftable, the recipe matcher never lined their shapes up, all of them craft now",
+        "Three world save bugs from your reports are gone: chopped trees and picked flowers stay gone after a reload, rejoining while a friend kept your world open no longer rolls your save back, and water flowing onto lava finally makes obsidian in public worlds",
+        "Tall avatars stopped suffocating while jumping through caves, the head check now sits at proper mc height and brushing a wall mid-jump gets a short grace window",
+        "Sugar cane and cactus no longer sound like stone to dig: cane digs like grass, cactus like cloth, and mushrooms, dead bushes, pumpkins, jack o'lanterns, melons and every crop got their proper sounds too",
+        "Sugar cane's mining hitbox is the actual reed instead of the whole block, so you can aim past it at what's behind",
+        "The EDITS and MASTER readouts moved up under the options title, they were crowding the bottom row of buttons"
+      ]
+    },
+    {
       "version": "1.5.2",
       "date": "2026-07-15",
       "title": "Codes Keep Your Stuff",
