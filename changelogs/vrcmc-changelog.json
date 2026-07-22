@@ -10,6 +10,8 @@
         "Rotten flesh: zombies drop it now like they should instead of feathers, and you can eat it in a pinch, just expect a rumbling stomach most of the time"
       ],
       "fixed": [
+        "Joining a friend in a big well-built world no longer gets stuck loading forever, if the usual world download stalls the game now streams the edits over piece by piece until you catch up",
+        "VR swing mining actually works on tough blocks now, your hit progress sticks around between swings instead of resetting the instant a swing ends, keep whacking like console Minecraft",
         "Leaves you place yourself stay put now instead of quietly decaying away when there is no wood nearby",
         "Mobs check for actual room before spawning, no more skeletons buried up to the ribs in a hillside",
         "Looking down on desktop no longer counts as crouching, so you stop mysteriously slowing to a crawl while mining under your feet",
