@@ -38,6 +38,7 @@
         "Tall avatars stopped suffocating while jumping through caves, the head check now sits at proper mc height and brushing a wall mid-jump gets a short grace window",
         "Sugar cane and cactus no longer sound like stone to dig: cane digs like grass, cactus like cloth, and mushrooms, dead bushes, pumpkins, jack o'lanterns, melons and every crop got their proper sounds too",
         "Sugar cane's mining hitbox is the actual reed instead of the whole block, so you can aim past it at what's behind",
+        "Skeletons were caught holding a stair instead of a bow after the item reshuffle, they carry a real bow again and actually draw it now, arms raised with the string hand resting where the arrow sits",
         "The EDITS and MASTER readouts moved up under the options title, they were crowding the bottom row of buttons"
       ]
     },
