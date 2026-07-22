@@ -2,6 +2,24 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.6.1",
+      "date": "2026-07-22",
+      "title": "Spruce Things Up",
+      "added": [
+        "Spruce and birch saplings! Their leaves finally drop them, they grow into the matching tree, and bone meal works on them too",
+        "Rotten flesh: zombies drop it now like they should instead of feathers, and you can eat it in a pinch, just expect a rumbling stomach most of the time"
+      ],
+      "fixed": [
+        "Leaves you place yourself stay put now instead of quietly decaying away when there is no wood nearby",
+        "Mobs check for actual room before spawning, no more skeletons buried up to the ribs in a hillside",
+        "Looking down on desktop no longer counts as crouching, so you stop mysteriously slowing to a crawl while mining under your feet",
+        "Grass no longer creeps onto dirt under water and submerged grass dies back to dirt, swamp shorelines stopped generating grassy pond floors too",
+        "Desert cactus got toned way down, deserts stop looking like somebody's cactus farm",
+        "Double doors read correctly from both sides now, they used to look right from inside and mirrored from outside",
+        "Chests and furnaces show proper icons for all the newer items instead of blank squares"
+      ]
+    },
+    {
       "version": "1.6.0",
       "date": "2026-07-21",
       "title": "The Block Update",
