@@ -2,6 +2,34 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.6.3",
+      "date": "2026-07-24",
+      "title": "Same World For Everyone",
+      "fixed": [
+        "Mobs are finally in the same spots for every player: entering a world used to quietly hand you the mob simulation and respawn a fresh set, so everyone saw different mobs in different places, now the mobs stay exactly where they are when the host changes",
+        "The death feed was blaming zombies for spider kills, it names the right mob now",
+        "Lava pockets no longer hang in midair in caves, tunnels were carving the ground out from under them during world generation, they settle onto the cave floor now and your builds are untouched"
+      ]
+    },
+    {
+      "version": "1.6.2",
+      "date": "2026-07-23",
+      "title": "The Bug Batch",
+      "added": [
+        "SHOW COORDS toggle on the new gameplay options page, off by default, shows your block position top left on desktop or on your HUD in VR"
+      ],
+      "fixed": [
+        "Chests stopped eating items: storage space behind the scenes could fill up and quietly destroy whatever you deposited, there is room for far more now and if a chest genuinely cannot take an item it stays on your cursor instead of vanishing",
+        "Dying in the lobby no longer deletes your inventory, you keep everything since there is no world to drop it into",
+        "Lava and water show through glass, slabs, stairs, fences and panes now, lava hiding behind them was invisible but still burned you",
+        "Crouching on desktop actually triggers when you crouch, you no longer have to stare at the floor before the game notices",
+        "The new dyed wool and flowers sounded like stone to dig, they got their proper sounds along with glass panes and clay",
+        "Bookshelves drop three books when broken like they should",
+        "A chest with another chest on top opens properly now, chests are not solid roofs, a stone block on top still keeps it shut like real Minecraft",
+        "The world border is lighter on your framerate, the walls behind you cull away properly and the forcefield texture stopped shimmering"
+      ]
+    },
+    {
       "version": "1.6.1",
       "date": "2026-07-22",
       "title": "Spruce Things Up",
