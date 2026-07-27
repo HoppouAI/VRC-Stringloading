@@ -2,6 +2,21 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.7.1",
+      "date": "2026-07-27",
+      "title": "Say It Out Loud",
+      "added": [
+        "World setting changes now announce in red chat to the whole lobby, so when the host forces PvP or locks the time everyone knows right away instead of guessing",
+        "PvP swings that get blocked now tell you why: spawn protection covers about 10 blocks around the world spawn, players up in the lobby are safe, and if PvP is simply off the game says so when you punch someone"
+      ],
+      "changed": [
+        "Lava guard is simpler and stronger: while it is on nobody can pour lava or light fires within a few blocks of another player, no matter what the PvP mode is. Before, forcing PvP on quietly disabled the guard and it looked broken. Hosts who want lava fights can still turn the guard off in world settings"
+      ],
+      "fixed": [
+        "The WORLD SETTINGS button was sitting on top of the other menu buttons for hosts, the bottom row is now three clean buttons and RETURN TO LOBBY is back where you can actually click it"
+      ]
+    },
+    {
       "version": "1.7.0",
       "date": "2026-07-27",
       "title": "Safe And Sound",
