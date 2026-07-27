@@ -6,7 +6,7 @@
       "date": "2026-07-27",
       "title": "Safe And Sound",
       "added": [
-        "Hostile mobs finally spawn in caves like console Minecraft, mining in the dark is actually dangerous now, day or night, keep some torches on you since lit areas stay safe",
+        "Hostile mobs finally spawn underground, mining dark caves is actually dangerous now, day or night, so keep some torches on you since lit areas stay safe",
         "More mobs overall: the hostile cap doubled because spawns felt dead slow, surface mobs still only come out at night and burn away at dawn while cave mobs live on in the dark",
         "WORLD SETTINGS: the world creator gets a new page in options to run their world their way: force PvP on or off for everyone or leave it up to each player, turn mob spawning off or passive only, lock the time to day or night, toggle fire spread, stop creepers from breaking blocks, and keep inventory on death. Settings follow your save between sessions, and the master takes over the controls if the creator leaves",
         "Lava guard: dumping a lava bucket or lighting a fire right next to a player who has PvP off gets blocked now, hosts can turn this off in world settings if their group likes to live dangerously"
