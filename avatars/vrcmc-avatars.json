@@ -6,6 +6,24 @@
       "author": "_Flin_",
       "desc": "The one and only Steve from the Minecraft movie",
       "id": "avtr_4bc74e71-3599-4ac1-b27a-ea9d959967ff"
+    },
+    {
+      "name": "Villager",
+      "author": "_Flin_",
+      "desc": "Hmm. Hrmm. A humble villager, trades not included",
+      "id": "avtr_1a798186-5c98-4f77-8ab6-a140c19dbf4a"
+    },
+    {
+      "name": "Baby Zombie",
+      "author": "_Flin_",
+      "desc": "Small, green, and faster than it has any right to be",
+      "id": "avtr_385d7169-c2ac-407c-b20a-4c8812f76673"
+    },
+    {
+      "name": "Garrett \"The Garbage Man\" Garrison",
+      "author": "_Flin_",
+      "desc": "The Garbage Man himself, straight out of the Minecraft movie",
+      "id": "avtr_34ce3195-e60a-4fae-a2ae-9ad2e95939fa"
     }
   ]
 }
