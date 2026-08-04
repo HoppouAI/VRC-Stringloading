@@ -2,6 +2,33 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.7.3",
+      "date": "2026-08-04",
+      "title": "Smooth Operator",
+      "added": [
+        "Combat tag: trading hits in PvP tags both players for 15 seconds, and while tagged the respawn button just puts you right back where you were standing, no more respawning out of a fight you started",
+        "ARM SWIM toggle on the gameplay options page for VR players, turn it off and swinging your arms underwater stops launching you toward the surface, jump becomes the only way up, so underwater fights and mining stop being a struggle"
+      ],
+      "fixed": [
+        "Some players literally could not be hit in busy instances, there were only 16 hit capsules to go around so everyone past the 16th person was invincible, every player in a full instance gets one now",
+        "Big worlds stopped tanking everyone's framerate: loading in a large save, the host's 30 second autosave, and world imports all used to freeze frames hard, especially on Quest with crop farms, all of that work is spread across frames now",
+        "Exporting a big world no longer freezes your game while the code builds, it shows EXPORTING... and keeps running smooth until the code pops in",
+        "Iron bars and glass panes stopped flickering where they connect, most noticeable up close in VR"
+      ]
+    },
+    {
+      "version": "1.7.2",
+      "date": "2026-08-03",
+      "title": "Fair And Square",
+      "added": [
+        "Rusk Empire collab corner in the lobby! Staff can flip the display on from the performance page in options, and the standee is clickable to join their VRChat group",
+        "The game now cleans illegal items out of inventories, chests, and world codes: modded items, impossible stack sizes, and armor or tools with hacked durability get removed and a red chat line tells you what got taken"
+      ],
+      "changed": [
+        "World export codes are sealed now so they cannot be edited outside the game, old style codes no longer import, so export a fresh code if you kept an old one around. Your regular saves are untouched"
+      ]
+    },
+    {
       "version": "1.7.1",
       "date": "2026-07-27",
       "title": "Say It Out Loud",
