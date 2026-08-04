@@ -26,6 +26,9 @@
       ],
       "changed": [
         "World export codes are sealed now so they cannot be edited outside the game, old style codes no longer import, so export a fresh code if you kept an old one around. Your regular saves are untouched"
+      ],
+      "fixed": [
+        "Turning PvP off mid session sometimes did not reach every player, so a few people could keep fighting until they died, the host now re-sends the world settings on a slow timer so stale clients catch up on their own"
       ]
     },
     {
