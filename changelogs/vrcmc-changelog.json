@@ -2,6 +2,17 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.8.1",
+   "date": "2026-08-06",
+   "title": "Mirror Mirror",
+   "added": [
+    "The character window in your inventory shows your actual avatar now instead of a black box"
+   ],
+   "fixed": [
+    "Off-hand items were held at a weird twisted angle in first person on desktop, they match the main hand now"
+   ]
+  },
+  {
    "version": "1.8.0",
    "date": "2026-08-06",
    "title": "By The Book",
@@ -11,8 +22,7 @@
     "Off-hand slot! The shield-outline slot in your inventory next to your character, works like Java's. Put torches, food, blocks, whatever in it and right click uses it whenever your main hand has nothing to do, so you can keep mining with the pickaxe and still place torches or eat",
     "Press F on desktop to swap your main and off-hand items, bows pull arrows from your off-hand first, and the off-hand item shows in everyone's left hand plus its own little frame next to your hotbar",
     "The armor bar over players' heads now shows the actual pieces they wear, helmet to boots with the real item icons, instead of a generic points row",
-    "Empty armor slots in the inventory now show the faded helmet, chestplate, leggings and boots outlines so you can tell what goes where",
-    "The character window in your inventory shows your actual avatar now instead of a black box"
+    "Empty armor slots in the inventory now show the faded helmet, chestplate, leggings and boots outlines so you can tell what goes where"
    ],
    "changed": [
     "The join, leave, and death feed sits a bit higher on VR head HUD so it stays clear of the armor bar"
