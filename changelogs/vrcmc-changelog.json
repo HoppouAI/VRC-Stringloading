@@ -2,6 +2,21 @@
   "title": "Minecraft VRChat Edition",
   "updates": [
     {
+      "version": "1.8.0",
+      "date": "2026-08-06",
+      "title": "By The Book",
+      "added": [
+        "Recipe book! The little knowledge book button in your inventory and the crafting table opens the full recipe catalog, just like modern Java. Tabs for tools, blocks, redstone and misc, page flipping, and a craftable-only filter button so new players can see what they can make right now. Clicking a recipe places the materials straight into the grid, click again to stack more",
+        "Recipes you cannot afford show with a red border, ones you can make show normal, and the list updates live as you gather materials"
+      ],
+      "changed": [
+        "The join, leave, and death feed sits a bit higher on VR head HUD so it stays clear of the armor bar"
+      ],
+      "fixed": [
+        "Breaking part of a tree could silently vanish from your save, so the branch or leaves came back every time the world reloaded no matter how many times you broke and re-saved it. Tree blocks now save their breaks properly, cursed immortal trees are over"
+      ]
+    },
+    {
       "version": "1.7.3",
       "date": "2026-08-04",
       "title": "Smooth Operator",
