@@ -9,7 +9,13 @@
     "The character window in your inventory shows your actual avatar now instead of a black box"
    ],
    "fixed": [
-    "Off-hand items were held at a weird twisted angle in first person on desktop, they match the main hand now"
+    "Off-hand items were held at a weird twisted angle in first person on desktop, they match the main hand now",
+    "Big imported worlds were choking the connection for everyone, mobs froze and rubber banded, chests ate or duped items and other players could not see your builds. The world data sender got way smarter about when it pushes",
+    "The off-hand slot next to the hotbar was floating a pixel high with the item off center, it lines up like Java now and the crouch indicator moved to the right side so they stop overlapping"
+   ],
+   "changed": [
+    "Flying with avatar tricks doesnt work anymore. we wont be sharing any info on how it was fixed, so dont ask",
+    "Chopped trees take up way less save space now, a felled tree costs one entry instead of one per block so big worlds save and load leaner"
    ]
   },
   {
