@@ -8,16 +8,16 @@
    "added": [
     "Recipe book! The little knowledge book button in your inventory and the crafting table opens the full recipe catalog, just like modern Java. Tabs for tools, blocks, redstone and misc, page flipping, and a craftable-only filter button so new players can see what they can make right now. Clicking a recipe places the materials straight into the grid, click again to stack more",
     "Recipes you cannot afford show with a red border, ones you can make show normal, and the list updates live as you gather materials",
-    "Off-hand slot! The shield-outline slot in your inventory next to your character works like modern Java. Put torches, food, blocks, whatever in it and right click uses it whenever your main hand has nothing to do, so you can keep mining with the pickaxe and still place torches or snack",
+    "Off-hand slot! The shield-outline slot in your inventory next to your character, works like Java's. Put torches, food, blocks, whatever in it and right click uses it whenever your main hand has nothing to do, so you can keep mining with the pickaxe and still place torches or eat",
     "Press F on desktop to swap your main and off-hand items, bows pull arrows from your off-hand first, and the off-hand item shows in everyone's left hand plus its own little frame next to your hotbar",
-    "The armor bar over players' heads now shows the actual pieces they wear, helmet to boots with real tier icons, instead of anonymous armor points",
+    "The armor bar over players' heads now shows the actual pieces they wear, helmet to boots with the real item icons, instead of a generic points row",
     "Empty armor slots in the inventory now show the faded helmet, chestplate, leggings and boots outlines so you can tell what goes where"
    ],
    "changed": [
     "The join, leave, and death feed sits a bit higher on VR head HUD so it stays clear of the armor bar"
    ],
    "fixed": [
-    "Breaking part of a tree could silently vanish from your save, so the branch or leaves came back every time the world reloaded no matter how many times you broke and re-saved it. Tree blocks now save their breaks properly, cursed immortal trees are over"
+    "Breaking part of a tree could silently vanish from your save, so the branch or leaves came back every time the world reloaded no matter how many times you broke it again. Tree breaks save properly now and stay gone"
    ]
   },
   {
