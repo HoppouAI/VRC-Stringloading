@@ -1,324 +1,328 @@
 {
-  "title": "Minecraft VRChat Edition",
-  "updates": [
-    {
-      "version": "1.8.0",
-      "date": "2026-08-06",
-      "title": "By The Book",
-      "added": [
-        "Recipe book! The little knowledge book button in your inventory and the crafting table opens the full recipe catalog, just like modern Java. Tabs for tools, blocks, redstone and misc, page flipping, and a craftable-only filter button so new players can see what they can make right now. Clicking a recipe places the materials straight into the grid, click again to stack more",
-        "Recipes you cannot afford show with a red border, ones you can make show normal, and the list updates live as you gather materials"
-      ],
-      "changed": [
-        "The join, leave, and death feed sits a bit higher on VR head HUD so it stays clear of the armor bar"
-      ],
-      "fixed": [
-        "Breaking part of a tree could silently vanish from your save, so the branch or leaves came back every time the world reloaded no matter how many times you broke and re-saved it. Tree blocks now save their breaks properly, cursed immortal trees are over"
-      ]
-    },
-    {
-      "version": "1.7.3",
-      "date": "2026-08-04",
-      "title": "Smooth Operator",
-      "added": [
-        "Combat tag: trading hits in PvP tags both players for 15 seconds, and while tagged the respawn button just puts you right back where you were standing, no more respawning out of a fight you started",
-        "ARM SWIM toggle on the gameplay options page for VR players, turn it off and swinging your arms underwater stops launching you toward the surface, jump becomes the only way up, so underwater fights and mining stop being a struggle"
-      ],
-      "fixed": [
-        "Some players literally could not be hit in busy instances, there were only 16 hit capsules to go around so everyone past the 16th person was invincible, every player in a full instance gets one now",
-        "Big worlds stopped tanking everyone's framerate: loading in a large save, the host's 30 second autosave, and world imports all used to freeze frames hard, especially on Quest with crop farms, all of that work is spread across frames now",
-        "Exporting a big world no longer freezes your game while the code builds, it shows EXPORTING... and keeps running smooth until the code pops in",
-        "Iron bars and glass panes stopped flickering where they connect, most noticeable up close in VR"
-      ]
-    },
-    {
-      "version": "1.7.2",
-      "date": "2026-08-03",
-      "title": "Fair And Square",
-      "added": [
-        "Rusk Empire collab corner in the lobby! Staff can flip the display on from the performance page in options, and the standee is clickable to join their VRChat group",
-        "The game now cleans illegal items out of inventories, chests, and world codes: modded items, impossible stack sizes, and armor or tools with hacked durability get removed and a red chat line tells you what got taken"
-      ],
-      "changed": [
-        "World export codes are sealed now so they cannot be edited outside the game, old style codes no longer import, so export a fresh code if you kept an old one around. Your regular saves are untouched"
-      ],
-      "fixed": [
-        "Turning PvP off mid session sometimes did not reach every player, so a few people could keep fighting until they died, the host now re-sends the world settings on a slow timer so stale clients catch up on their own"
-      ]
-    },
-    {
-      "version": "1.7.1",
-      "date": "2026-07-27",
-      "title": "Say It Out Loud",
-      "added": [
-        "World setting changes now announce in red chat to the whole lobby, so when the host forces PvP or locks the time everyone knows right away instead of guessing",
-        "PvP swings that get blocked now tell you why: spawn protection covers about 10 blocks around the world spawn, players up in the lobby are safe, and if PvP is simply off the game says so when you punch someone"
-      ],
-      "changed": [
-        "Lava guard is simpler and stronger: while it is on nobody can pour lava or light fires within a few blocks of another player, no matter what the PvP mode is. Before, forcing PvP on quietly disabled the guard and it looked broken. Hosts who want lava fights can still turn the guard off in world settings"
-      ],
-      "fixed": [
-        "The WORLD SETTINGS button was sitting on top of the other menu buttons for hosts, the bottom row is now three clean buttons and RETURN TO LOBBY is back where you can actually click it"
-      ]
-    },
-    {
-      "version": "1.7.0",
-      "date": "2026-07-27",
-      "title": "Safe And Sound",
-      "added": [
-        "Hostile mobs finally spawn underground, mining dark caves is actually dangerous now, day or night, so keep some torches on you since lit areas stay safe",
-        "More mobs overall: the hostile cap doubled because spawns felt dead slow, surface mobs still only come out at night and burn away at dawn while cave mobs live on in the dark",
-        "WORLD SETTINGS: the world creator gets a new page in options to run their world their way: force PvP on or off for everyone or leave it up to each player, turn mob spawning off or passive only, lock the time to day or night, toggle fire spread, stop creepers from breaking blocks, and keep inventory on death. Settings follow your save between sessions, and the master takes over the controls if the creator leaves",
-        "Lava guard: dumping a lava bucket or lighting a fire right next to a player who has PvP off gets blocked now, hosts can turn this off in world settings if their group likes to live dangerously"
-      ],
-      "fixed": [
-        "The big one: large worlds could lose recent building or revert to an older state when a save upload did not finish before you left, saves are now split into small pieces that upload fast and each piece is checked on load, so a bad upload costs at most a sliver instead of half your world, and the game tells you in chat if anything did not make it",
-        "Doors turning into dirt, fences and torches vanishing, blocks swapping into random other blocks after a revisit: all the same bug as above, fixed for good"
-      ]
-    },
-    {
-      "version": "1.6.3",
-      "date": "2026-07-24",
-      "title": "Same World For Everyone",
-      "fixed": [
-        "Mobs are finally in the same spots for every player: entering a world used to quietly hand you the mob simulation and respawn a fresh set, so everyone saw different mobs in different places, now the mobs stay exactly where they are when the host changes",
-        "The death feed was blaming zombies for spider kills, it names the right mob now",
-        "Lava pockets no longer hang in midair in caves, tunnels were carving the ground out from under them during world generation, they settle onto the cave floor now and your builds are untouched"
-      ]
-    },
-    {
-      "version": "1.6.2",
-      "date": "2026-07-23",
-      "title": "The Bug Batch",
-      "added": [
-        "SHOW COORDS toggle on the new gameplay options page, off by default, shows your block position top left on desktop or on your HUD in VR"
-      ],
-      "fixed": [
-        "Chests stopped eating items: storage space behind the scenes could fill up and quietly destroy whatever you deposited, there is room for far more now and if a chest genuinely cannot take an item it stays on your cursor instead of vanishing",
-        "Dying in the lobby no longer deletes your inventory, you keep everything since there is no world to drop it into",
-        "Lava and water show through glass, slabs, stairs, fences and panes now, lava hiding behind them was invisible but still burned you",
-        "Crouching on desktop actually triggers when you crouch, you no longer have to stare at the floor before the game notices",
-        "The new dyed wool and flowers sounded like stone to dig, they got their proper sounds along with glass panes and clay",
-        "Bookshelves drop three books when broken like they should",
-        "A chest with another chest on top opens properly now, chests are not solid roofs, a stone block on top still keeps it shut like real Minecraft",
-        "The world border is lighter on your framerate, the walls behind you cull away properly and the forcefield texture stopped shimmering"
-      ]
-    },
-    {
-      "version": "1.6.1",
-      "date": "2026-07-22",
-      "title": "Spruce Things Up",
-      "added": [
-        "Spruce and birch saplings! Their leaves finally drop them, they grow into the matching tree, and bone meal works on them too",
-        "Rotten flesh: zombies drop it now like they should instead of feathers, and you can eat it in a pinch, just expect a rumbling stomach most of the time"
-      ],
-      "fixed": [
-        "Joining a friend in a big well-built world no longer gets stuck loading forever, if the usual world download stalls the game now streams the edits over piece by piece until you catch up",
-        "VR swing mining actually works on tough blocks now, your hit progress sticks around between swings instead of resetting the instant a swing ends, keep whacking like console Minecraft",
-        "Leaves you place yourself stay put now instead of quietly decaying away when there is no wood nearby",
-        "Mobs check for actual room before spawning, no more skeletons buried up to the ribs in a hillside",
-        "Looking down on desktop no longer counts as crouching, so you stop mysteriously slowing to a crawl while mining under your feet",
-        "Grass no longer creeps onto dirt under water and submerged grass dies back to dirt, swamp shorelines stopped generating grassy pond floors too",
-        "Desert cactus got toned way down, deserts stop looking like somebody's cactus farm",
-        "Double doors read correctly from both sides now, they used to look right from inside and mirrored from outside",
-        "Chests and furnaces show proper icons for all the newer items instead of blank squares"
-      ]
-    },
-    {
-      "version": "1.6.0",
-      "date": "2026-07-21",
-      "title": "The Block Update",
-      "added": [
-        "Storage blocks: coal, iron, gold, diamond, emerald, lapis and redstone all pack into blocks in a 3x3 and craft back out, and a coal block fuels a furnace for 80 smelts",
-        "Stone bricks in plain, mossy, cracked and chiseled, with slabs and stairs, smelt plain ones to crack them",
-        "Carrots and potatoes: plant them, grow them, and zombies rarely drop them, bake potatoes in a furnace for a proper meal",
-        "Pumpkins and melons: carve a jack o'lantern, grow stems that sprout their fruit beside them, and slice melons for a snack",
-        "Hay bales pack up your wheat and clay pockets smelt into bricks",
-        "Ten new flowers, red and brown mushrooms, dead bushes, and mushroom stew with craftable bowls",
-        "Wool in fifteen colors! Craft dyes from flowers and bone meal, and beds now take any wool color",
-        "Skeletons drop bones, craft them into bone meal to instant-grow crops and saplings",
-        "Glass panes, iron bars and cobblestone walls that connect to their neighbors as you build",
-        "Trapdoors in all three woods, they swing open on use like gates",
-        "Cactus and sugar cane grow in the world and stack three tall, watch the spikes, cactus prickles anyone who touches it and smelts into green dye",
-        "Paper, books and bookshelves, the writing desk trio finally exists",
-        "Shears! Snip a sheep for one to three wool and the coat grows back, shears also harvest leaves, grass and bushes as the block itself and cut wool and leaves way faster",
-        "The world grew in: deserts sprout cactus clusters and dead bushes, sugar cane lines the water, mushrooms hide on forest floors, clay sits under lakes and shores, and wild pumpkin and melon patches turn up if you look around",
-        "Every biome now blooms its own flowers, keep an eye out for the rare ones",
-        "Stairs can be placed upside down: click the underside of a block or the top half of a face, same as slabs",
-        "Stairs bend around corners now, two stairs meeting at a right angle join into a clean L inside and out",
-        "Grass spreads! Dirt next to grass turns grassy over time like it should, and grass buried under a block dies back to dirt",
-        "PVP is now opt-in: a PVP button sits right on the options screen, both players need it on for hits to land, and after dealing or taking a hit it locks on for 15 seconds so nobody toggles out of losing a fight",
-        "New GAMEPLAY page in the options for the VR tweaks: HUD placement lives there now, quick swap (the reach-behind-your-head slot hop) can be turned off if you keep grabbing it mid-swing, and a new swing mining option lets swings chip blocks with no trigger, off by default",
-        "Held torches light your way now, the most asked-for thing on the Discord: carry one and a warm glow follows your hand, and you can see other torch carriers glowing too",
-        "Crouching! Duck for real in VR or hold the desktop sneak key, you move at mc sneak speed and a little silhouette at the left end of the hotbar shows whether you are standing or down",
-        "The spawn area is a pvp safe zone in both directions, so nobody camps fresh spawns",
-        "Avatar size no longer matters in a fight: everyone shares the same fixed mc player hitbox and avatar height is clamped, going tiny or giant buys nothing"
-      ],
-      "fixed": [
-        "Double doors hang properly: the right-hand door mirrors its art so the handles meet in the middle and both doors swing apart instead of opening the same way",
-        "Arrows, books, shears and the offset flint and steel shapes were uncraftable, the recipe matcher never lined their shapes up, all of them craft now",
-        "Three world save bugs from your reports are gone: chopped trees and picked flowers stay gone after a reload, rejoining while a friend kept your world open no longer rolls your save back, and water flowing onto lava finally makes obsidian in public worlds",
-        "Tall avatars stopped suffocating while jumping through caves, the head check now sits at proper mc height and brushing a wall mid-jump gets a short grace window",
-        "Sugar cane and cactus no longer sound like stone to dig: cane digs like grass, cactus like cloth, and mushrooms, dead bushes, pumpkins, jack o'lanterns, melons and every crop got their proper sounds too",
-        "Sugar cane's mining hitbox is the actual reed instead of the whole block, so you can aim past it at what's behind",
-        "Skeletons were caught holding a stair instead of a bow after the item reshuffle, they carry a real bow again and actually draw it now, arms raised with the string hand resting where the arrow sits",
-        "The EDITS and MASTER readouts moved up under the options title, they were crowding the bottom row of buttons"
-      ]
-    },
-    {
-      "version": "1.5.2",
-      "date": "2026-07-15",
-      "title": "Codes Keep Your Stuff",
-      "removed": [
-        "The chat box is gone. Some people used hacked clients to spam and impersonate players in it, so it had to go. Death, join and leave messages still show, and those can no longer be faked or carry made up text"
-      ],
-      "fixed": [
-        "World codes now carry your chest and furnace items, so importing a code brings everything back instead of empty chests. Codes made before this update only contain blocks, re-export your worlds to protect your items",
-        "Lava flows downward properly now instead of stopping one block under the source",
-        "Beds model and textures are fixed."
-      ]
-    },
-    {
-      "version": "1.5.1",
-      "date": "2026-07-15",
-      "title": "Chat For Everyone",
-      "added": [
-        "Chat speaks every language now: Korean, Japanese, Chinese, Cyrillic and more render properly in messages, names and join messages instead of vanishing",
-        "The MASTER name on the lobby board and options screen shows every language too",
-        "Early beta testers from the thanks board got their own amber BETA TESTER tag, wear it proud",
-        "The tag menu shows each tag in its real colors so you can see what you are picking, and it sizes itself to your collection"
-      ],
-      "fixed": [
-        "Tags behave now: your pick saves between visits, applies reliably instead of sometimes snapping to a different tag you own, and late joiners see the right one"
-      ]
-    },
-    {
-      "version": "1.5.0",
-      "date": "2026-07-15",
-      "title": "Room To Build",
-      "changed": [
-        "World edit limit raised from 20,000 to 150,000 blocks, build over seven times bigger",
-        "Big worlds stream to joining players in pieces instead of one giant blob, so a maxed out world loads in clean",
-        "World tidying and autosaves spread their work across frames, no more hitching in huge worlds",
-        "The block and item numbering got a lot more room under the hood, future updates can add hundreds of new blocks without breaking old lobbies",
-        "Your existing saves and world share codes carry over untouched",
-        "Truly enormous worlds that outgrow VRChat's save storage keep as much as fits and say so in the log, nothing disappears silently"
-      ]
-    },
-    {
-      "version": "1.3.1",
-      "date": "2026-07-14",
-      "title": "Polish Pass",
-      "changed": [
-        "Menus and HUD text render sharper, especially in VR",
-        "Tearing your own builds back down gives the world edit budget back",
-        "When the edit budget fills up the world now tidies itself on the spot instead of blocking building"
-      ],
-      "fixed": [
-        "No more spawning in the ocean, the spawn search finds dry land properly now",
-        "Health and armor bars above players no longer show through walls",
-        "Options menu buttons no longer overlap"
-      ]
-    },
-    {
-      "version": "1.3.0",
-      "date": "2026-07-14",
-      "title": "Spawn Protection & The Journal Diet",
-      "added": [
-        "Spawn protection! Blocks can't be placed or broken within 10 blocks of the world spawn, so no more lava traps and clutter where everyone drops in",
-        "EDITS counter in the settings menu shows how much of the world edit budget is used"
-      ],
-      "changed": [
-        "Double chests got a proper facelift, split lids, no stretched planks, and the latch shades right from every angle",
-        "The VR chat box moved to the right so it sits above the hotbar instead of covering it",
-        "The public world moved closer to the map center so far out builds are less jittery",
-        "Flowing water and lava no longer count against the world edit limit, only the placed source block does",
-        "Trees grown from saplings now count as one edit instead of about sixty",
-        "Opening and closing doors no longer bloats your world save",
-        "Fires that burn out over open ground clean their edits up completely",
-        "Old saves shed their water and fire bloat automatically the next time the world tidies itself"
-      ],
-      "fixed": [
-        "Item duping is dead: spamming items in and out of chests, shift-click racing, and two players grabbing the same stack all conserve items properly now",
-        "Chest and furnace items could vanish from your save when reloading your world, they stick properly now",
-        "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should",
-        "Staff tag toggle applies instantly instead of lagging behind"
-      ]
-    },
-    {
-      "version": "1.2.1",
-      "date": "2026-07-13",
-      "title": "Old World Rescue",
-      "changed": [
-        "The old world button now restores your old private world directly as your save in one click, no more copying a code that could get lost"
-      ],
-      "fixed": [
-        "Exporting your old world could lose it forever if the code never made it to your clipboard, that whole flow is gone"
-      ]
-    },
-    {
-      "version": "1.2.0",
-      "date": "2026-07-13",
-      "title": "One Public World",
-      "added": [
-        "This changelog board! Patch notes now update live without a world update",
-        "Old private worlds can come back: hit RESTORE OLD WORLD under IMPORT/EXPORT to make yours the live save again"
-      ],
-      "changed": [
-        "The game is one shared public world now, private code lobbies are gone",
-        "Everyone gets one saved world, loadable as the public world by the instance master",
-        "World edit limit doubled from 10,000 to 20,000 blocks, big builds keep going",
-        "The world lobbies board got a cleaner single column layout"
-      ]
-    },
-    {
-      "version": "1.1.2",
-      "date": "2026-07-13",
-      "title": "Spiders",
-      "added": [
-        "Spiders! They come out at night, they climb, they pounce, and they drop string, so bows are finally craftable",
-        "Mixed version lobbies work now, blocks from newer versions show as placeholders instead of breaking everything, and chat warns you when a lobby is outdated"
-      ],
-      "fixed": [
-        "Dying no longer sends you into an uncontrollable spin",
-        "Same spin fix while floating during world load"
-      ]
-    },
-    {
-      "version": "1.1.1",
-      "date": "2026-07-12",
-      "title": "Armor & Furnaces",
-      "added": [
-        "Armor now shows on the health bars above other players' heads"
-      ],
-      "fixed": [
-        "Furnace contents were getting wiped when you left the world or respawned, they save with the world now like chests"
-      ]
-    },
-    {
-      "version": "1.1.0",
-      "date": "2026-07-12",
-      "title": "Mutton",
-      "added": [
-        "Sheep drop 1-2 raw mutton along with their wool, cook it in a furnace for a proper meal"
-      ]
-    },
-    {
-      "version": "1.0.0",
-      "date": "2026-07-12",
-      "title": "We're Live!",
-      "added": [
-        "Minecraft VRChat Edition is out of beta and live on VRChat!",
-        "Full survival loop: punch trees, craft tools, mine to diamond, build anything",
-        "Mobs spawn at night, craft armor to soften the hits",
-        "Buckets: scoop water and lava, milk cows, fuel furnaces with lava",
-        "Chests and furnaces dump their contents when broken instead of eating them",
-        "Dropped items merge into stacks on the ground",
-        "Share whole worlds with friends as import/export codes"
-      ],
-      "changed": [
-        "Everyone starts fresh, earn your first tools the honest way"
-      ]
-    }
-  ]
+ "title": "Minecraft VRChat Edition",
+ "updates": [
+  {
+   "version": "1.8.0",
+   "date": "2026-08-06",
+   "title": "By The Book",
+   "added": [
+    "Recipe book! The little knowledge book button in your inventory and the crafting table opens the full recipe catalog, just like modern Java. Tabs for tools, blocks, redstone and misc, page flipping, and a craftable-only filter button so new players can see what they can make right now. Clicking a recipe places the materials straight into the grid, click again to stack more",
+    "Recipes you cannot afford show with a red border, ones you can make show normal, and the list updates live as you gather materials",
+    "Off-hand slot! The shield-outline slot in your inventory next to your character works like modern Java. Put torches, food, blocks, whatever in it and right click uses it whenever your main hand has nothing to do, so you can keep mining with the pickaxe and still place torches or snack",
+    "Press F on desktop to swap your main and off-hand items, bows pull arrows from your off-hand first, and the off-hand item shows in everyone's left hand plus its own little frame next to your hotbar",
+    "The armor bar over players' heads now shows the actual pieces they wear, helmet to boots with real tier icons, instead of anonymous armor points",
+    "Empty armor slots in the inventory now show the faded helmet, chestplate, leggings and boots outlines so you can tell what goes where"
+   ],
+   "changed": [
+    "The join, leave, and death feed sits a bit higher on VR head HUD so it stays clear of the armor bar"
+   ],
+   "fixed": [
+    "Breaking part of a tree could silently vanish from your save, so the branch or leaves came back every time the world reloaded no matter how many times you broke and re-saved it. Tree blocks now save their breaks properly, cursed immortal trees are over"
+   ]
+  },
+  {
+   "version": "1.7.3",
+   "date": "2026-08-04",
+   "title": "Smooth Operator",
+   "added": [
+    "Combat tag: trading hits in PvP tags both players for 15 seconds, and while tagged the respawn button just puts you right back where you were standing, no more respawning out of a fight you started",
+    "ARM SWIM toggle on the gameplay options page for VR players, turn it off and swinging your arms underwater stops launching you toward the surface, jump becomes the only way up, so underwater fights and mining stop being a struggle"
+   ],
+   "fixed": [
+    "Some players literally could not be hit in busy instances, there were only 16 hit capsules to go around so everyone past the 16th person was invincible, every player in a full instance gets one now",
+    "Big worlds stopped tanking everyone's framerate: loading in a large save, the host's 30 second autosave, and world imports all used to freeze frames hard, especially on Quest with crop farms, all of that work is spread across frames now",
+    "Exporting a big world no longer freezes your game while the code builds, it shows EXPORTING... and keeps running smooth until the code pops in",
+    "Iron bars and glass panes stopped flickering where they connect, most noticeable up close in VR"
+   ]
+  },
+  {
+   "version": "1.7.2",
+   "date": "2026-08-03",
+   "title": "Fair And Square",
+   "added": [
+    "Rusk Empire collab corner in the lobby! Staff can flip the display on from the performance page in options, and the standee is clickable to join their VRChat group",
+    "The game now cleans illegal items out of inventories, chests, and world codes: modded items, impossible stack sizes, and armor or tools with hacked durability get removed and a red chat line tells you what got taken"
+   ],
+   "changed": [
+    "World export codes are sealed now so they cannot be edited outside the game, old style codes no longer import, so export a fresh code if you kept an old one around. Your regular saves are untouched"
+   ],
+   "fixed": [
+    "Turning PvP off mid session sometimes did not reach every player, so a few people could keep fighting until they died, the host now re-sends the world settings on a slow timer so stale clients catch up on their own"
+   ]
+  },
+  {
+   "version": "1.7.1",
+   "date": "2026-07-27",
+   "title": "Say It Out Loud",
+   "added": [
+    "World setting changes now announce in red chat to the whole lobby, so when the host forces PvP or locks the time everyone knows right away instead of guessing",
+    "PvP swings that get blocked now tell you why: spawn protection covers about 10 blocks around the world spawn, players up in the lobby are safe, and if PvP is simply off the game says so when you punch someone"
+   ],
+   "changed": [
+    "Lava guard is simpler and stronger: while it is on nobody can pour lava or light fires within a few blocks of another player, no matter what the PvP mode is. Before, forcing PvP on quietly disabled the guard and it looked broken. Hosts who want lava fights can still turn the guard off in world settings"
+   ],
+   "fixed": [
+    "The WORLD SETTINGS button was sitting on top of the other menu buttons for hosts, the bottom row is now three clean buttons and RETURN TO LOBBY is back where you can actually click it"
+   ]
+  },
+  {
+   "version": "1.7.0",
+   "date": "2026-07-27",
+   "title": "Safe And Sound",
+   "added": [
+    "Hostile mobs finally spawn underground, mining dark caves is actually dangerous now, day or night, so keep some torches on you since lit areas stay safe",
+    "More mobs overall: the hostile cap doubled because spawns felt dead slow, surface mobs still only come out at night and burn away at dawn while cave mobs live on in the dark",
+    "WORLD SETTINGS: the world creator gets a new page in options to run their world their way: force PvP on or off for everyone or leave it up to each player, turn mob spawning off or passive only, lock the time to day or night, toggle fire spread, stop creepers from breaking blocks, and keep inventory on death. Settings follow your save between sessions, and the master takes over the controls if the creator leaves",
+    "Lava guard: dumping a lava bucket or lighting a fire right next to a player who has PvP off gets blocked now, hosts can turn this off in world settings if their group likes to live dangerously"
+   ],
+   "fixed": [
+    "The big one: large worlds could lose recent building or revert to an older state when a save upload did not finish before you left, saves are now split into small pieces that upload fast and each piece is checked on load, so a bad upload costs at most a sliver instead of half your world, and the game tells you in chat if anything did not make it",
+    "Doors turning into dirt, fences and torches vanishing, blocks swapping into random other blocks after a revisit: all the same bug as above, fixed for good"
+   ]
+  },
+  {
+   "version": "1.6.3",
+   "date": "2026-07-24",
+   "title": "Same World For Everyone",
+   "fixed": [
+    "Mobs are finally in the same spots for every player: entering a world used to quietly hand you the mob simulation and respawn a fresh set, so everyone saw different mobs in different places, now the mobs stay exactly where they are when the host changes",
+    "The death feed was blaming zombies for spider kills, it names the right mob now",
+    "Lava pockets no longer hang in midair in caves, tunnels were carving the ground out from under them during world generation, they settle onto the cave floor now and your builds are untouched"
+   ]
+  },
+  {
+   "version": "1.6.2",
+   "date": "2026-07-23",
+   "title": "The Bug Batch",
+   "added": [
+    "SHOW COORDS toggle on the new gameplay options page, off by default, shows your block position top left on desktop or on your HUD in VR"
+   ],
+   "fixed": [
+    "Chests stopped eating items: storage space behind the scenes could fill up and quietly destroy whatever you deposited, there is room for far more now and if a chest genuinely cannot take an item it stays on your cursor instead of vanishing",
+    "Dying in the lobby no longer deletes your inventory, you keep everything since there is no world to drop it into",
+    "Lava and water show through glass, slabs, stairs, fences and panes now, lava hiding behind them was invisible but still burned you",
+    "Crouching on desktop actually triggers when you crouch, you no longer have to stare at the floor before the game notices",
+    "The new dyed wool and flowers sounded like stone to dig, they got their proper sounds along with glass panes and clay",
+    "Bookshelves drop three books when broken like they should",
+    "A chest with another chest on top opens properly now, chests are not solid roofs, a stone block on top still keeps it shut like real Minecraft",
+    "The world border is lighter on your framerate, the walls behind you cull away properly and the forcefield texture stopped shimmering"
+   ]
+  },
+  {
+   "version": "1.6.1",
+   "date": "2026-07-22",
+   "title": "Spruce Things Up",
+   "added": [
+    "Spruce and birch saplings! Their leaves finally drop them, they grow into the matching tree, and bone meal works on them too",
+    "Rotten flesh: zombies drop it now like they should instead of feathers, and you can eat it in a pinch, just expect a rumbling stomach most of the time"
+   ],
+   "fixed": [
+    "Joining a friend in a big well-built world no longer gets stuck loading forever, if the usual world download stalls the game now streams the edits over piece by piece until you catch up",
+    "VR swing mining actually works on tough blocks now, your hit progress sticks around between swings instead of resetting the instant a swing ends, keep whacking like console Minecraft",
+    "Leaves you place yourself stay put now instead of quietly decaying away when there is no wood nearby",
+    "Mobs check for actual room before spawning, no more skeletons buried up to the ribs in a hillside",
+    "Looking down on desktop no longer counts as crouching, so you stop mysteriously slowing to a crawl while mining under your feet",
+    "Grass no longer creeps onto dirt under water and submerged grass dies back to dirt, swamp shorelines stopped generating grassy pond floors too",
+    "Desert cactus got toned way down, deserts stop looking like somebody's cactus farm",
+    "Double doors read correctly from both sides now, they used to look right from inside and mirrored from outside",
+    "Chests and furnaces show proper icons for all the newer items instead of blank squares"
+   ]
+  },
+  {
+   "version": "1.6.0",
+   "date": "2026-07-21",
+   "title": "The Block Update",
+   "added": [
+    "Storage blocks: coal, iron, gold, diamond, emerald, lapis and redstone all pack into blocks in a 3x3 and craft back out, and a coal block fuels a furnace for 80 smelts",
+    "Stone bricks in plain, mossy, cracked and chiseled, with slabs and stairs, smelt plain ones to crack them",
+    "Carrots and potatoes: plant them, grow them, and zombies rarely drop them, bake potatoes in a furnace for a proper meal",
+    "Pumpkins and melons: carve a jack o'lantern, grow stems that sprout their fruit beside them, and slice melons for a snack",
+    "Hay bales pack up your wheat and clay pockets smelt into bricks",
+    "Ten new flowers, red and brown mushrooms, dead bushes, and mushroom stew with craftable bowls",
+    "Wool in fifteen colors! Craft dyes from flowers and bone meal, and beds now take any wool color",
+    "Skeletons drop bones, craft them into bone meal to instant-grow crops and saplings",
+    "Glass panes, iron bars and cobblestone walls that connect to their neighbors as you build",
+    "Trapdoors in all three woods, they swing open on use like gates",
+    "Cactus and sugar cane grow in the world and stack three tall, watch the spikes, cactus prickles anyone who touches it and smelts into green dye",
+    "Paper, books and bookshelves, the writing desk trio finally exists",
+    "Shears! Snip a sheep for one to three wool and the coat grows back, shears also harvest leaves, grass and bushes as the block itself and cut wool and leaves way faster",
+    "The world grew in: deserts sprout cactus clusters and dead bushes, sugar cane lines the water, mushrooms hide on forest floors, clay sits under lakes and shores, and wild pumpkin and melon patches turn up if you look around",
+    "Every biome now blooms its own flowers, keep an eye out for the rare ones",
+    "Stairs can be placed upside down: click the underside of a block or the top half of a face, same as slabs",
+    "Stairs bend around corners now, two stairs meeting at a right angle join into a clean L inside and out",
+    "Grass spreads! Dirt next to grass turns grassy over time like it should, and grass buried under a block dies back to dirt",
+    "PVP is now opt-in: a PVP button sits right on the options screen, both players need it on for hits to land, and after dealing or taking a hit it locks on for 15 seconds so nobody toggles out of losing a fight",
+    "New GAMEPLAY page in the options for the VR tweaks: HUD placement lives there now, quick swap (the reach-behind-your-head slot hop) can be turned off if you keep grabbing it mid-swing, and a new swing mining option lets swings chip blocks with no trigger, off by default",
+    "Held torches light your way now, the most asked-for thing on the Discord: carry one and a warm glow follows your hand, and you can see other torch carriers glowing too",
+    "Crouching! Duck for real in VR or hold the desktop sneak key, you move at mc sneak speed and a little silhouette at the left end of the hotbar shows whether you are standing or down",
+    "The spawn area is a pvp safe zone in both directions, so nobody camps fresh spawns",
+    "Avatar size no longer matters in a fight: everyone shares the same fixed mc player hitbox and avatar height is clamped, going tiny or giant buys nothing"
+   ],
+   "fixed": [
+    "Double doors hang properly: the right-hand door mirrors its art so the handles meet in the middle and both doors swing apart instead of opening the same way",
+    "Arrows, books, shears and the offset flint and steel shapes were uncraftable, the recipe matcher never lined their shapes up, all of them craft now",
+    "Three world save bugs from your reports are gone: chopped trees and picked flowers stay gone after a reload, rejoining while a friend kept your world open no longer rolls your save back, and water flowing onto lava finally makes obsidian in public worlds",
+    "Tall avatars stopped suffocating while jumping through caves, the head check now sits at proper mc height and brushing a wall mid-jump gets a short grace window",
+    "Sugar cane and cactus no longer sound like stone to dig: cane digs like grass, cactus like cloth, and mushrooms, dead bushes, pumpkins, jack o'lanterns, melons and every crop got their proper sounds too",
+    "Sugar cane's mining hitbox is the actual reed instead of the whole block, so you can aim past it at what's behind",
+    "Skeletons were caught holding a stair instead of a bow after the item reshuffle, they carry a real bow again and actually draw it now, arms raised with the string hand resting where the arrow sits",
+    "The EDITS and MASTER readouts moved up under the options title, they were crowding the bottom row of buttons"
+   ]
+  },
+  {
+   "version": "1.5.2",
+   "date": "2026-07-15",
+   "title": "Codes Keep Your Stuff",
+   "removed": [
+    "The chat box is gone. Some people used hacked clients to spam and impersonate players in it, so it had to go. Death, join and leave messages still show, and those can no longer be faked or carry made up text"
+   ],
+   "fixed": [
+    "World codes now carry your chest and furnace items, so importing a code brings everything back instead of empty chests. Codes made before this update only contain blocks, re-export your worlds to protect your items",
+    "Lava flows downward properly now instead of stopping one block under the source",
+    "Beds model and textures are fixed."
+   ]
+  },
+  {
+   "version": "1.5.1",
+   "date": "2026-07-15",
+   "title": "Chat For Everyone",
+   "added": [
+    "Chat speaks every language now: Korean, Japanese, Chinese, Cyrillic and more render properly in messages, names and join messages instead of vanishing",
+    "The MASTER name on the lobby board and options screen shows every language too",
+    "Early beta testers from the thanks board got their own amber BETA TESTER tag, wear it proud",
+    "The tag menu shows each tag in its real colors so you can see what you are picking, and it sizes itself to your collection"
+   ],
+   "fixed": [
+    "Tags behave now: your pick saves between visits, applies reliably instead of sometimes snapping to a different tag you own, and late joiners see the right one"
+   ]
+  },
+  {
+   "version": "1.5.0",
+   "date": "2026-07-15",
+   "title": "Room To Build",
+   "changed": [
+    "World edit limit raised from 20,000 to 150,000 blocks, build over seven times bigger",
+    "Big worlds stream to joining players in pieces instead of one giant blob, so a maxed out world loads in clean",
+    "World tidying and autosaves spread their work across frames, no more hitching in huge worlds",
+    "The block and item numbering got a lot more room under the hood, future updates can add hundreds of new blocks without breaking old lobbies",
+    "Your existing saves and world share codes carry over untouched",
+    "Truly enormous worlds that outgrow VRChat's save storage keep as much as fits and say so in the log, nothing disappears silently"
+   ]
+  },
+  {
+   "version": "1.3.1",
+   "date": "2026-07-14",
+   "title": "Polish Pass",
+   "changed": [
+    "Menus and HUD text render sharper, especially in VR",
+    "Tearing your own builds back down gives the world edit budget back",
+    "When the edit budget fills up the world now tidies itself on the spot instead of blocking building"
+   ],
+   "fixed": [
+    "No more spawning in the ocean, the spawn search finds dry land properly now",
+    "Health and armor bars above players no longer show through walls",
+    "Options menu buttons no longer overlap"
+   ]
+  },
+  {
+   "version": "1.3.0",
+   "date": "2026-07-14",
+   "title": "Spawn Protection & The Journal Diet",
+   "added": [
+    "Spawn protection! Blocks can't be placed or broken within 10 blocks of the world spawn, so no more lava traps and clutter where everyone drops in",
+    "EDITS counter in the settings menu shows how much of the world edit budget is used"
+   ],
+   "changed": [
+    "Double chests got a proper facelift, split lids, no stretched planks, and the latch shades right from every angle",
+    "The VR chat box moved to the right so it sits above the hotbar instead of covering it",
+    "The public world moved closer to the map center so far out builds are less jittery",
+    "Flowing water and lava no longer count against the world edit limit, only the placed source block does",
+    "Trees grown from saplings now count as one edit instead of about sixty",
+    "Opening and closing doors no longer bloats your world save",
+    "Fires that burn out over open ground clean their edits up completely",
+    "Old saves shed their water and fire bloat automatically the next time the world tidies itself"
+   ],
+   "fixed": [
+    "Item duping is dead: spamming items in and out of chests, shift-click racing, and two players grabbing the same stack all conserve items properly now",
+    "Chest and furnace items could vanish from your save when reloading your world, they stick properly now",
+    "Big builds near water or with lots of farmed trees were eating the edit budget way faster than they should",
+    "Staff tag toggle applies instantly instead of lagging behind"
+   ]
+  },
+  {
+   "version": "1.2.1",
+   "date": "2026-07-13",
+   "title": "Old World Rescue",
+   "changed": [
+    "The old world button now restores your old private world directly as your save in one click, no more copying a code that could get lost"
+   ],
+   "fixed": [
+    "Exporting your old world could lose it forever if the code never made it to your clipboard, that whole flow is gone"
+   ]
+  },
+  {
+   "version": "1.2.0",
+   "date": "2026-07-13",
+   "title": "One Public World",
+   "added": [
+    "This changelog board! Patch notes now update live without a world update",
+    "Old private worlds can come back: hit RESTORE OLD WORLD under IMPORT/EXPORT to make yours the live save again"
+   ],
+   "changed": [
+    "The game is one shared public world now, private code lobbies are gone",
+    "Everyone gets one saved world, loadable as the public world by the instance master",
+    "World edit limit doubled from 10,000 to 20,000 blocks, big builds keep going",
+    "The world lobbies board got a cleaner single column layout"
+   ]
+  },
+  {
+   "version": "1.1.2",
+   "date": "2026-07-13",
+   "title": "Spiders",
+   "added": [
+    "Spiders! They come out at night, they climb, they pounce, and they drop string, so bows are finally craftable",
+    "Mixed version lobbies work now, blocks from newer versions show as placeholders instead of breaking everything, and chat warns you when a lobby is outdated"
+   ],
+   "fixed": [
+    "Dying no longer sends you into an uncontrollable spin",
+    "Same spin fix while floating during world load"
+   ]
+  },
+  {
+   "version": "1.1.1",
+   "date": "2026-07-12",
+   "title": "Armor & Furnaces",
+   "added": [
+    "Armor now shows on the health bars above other players' heads"
+   ],
+   "fixed": [
+    "Furnace contents were getting wiped when you left the world or respawned, they save with the world now like chests"
+   ]
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-07-12",
+   "title": "Mutton",
+   "added": [
+    "Sheep drop 1-2 raw mutton along with their wool, cook it in a furnace for a proper meal"
+   ]
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-07-12",
+   "title": "We're Live!",
+   "added": [
+    "Minecraft VRChat Edition is out of beta and live on VRChat!",
+    "Full survival loop: punch trees, craft tools, mine to diamond, build anything",
+    "Mobs spawn at night, craft armor to soften the hits",
+    "Buckets: scoop water and lava, milk cows, fuel furnaces with lava",
+    "Chests and furnaces dump their contents when broken instead of eating them",
+    "Dropped items merge into stacks on the ground",
+    "Share whole worlds with friends as import/export codes"
+   ],
+   "changed": [
+    "Everyone starts fresh, earn your first tools the honest way"
+   ]
+  }
+ ]
 }
