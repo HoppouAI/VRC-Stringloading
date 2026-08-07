@@ -2,6 +2,21 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.8.2",
+   "date": "2026-08-07",
+   "title": "The Floor Is Lava",
+   "added": [
+    "ANTI-FLY toggle on the world settings page. The world host decides if flying is allowed in their world, its on by default. Flip it off and fly all you want for building, everyone gets a chat notice either way"
+   ],
+   "fixed": [
+    "A skeleton could stand inside a lava pool, completely fine, and snipe you through it. Mobs actually burn in lava now and they cant see or shoot through it either",
+    "Changing world settings like always day or always night could take forever to reach your friends, especially in big worlds. They apply for everyone the moment the host clicks now"
+   ],
+   "changed": [
+    "Mobs that wander into lava take damage and die like they should, so lava moats actually work"
+   ]
+  },
+  {
    "version": "1.8.1",
    "date": "2026-08-06",
    "title": "Mirror Mirror",
