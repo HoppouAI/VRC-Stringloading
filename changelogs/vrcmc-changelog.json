@@ -2,6 +2,23 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.8.8",
+   "date": "2026-08-08",
+   "title": "Village People",
+   "added": [
+    "Villages! Plains and deserts grow real villages now with gravel paths, a well, huts, houses, farms and lamp posts, generated straight from the classic console layouts",
+    "Every village has a blacksmith with a lava forge and a loot chest. Crack it open for iron gear, diamonds, obsidian, bread and whatever else the smith hoarded",
+    "Villagers live in the villages. They wander around their well, mumble at you, and zombies will hunt them down at night if nobody protects them",
+    "Beds actually work now: click one at night to sleep, you sit down on the bed and once enough players are asleep the night skips straight to morning",
+    "Sleeping needs 30% of the world asleep by default, and world hosts get a new SLEEP world setting to let a single sleeping player skip the night for everyone",
+    "Proper sleep chat like Minecraft: who is sleeping and how many are still needed, no sleeping during the day or with monsters nearby, and occupied beds turn you away"
+   ],
+   "changed": [
+    "The performance settings page got reorganized into a clean grid instead of the weird hourglass layout",
+    "The same seed now grows villages, so worlds saved before this update can regenerate with a village near or even on top of builds that happened to sit on a village spot"
+   ]
+  },
+  {
    "version": "1.8.2",
    "date": "2026-08-07",
    "title": "The Floor Is Lava",
