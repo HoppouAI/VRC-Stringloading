@@ -2,6 +2,15 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.8.11",
+   "date": "2026-08-09",
+   "title": "Finders Keepers",
+   "fixed": [
+    "Nobody could pick anything up in busy public lobbies since 1.8.10. Drops from mining, digging and mob kills never even appeared unless you were in your own world. One of the new anti-cheat checks was accidentally throwing out legitimate drops relayed by the world host, that check now knows the difference between the host doing its job and someone trying to conjure items out of thin air",
+    "The same overzealous check could also eat drops in any world once enough people were mining at the same time"
+   ]
+  },
+  {
    "version": "1.8.10",
    "date": "2026-08-09",
    "title": "Nice Try",
