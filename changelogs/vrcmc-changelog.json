@@ -2,6 +2,19 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.8.9",
+   "date": "2026-08-09",
+   "title": "Saving Grace",
+   "fixed": [
+    "Desktop players joining a 1.8.8 world got a dead chat and broken name tags the moment they loaded in, while Quest was somehow fine. The build gremlin responsible has been dealt with",
+    "Big imported worlds could silently lose whole sections of builds on load, and the next autosave made the loss permanent. The world now waits for your entire save to arrive before loading it, and if a load ever looks incomplete it pauses saving and warns you in chat instead of overwriting your good data",
+    "Autosave now refuses to overwrite your save with one that suddenly shrank by more than half, one more wall between you and a wiped city"
+   ],
+   "changed": [
+    "Hitting the storage limit tells you in chat now instead of your save quietly not saving anymore"
+   ]
+  },
+  {
    "version": "1.8.8",
    "date": "2026-08-08",
    "title": "Village People",
