@@ -2,6 +2,34 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.9.0",
+   "date": "2026-08-11",
+   "title": "Trading Places",
+   "added": [
+    "Villager trading! Walk up to a villager and open up shop. Every villager rolls a career like farmer, librarian, priest, armorer or toolsmith with their own stock, straight from the classic console trade tables. Emeralds are the money",
+    "Trades level up: doing business with a villager unlocks their next tier of stock, heavily used trades lock up until they restock, so spread the love or come back later",
+    "Emerald ore! Single blocks of it hide in the stone under mountains, so bring a pickaxe when you go hiking. Selling your farm goods and loot to villagers works too",
+    "Minecarts! Five iron makes a cart, place it on rails and hop in. The furnace minecart is in too, load it with fuel and it chugs along pushing carts by itself",
+    "Rails and powered rails for building railways anywhere, powered rails shove your cart along when they are switched on",
+    "The first pieces of redstone: redstone torches, levers, buttons and redstone blocks. Use them to power your rail lines on and off, and your redstone ore finally has a reason to be mined",
+    "Animal breeding: wheat for cows and sheep, carrots or potatoes for pigs, seeds for chickens. Two fed animals make a baby, and feeding a baby helps it grow up faster",
+    "Your animals are part of your world save now. The herd, your pets, and the villagers you have been trading with are all still there when you come back, trade progress included",
+    "Concrete in all 16 colors! Mix sand, gravel and a dye for concrete powder, then dunk it in water to cure it solid. The powder falls like sand, so you can pour it straight into water",
+    "Bone meal on a grass block grows a patch of tall grass and flowers, instant garden"
+   ],
+   "changed": [
+    "Diamonds are actually findable now. The deep layers turned out to be mostly caves and lava pockets so ore veins had almost nowhere to live, mining at the bottom of the world pays off properly now. Gold and redstone got richer too since carts and rails eat both",
+    "Moving items around your inventory works like Java now: click picks a stack up onto your cursor, right click grabs half or places one at a time, and clicking outside the window throws it",
+    "New PLAYER BARS option: show other players' health bars only when someone takes a hit, always, or never",
+    "New CROUCHING toggle for anyone who keeps sneaking by accident, flip it off and crouch detection leaves you alone",
+    "Starting a fresh world now warns you before it replaces your saved one, no more accidental overwrites",
+    "The gameplay options page got tidied up into a clean grid"
+   ],
+   "fixed": [
+    "The scroll wheel was scrolling the lobby boards and your hotbar at the same time, the boards behave now"
+   ]
+  },
+  {
    "version": "1.8.11",
    "date": "2026-08-09",
    "title": "Finders Keepers",
