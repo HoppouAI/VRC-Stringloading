@@ -3,30 +3,53 @@
  "updates": [
   {
    "version": "1.9.0",
-   "date": "2026-08-11",
+   "date": "2026-08-13",
    "title": "Trading Places",
    "added": [
-    "Villager trading! Walk up to a villager and open up shop. Every villager rolls a career like farmer, librarian, priest, armorer or toolsmith with their own stock, straight from the classic console trade tables. Emeralds are the money",
+    "Villager trading! Walk up to a villager and open up shop. Every villager rolls a career like farmer, librarian, priest, armorer or toolsmith with their own stock to haggle over. Emeralds are the money",
     "Trades level up: doing business with a villager unlocks their next tier of stock, heavily used trades lock up until they restock, so spread the love or come back later",
     "Emerald ore! Single blocks of it hide in the stone under mountains, so bring a pickaxe when you go hiking. Selling your farm goods and loot to villagers works too",
-    "Minecarts! Five iron makes a cart, place it on rails and hop in. The furnace minecart is in too, load it with fuel and it chugs along pushing carts by itself",
+    "Minecarts! Five iron makes a cart, place it on rails and hop in. The furnace minecart is in too, load it with fuel and it drives itself and pushes other carts along",
     "Rails and powered rails for building railways anywhere, powered rails shove your cart along when they are switched on",
     "The first pieces of redstone: redstone torches, levers, buttons and redstone blocks. Use them to power your rail lines on and off, and your redstone ore finally has a reason to be mined",
     "Animal breeding: wheat for cows and sheep, carrots or potatoes for pigs, seeds for chickens. Two fed animals make a baby, and feeding a baby helps it grow up faster",
     "Your animals are part of your world save now. The herd, your pets, and the villagers you have been trading with are all still there when you come back, trade progress included",
+    "Chickens lay eggs! One every few minutes, they stack to 16 like they should, and you will want them for baking",
+    "Cake! Craft sugar from sugar cane, then three milk, two sugar, an egg and three wheat bakes one. Place it down and anyone can grab a slice, it disappears one bite at a time",
     "Concrete in all 16 colors! Mix sand, gravel and a dye for concrete powder, then dunk it in water to cure it solid. The powder falls like sand, so you can pour it straight into water",
-    "Bone meal on a grass block grows a patch of tall grass and flowers, instant garden"
+    "Bone meal on a grass block grows a patch of tall grass and flowers, instant garden",
+    "Redstone torches give off a dim red glow now, and it will not stop mobs spawning around it",
+    "Punching a minecart rocks it back and forth and plays the classic hit sound, so you can tell you are actually breaking it",
+    "A short rules screen shows the first time you ever join, accept it once and it never bothers you again"
    ],
    "changed": [
     "Diamonds are actually findable now. The deep layers turned out to be mostly caves and lava pockets so ore veins had almost nowhere to live, mining at the bottom of the world pays off properly now. Gold and redstone got richer too since carts and rails eat both",
+    "Glowstone actually glows now. It lights up the area brighter than a torch and keeps hostile mobs from spawning nearby, the priest villager sells it",
+    "TORCH GLOW on FAR is way lighter on your framerate now, so you can leave it on and keep your bases lit from across the map",
     "Moving items around your inventory works like Java now: click picks a stack up onto your cursor, right click grabs half or places one at a time, and clicking outside the window throws it",
-    "New PLAYER BARS option: show other players' health bars only when someone takes a hit, always, or never",
+    "Clicking outside an inventory, chest, furnace or trade window with an empty cursor closes it, way quicker than aiming for the X",
+    "New PLAYER BARS option: show other players' health bars only when someone takes a hit, always, or never. The button has a little fox on it",
     "New CROUCHING toggle for anyone who keeps sneaking by accident, flip it off and crouch detection leaves you alone",
     "Starting a fresh world now warns you before it replaces your saved one, no more accidental overwrites",
-    "The gameplay options page got tidied up into a clean grid"
+    "The gameplay options page got tidied up into a clean grid",
+    "Settings shows how full your save is as a percent now, and the game warns you in chat when you are getting close to the limit",
+    "You can have up to 12 minecarts in a world at once, and a cart that fails to place drops back on the ground instead of vanishing on you",
+    "Minecarts take a whole inventory slot each instead of stacking, so no more pocketing a chest full of railway"
    ],
    "fixed": [
-    "The scroll wheel was scrolling the lobby boards and your hotbar at the same time, the boards behave now"
+    "The big one: in busy public lobbies the game could get stuck endlessly resending world history to everybody, which left nothing for anything else. That is what was causing mobs updating once every ten seconds, chests eating the items you put in them, and other people's builds never showing up for you. Sorted",
+    "Arrows were passing straight through people. Any shot fired over a hill or from range got thrown out before it ever landed, they hit properly now",
+    "Riding a minecart got a full pass. You could get stuck sitting in one, get thrown out on slopes and corners, end up sat inside a furnace cart, or find ghost seats floating where a cart used to be. Passengers were invisible and frozen to everyone else, respawning while riding could delete the cart for the whole lobby, and carts could derail straight into the terrain and get lost",
+    "Boarding a rolling cart does not kill its momentum anymore, and powered rails no longer bank up speed until carts feel like they never slow down",
+    "Minecarts hitting a wall at the end of a rail bounce off now instead of climbing up and over it",
+    "Every new 1.9.0 block was invisible when you held it. Rails, redstone bits, concrete and the carts all have proper hand models now",
+    "The recipe book had blank squares where rails and concrete should have been",
+    "Torches, levers, flowers and the other flat sprites washed out to gray at a distance",
+    "Some worlds could end up permanently stuck unable to save after a crash mid save. Those recover on load now instead of locking up for good",
+    "PvP stopped accusing people of cheating just for wearing armour. A full set genuinely soaks most of a hit so the health bar barely moves, which was setting off a false alarm",
+    "Pigs, sheep and cows were strolling into ponds and floating there forever, they steer around water now",
+    "The scroll wheel was scrolling the lobby boards and your hotbar at the same time, the boards behave now",
+    "Another batch of tricks modified clients were using in PvP and on other people's worlds has been shut down. No details, for obvious reasons"
    ]
   },
   {
@@ -69,7 +92,7 @@
    "date": "2026-08-08",
    "title": "Village People",
    "added": [
-    "Villages! Plains and deserts grow real villages now with gravel paths, a well, huts, houses, farms and lamp posts, generated straight from the classic console layouts",
+    "Villages! Plains and deserts grow real villages now with gravel paths, a well, huts, houses, farms and lamp posts, all generated as part of the world",
     "Every village has a blacksmith with a lava forge and a loot chest. Crack it open for iron gear, diamonds, obsidian, bread and whatever else the smith hoarded",
     "Villagers live in the villages. They wander around their well, mumble at you, and zombies will hunt them down at night if nobody protects them",
     "Beds actually work now: click one at night to sleep, you sit down on the bed and once enough players are asleep the night skips straight to morning",
@@ -230,7 +253,7 @@
    ],
    "fixed": [
     "Joining a friend in a big well-built world no longer gets stuck loading forever, if the usual world download stalls the game now streams the edits over piece by piece until you catch up",
-    "VR swing mining actually works on tough blocks now, your hit progress sticks around between swings instead of resetting the instant a swing ends, keep whacking like console Minecraft",
+    "VR swing mining actually works on tough blocks now, your hit progress sticks around between swings instead of resetting the instant a swing ends, so just keep whacking",
     "Leaves you place yourself stay put now instead of quietly decaying away when there is no wood nearby",
     "Mobs check for actual room before spawning, no more skeletons buried up to the ribs in a hillside",
     "Looking down on desktop no longer counts as crouching, so you stop mysteriously slowing to a crawl while mining under your feet",
