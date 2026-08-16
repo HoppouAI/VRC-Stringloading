@@ -2,6 +2,30 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.9.1",
+   "date": "2026-08-16",
+   "title": "Gone Fishin'",
+   "added": [
+    "Fishing! Craft a rod from sticks and string, then cast it into any water and wait for the bobber to dip. Cod, salmon, tropical fish and pufferfish are all in there, and cod and salmon cook up on a furnace or campfire",
+    "VR players can attack with the trigger instead of having to physically swing every time, so long fights are a lot less tiring"
+   ],
+   "changed": [
+    "Settings keeps your edit count on screen next to your save size instead of swapping one out for the other once your world starts autosaving",
+    "The world border is taller and has a ceiling on it now, so there is no getting out over the top of the map"
+   ],
+   "fixed": [
+    "The big one: on larger worlds everyone except the host could quietly fall behind and never catch back up. That is what was leaving mobs frozen, invisible or refusing to die, other people's builds never showing up, and blocks reappearing after you broke them. The bigger the world got the worse it got, and it is the main reason for this update",
+    "Loading a saved world could leave parts of your build invisible but still solid, so you would suffocate inside a wall that was not there or walk into something you could not see. Those blocks show up properly now",
+    "Mobile players could not answer the rules screen at all, which left them stuck at it and unable to play. It takes a tap now like it always should have",
+    "Beds sometimes only skipped the night for the person who was sleeping, leaving everyone else standing around in the dark",
+    "Sitting down in a bed or a minecart could drop you back out a few seconds later for no reason",
+    "Building above the height limit quietly ate the block out of your hand. It tells you when you have hit the ceiling now",
+    "Hitting someone and then using RETURN TO LOBBY did nothing at all and took the button away with it, leaving you stuck in the world. The button waits out the combat timer now and tells you how long is left, same as the PVP toggle does",
+    "Another batch of tricks modified clients were using has been shut down. No details, for obvious reasons",
+    "If a modified client got you locked out of public worlds, you are cleared automatically the next time you join. You do not need to reset your save or do anything at all"
+   ]
+  },
+  {
    "version": "1.9.0",
    "date": "2026-08-13",
    "title": "Trading Places",
