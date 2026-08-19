@@ -2,6 +2,24 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.9.2",
+   "date": "2026-08-19",
+   "title": "Get A Grip",
+   "added": [
+    "PvP hitbox outlines: with PvP on you see a red outline of where a player's hitbox actually is, so someone on an invisible avatar still shows up. In a normal world you both need PvP on for it to appear, so nobody can outline you while you are just building. In a world where the host has forced PvP on, everyone in range gets outlined",
+    "Jack o'lanterns give off light now, same as a torch does, so they work as decoration and lighting at the same time"
+   ],
+   "changed": [
+    "Your world holds about 48,000 edits, not the 150,000 that was going around. Nothing got smaller, that old number was simply wrong. Settings still shows how full your save is and the game still warns you in chat as you get close"
+   ],
+   "fixed": [
+    "In busy public lobbies minecarts would disappear the moment you placed them, and mobs were laggy and stuttering at the same time. Both fixed",
+    "The fishing rod was held wrong, which was the known issue left over from 1.9.1. It sits properly in your hand now, in VR and for everyone else watching you",
+    "Casting your line and then switching to another item left the line and bobber floating there for everyone else, and it stayed until you switched back to the rod and reeled in. It clears for everybody now, including when you walk away from it or leave the world entirely",
+    "Another trick modified clients were using has been shut down. No details, for obvious reasons"
+   ]
+  },
+  {
    "version": "1.9.1",
    "date": "2026-08-16",
    "title": "Gone Fishin'",
