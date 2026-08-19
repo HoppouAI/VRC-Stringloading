@@ -6,13 +6,15 @@
    "date": "2026-08-19",
    "title": "Get A Grip",
    "added": [
-    "PvP hitbox outlines: with PvP on you see a red outline of where a player's hitbox actually is, so someone on an invisible avatar still shows up. In a normal world you both need PvP on for it to appear, so nobody can outline you while you are just building. In a world where the host has forced PvP on, everyone in range gets outlined",
+    "Player hitbox outlines: a new HITBOXES toggle in the gameplay options draws a red outline of exactly where a player's hitbox is, so someone on an invisible avatar still shows up. Terrain still hides it, so it is not an x-ray",
     "Jack o'lanterns give off light now, same as a torch does, so they work as decoration and lighting at the same time"
    ],
    "changed": [
     "Your world holds about 48,000 edits, not the 150,000 that was going around. Nothing got smaller, that old number was simply wrong. Settings still shows how full your save is and the game still warns you in chat as you get close"
    ],
    "fixed": [
+    "Hitbox outlines did not show up for anybody at all when they first went out. They work now, and they are on their own HITBOXES toggle in the gameplay options instead of only appearing between two players who both had PvP switched on",
+    "The PLAYER BARS option was being ignored. ALWAYS and OFF did nothing and it ran on DEFAULT no matter what you picked",
     "In busy public lobbies minecarts would disappear the moment you placed them, and mobs were laggy and stuttering at the same time. Both fixed",
     "The fishing rod was held wrong, which was the known issue left over from 1.9.1. It sits properly in your hand now, in VR and for everyone else watching you",
     "Casting your line and then switching to another item left the line and bobber floating there for everyone else, and it stayed until you switched back to the rod and reeled in. It clears for everybody now, including when you walk away from it or leave the world entirely",
