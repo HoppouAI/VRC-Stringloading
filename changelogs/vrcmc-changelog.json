@@ -2,6 +2,43 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.10.0",
+   "date": "2026-09-03",
+   "title": "Into The Jungle",
+   "added": [
+    "The whole world generates from a proper biome map now, plains, desert, forest, taiga, swamp, extreme hills, ocean, rivers, beaches, ice plains, hills variants, jungle and mushroom islands are all in there. Rivers actually wind through the land, beaches sit on the coastline, and the terrain shape follows the biome, so extreme hills are actually mountainous and plains are actually flat. Taiga has its spruce trees back, and villages are showing up on maps a lot more often",
+    "Jungle biome, complete with the full jungle wood family: logs, planks, leaves, saplings, slabs, stairs, fences, fence gates, doors and trapdoors. The trees include the huge ones with 2x2 trunks, with vines hanging off them and cocoa pods growing right on the trunks",
+    "Mushroom islands, mycelium ground, giant red and brown mushrooms and mooshrooms wandering around. Milk a mooshroom with a bucket like a regular cow, use a bowl on one for mushroom stew, or shear it to turn it into a plain cow and get red mushrooms out of the deal. Bone meal on a small mushroom has a chance to grow it into a giant one, mycelium spreads onto dirt on its own, and hostile mobs stay off the islands entirely",
+    "New world creation options on the lobby board: type in your own seed, pick Default or Superflat, and toggle villages, caves and ores on or off. Leave the seed blank and it picks a random one that rolls a good mix of biomes. The main lobby screen shows the open world's seed and options now so you know what you are walking into",
+    "Vines. They climb like ladders, they slowly grow downward over time on their own, and you can plant new ones on any wall",
+    "Cocoa pods. Stick cocoa beans on the side of a jungle log, they grow through three stages, and breaking a grown pod drops beans, bone meal speeds it up. Cocoa beans are your brown dye now too",
+    "Ladders. Three sticks in an H shape crafts three of them, and they climb like the console game always did, push into one or hold jump to go up, crouch to hang still, let go to slide down",
+    "Beds now come in all 16 colors. Three matching wool and three planks crafts that color, and a bed plus a dye recolors it after the fact. Sleeping and respawn points work the same on every color",
+    "VR players can pick their main hand. New MAIN HAND toggle in the gameplay options flips which hand aims and mines, which side your hotbar sits on, menus, eating, your quick swap, and other people see your items in the right hands too. The gameplay options page got rearranged to make room for it",
+    "Durability bars now show in the inventory and crafting table too, on every slot including armor and off-hand, so you can check how beat up your gear is without taking it off",
+    "Animals follow you around when you are holding their food, wheat for cows and sheep, carrots or potatoes for pigs, seeds for chickens. They walk up and wait on you",
+    "Ink sacs can be crafted from string and coal for now since there are no squids yet, that is your black dye sorted",
+    "Everyone can now see desktop and mobile players swing their arm when they mine or attack, instead of the item just sitting still in their hand"
+   ],
+   "changed": [
+    "Attack clicks on desktop, and trigger attacks in VR, now have a short cooldown between swings. Spamming the button or running an autoclicker will not land hits anymore, you actually have to time your swings. Real VR arm swings and hitting mobs are unaffected",
+    "Swing mining in VR holds onto your block damage for a moment if your pick drifts off the block, so your progress does not reset completely just because your aim wobbled onto the block next to it",
+    "In VR the little ring that fills while you hold the right stick is now an arrow pointing the way you are pushing, and holding down for the inventory takes half a second instead of a full one. Options still takes a second",
+    "The coordinates readout in VR moved from the top left corner to the top middle of your view, it was sitting right at the edge of the lens on a Quest",
+    "Your existing saved worlds keep the exact terrain they always had, the new biome map only applies to worlds created from now on. Old worlds show CLASSIC TERRAIN on the lobby board so you can tell them apart. World codes from before this update load the same way"
+   ],
+   "fixed": [
+    "Animals were wandering into the sea and floating there forever, they steer around water now and swim back to shore if they do end up in it",
+    "Mobs could not climb a one block ledge if they were walking dead straight at it, they would just push against it forever. They hop up now",
+    "Bone meal on a sapling only grew the tree for the world host, everyone else saw it grow on their own screen but nobody else's did. Trees grow for everybody now",
+    "Villagers walked around completely silent, they have footsteps again",
+    "The fishing line now hangs from whichever hand you are actually holding the rod in",
+    "Natural trees you had chopped down were growing back every time you reloaded your world, sometimes right through whatever you built in their place. They stay chopped now",
+    "Fences and a few other thin blocks had stray bits of some other block's texture floating on top of them",
+    "In VR the hotbar, hearts and chat got cut off inside blocks whenever you stood close to a wall. They draw on top of the world now"
+   ]
+  },
+  {
    "version": "1.9.2",
    "date": "2026-08-19",
    "title": "Get A Grip",
