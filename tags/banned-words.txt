@@ -1,46 +1,8 @@
-# custom tag blocklist, one lowercase entry per line, matched as a substring with spaces/dots/underscores removed too
-# substring match, so avoid short fragments that sit inside normal words (rape/grape, isis/crisis, cp/mcpe)
-nigg
-n1gg
-faggot
-f4ggot
-fagg
-retard
-r3tard
-kike
-chink
-tranny
-nazi
-hitler
-kkk
-1488
-paedo
-pedoph
-loli
-shota
-cunt
-whore
-slut
-kill yourself
-suicide
-jihad
+# hotfix list for the custom tag filter, loaded on top of the list baked into the world
+# the big list lives in the world itself, this is for adding stuff between world uploads
+# one entry per line, lowercase, letters and digits only (spaces, dots and symbols get folded out anyway)
+# plain line = blocked anywhere inside the text
+# =word = blocked only as a whole word (use for short stuff like =ass that sits inside normal words)
+# +word = allowed word, pulled out before checking (scunthorpe style false positives)
+# ~text = blocked in the raw lowercased text with spaces removed, for links and domains
 allahu
-porn
-onlyfans
-penis
-vagina
-pussy
-tits
-boob
-fuck
-shit
-bitch
-asshole
-hypixel
-mojang
-minecraft
-vrchat staff
-admin
-moderator
-developer
-hoppou
