@@ -1,0 +1,46 @@
+# custom tag blocklist, one lowercase entry per line, matched as a substring with spaces/dots/underscores removed too
+# substring match, so avoid short fragments that sit inside normal words (rape/grape, isis/crisis, cp/mcpe)
+nigg
+n1gg
+faggot
+f4ggot
+fagg
+retard
+r3tard
+kike
+chink
+tranny
+nazi
+hitler
+kkk
+1488
+paedo
+pedoph
+loli
+shota
+cunt
+whore
+slut
+kill yourself
+suicide
+jihad
+allahu
+porn
+onlyfans
+penis
+vagina
+pussy
+tits
+boob
+fuck
+shit
+bitch
+asshole
+hypixel
+mojang
+minecraft
+vrchat staff
+admin
+moderator
+developer
+hoppou
