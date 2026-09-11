@@ -2,6 +2,47 @@
  "title": "Bed Wars VRChat Edition",
  "updates": [
   {
+   "version": "1.0.0",
+   "date": "2026-09-11",
+   "title": "Release",
+   "added": [
+    "Spectating. Knocked out or joined mid round? There is a board on the deck now, pick anyone still playing and watch the round through their eyes, sound included",
+    "Stats and levels. XP, level, tokens, wins, kills, final kills, beds broken and your win streak save to your account and show on the lobby scoreboard. Every round ends with an XP summary in chat",
+    "Tag shop in the lobby. Name tags for VRChat credits: Supporter, Bed Breaker, Sweaty, Diamond Hoarder, Void Enjoyer, Sky Baser, Rusher and Rainbow, plus a custom tag where you type your own text and pick the colour",
+    "Effect icons on the HUD with timers, so you can see how long your speed, jump boost, gold hearts, slowness, mining fatigue or blindness has left",
+    "Sneak bridging. Crouch at the edge of a block and you stop instead of walking off, so you can bridge over the void like you are supposed to. VR players flick the right stick down to toggle sneak",
+    "Team coloured leather armour, and an enchant glint on sharpness swords, protection armour, the knockback stick and the Power and Punch bows",
+    "Eating and drinking has the animation, chewing sounds and crumbs now, and other players can see you doing it",
+    "A ding when your arrow hits someone",
+    "Beta testers board in the lobby with everyone who played the test rounds"
+   ],
+   "changed": [
+    "Teams are shuffled every round instead of the same people always landing on the same colour",
+    "Buying a better sword, bow, pickaxe or axe swaps out the old one instead of filling your hotbar",
+    "Swords, tools, bows and armour do not wear out in Bed Wars",
+    "The off hand slot is disabled in Bed Wars",
+    "Upgrade and trap names are closer to Hypixel: Sharpness Swords, Protection Armor, Haste Miner, Iron, Golden, Emerald and Molten Forge, Heal Pool, Blindness Trap, Counter-Offensive Trap and Mining Fatigue Trap",
+    "The map resets between rounds in a few seconds instead of regenerating the whole thing",
+    "Spectators stay on the deck and can not open chests or pick up drops",
+    "Flying or teleporting around the map with a modified client gets you removed from the match",
+    "The knockback stick has a little less kick",
+    "Gold hearts from golden apples soak up fall, fire and drowning damage too, not just hits",
+    "The loading screen has a bit more Bed Wars flavour"
+   ],
+   "fixed": [
+    "The blindness trap actually blinds you now, before you could still see other players clear as day through the dark",
+    "Forges could stop producing iron and gold for a base in the middle of a round",
+    "Fireballs flew straight through players unless you hit them dead centre",
+    "Sponges never soaked up flowing water, and water could flood the generators, shops and spawns. Both fixed",
+    "Water placed during a round was still there after the reset",
+    "Your bed breaking while you were waiting to respawn ate that respawn. You still get it now, like on Hypixel",
+    "The shop said you bought an iron pickaxe when you had bought a wooden one",
+    "The scoreboard cut off long lines like the map name",
+    "The custom tag text box grabbed your movement keys after you clicked a colour",
+    "Gold hearts stayed on the HUD after the round ended"
+   ]
+  },
+  {
    "version": "0.1.0",
    "date": "2026-09-08",
    "title": "Closed Beta",
