@@ -15,7 +15,8 @@
     "Sudden Death at 35 minutes shuts every base forge off, only diamonds and emeralds keep spawning. The round ends in a draw at 40 minutes instead of 50, so you can not turtle forever"
    ],
    "fixed": [
-    "TNT placed by anyone other than the instance host was getting stuck as a block that never went off and could not be broken. It lights and falls like it is supposed to now"
+    "TNT placed by anyone other than the instance host was getting stuck as a block that never went off and could not be broken. It lights and falls like it is supposed to now",
+    "Hotfix: the instance host got told they bought one tier higher than they did when buying team upgrades, Protection III said Protection IV. The upgrade itself was always the right one"
    ],
    "removed": [
     "The staff menu is gone from Bed Wars"
