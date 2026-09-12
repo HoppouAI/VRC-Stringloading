@@ -2,6 +2,26 @@
  "title": "Bed Wars VRChat Edition",
  "updates": [
   {
+   "version": "1.0.2",
+   "date": "2026-09-12",
+   "title": "Combat and stalling",
+   "added": [
+    "The sidebar shows the round clock now, and from 10 minutes out it counts down to Sudden Death and then to the draw",
+    "Return to Lobby button on the spectate board"
+   ],
+   "changed": [
+    "Hits land like they are supposed to. Trading blows in a fight was dropping some hits so people took less damage than they should have",
+    "Eating a golden apple or drawing a bow slows you way down while you do it, like the original game. No more strafing at full speed while munching gapples",
+    "Sudden Death at 35 minutes shuts every base forge off, only diamonds and emeralds keep spawning. The round ends in a draw at 40 minutes instead of 50, so you can not turtle forever"
+   ],
+   "fixed": [
+    "TNT placed by anyone other than the instance host was getting stuck as a block that never went off and could not be broken. It lights and falls like it is supposed to now"
+   ],
+   "removed": [
+    "The staff menu is gone from Bed Wars"
+   ]
+  },
+  {
    "version": "1.0.1",
    "date": "2026-09-11",
    "title": "Hotfix",
