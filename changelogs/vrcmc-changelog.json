@@ -2,6 +2,21 @@
  "title": "Minecraft VRChat Edition",
  "updates": [
   {
+   "version": "1.10.1",
+   "date": "2026-09-11",
+   "title": "Down To Earth",
+   "added": [
+    "Eating takes a moment now like it should. Hold use for a second and a half while you chew, the food comes up to your mouth with a bite animation, crumbs fly, and everyone around you hears the chewing and the burp. Letting go or switching items starts over, so no more inhaling a whole stack of steak in one click",
+    "There is a portal to Bed Wars VRChat Edition in the lobby now, our new spin off world. Walk in and go"
+   ],
+   "changed": [
+    "PvP is more or less back to how it always was. Desktop hits go out as fast as you click again, no more waiting between swings, but autoclickers do not get the free ride they used to",
+    "Getting hit sends you a little further and the shove lasts the whole hop instead of cutting out mid air",
+    "Gravity matches Minecraft. You fall faster and jumps are snappier, jump height is unchanged so everything you could clear before you still can. Sprint jumps cover a bit less ground",
+    "Sneaking is not a crawl anymore, it was moving way slower than it should have. Still slower than walking"
+   ]
+  },
+  {
    "version": "1.10.0",
    "date": "2026-09-03",
    "title": "Into The Jungle",
