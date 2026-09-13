@@ -2,6 +2,19 @@
  "title": "Bed Wars VRChat Edition",
  "updates": [
   {
+   "version": "1.0.3",
+   "date": "2026-09-13",
+   "title": "Mossfall Sanctuary",
+   "added": [
+    "New map: Mossfall Sanctuary. Grassy ruin islands with your bed tucked inside a stone temple, stairs up both sides onto the roof, and a big temple in the middle with the four emerald generators on its porches and a fifth diamond generator on the very top",
+    "Map picker on the lobby board. The instance master can pick the map while the lobby is waiting for players, or leave it on Random and it rolls a different map every round",
+    "The spectator deck on Mossfall is a glass floor under a glass dome so you can watch the whole map from up there"
+   ],
+   "changed": [
+    "Torches and lamps built into the maps actually give off light now"
+   ]
+  },
+  {
    "version": "1.0.2",
    "date": "2026-09-12",
    "title": "Combat and stalling",
