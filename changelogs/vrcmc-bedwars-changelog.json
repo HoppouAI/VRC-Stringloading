@@ -7,6 +7,8 @@
    "title": "Supporters and fixes",
    "added": [
     "Supporters board in the lobby, right of the Tag Shop. Everyone who picked up a tag gets their name on it",
+    "Preview Tags button on the Tag Shop. Turn it on and a guy appears next to the shop wearing whichever tag you click, custom text included, so you can see what a tag actually looks like on someone before you buy it",
+    "Hover over a Buy button in the Tag Shop and it shows you the price",
     "Show Own Tag option in the performance settings. Turn it on and your own tag floats over your head too, so you can see it in mirrors or by looking up",
     "The How to Play board lists sneaking now. Hold C on desktop, or flick the right stick down in VR to toggle it"
    ],
