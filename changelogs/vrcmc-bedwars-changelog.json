@@ -2,6 +2,15 @@
  "title": "Bed Wars VRChat Edition",
  "updates": [
   {
+   "version": "1.0.5",
+   "date": "2026-09-14",
+   "title": "Chest fix",
+   "fixed": [
+    "Chest items could get duplicated or lost when you clicked fast in a chest or when two people grabbed the same stack. Fixed",
+    "Things other players put into a team chest sometimes vanished a few seconds later. They stay put now"
+   ]
+  },
+  {
    "version": "1.0.4",
    "date": "2026-09-13",
    "title": "Supporters and fixes",
