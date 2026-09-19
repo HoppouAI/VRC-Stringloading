@@ -2,6 +2,24 @@
  "title": "Bed Wars VRChat Edition",
  "updates": [
   {
+   "version": "1.0.7",
+   "date": "2026-09-19",
+   "title": "Tag Shop on the deck",
+   "added": [
+    "Second Tag Shop board up on the waiting deck, off to the left of the Spectate board and turned in towards it, so you can grab a tag without flying back to the lobby for it",
+    "The deck board does everything the lobby one does, catalog tags, the custom tag and Hide My Tag. The only thing it is missing is Preview Tags, because the guy who models them for you still stands by the lobby shop"
+   ]
+  },
+  {
+   "version": "1.0.6",
+   "date": "2026-09-17",
+   "title": "TNT and bow knockback",
+   "changed": [
+    "TNT blows up end stone now, like it does on Hypixel. Blast proof glass and obsidian are the blocks an explosion will not touch",
+    "Arrows do not shove you nearly as far. The Bow (Power I, Punch I) was launching people half way across the map, and a plain arrow pushes a little less than it used to. The Knockback Stick still hits just as hard"
+   ]
+  },
+  {
    "version": "1.0.5",
    "date": "2026-09-14",
    "title": "Chest fix and tag previews",
