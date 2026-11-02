@@ -1,0 +1,27 @@
+{
+ "title": "Break-n-Haul",
+ "updates": [
+  {
+   "version": "1.0.0",
+   "date": "2026-11-02",
+   "title": "First release",
+   "summary": "Break-n-Haul is out. Get a crew of up to 4 together, pick a house off the whiteboards, break in, haul the loot out to your ride and get away before the cops show up.",
+   "added": [
+    "Three houses to rob: Maple Street, Cedar Bungalow and the Lakeside Cabin. Each one has its own street, its own residents and its own security, and the loot, doors and windows change every run",
+    "Small loot goes in your hands or your bag. Big stuff like TVs and microwaves slows you down, and the heaviest things need two people to carry",
+    "Loot Sack and Duffel Bag. They hold small loot and get heavier as you fill them",
+    "Lots of ways in: pick locks, smash windows, slide them open from inside, or climb drainpipes, ledges and trellises to get in upstairs",
+    "Residents sleep until something wakes them up. They come and check on noise and call the cops if they catch you",
+    "Security cameras that set off the alarm. Knock them down or cut the power at the breaker box",
+    "Cops show up, chase you down and lock you in the back of the van. Your crew can break you out",
+    "Seven getaway rides, from the Basket Bike up to the Cargo Truck. Bigger rides carry more but the driver takes a bigger cut",
+    "Gear shop with lockpicks, bags, a hammer, a flashlight and a head lamp",
+    "Night School. Pick a major, take courses, do the homework on jobs and graduate for perks",
+    "The Back Room. Gear skins, Supporter and Crew Tags, Double Pay, Crew Boost, ride keys, Hall Pass and Double Major",
+    "Your cash, gear, rides and school progress save between visits",
+    "Hold Tab on desktop or push the right stick up in VR for the menu with your gear and settings",
+    "This board. It shows what changed in every update"
+   ]
+  }
+ ]
+}
