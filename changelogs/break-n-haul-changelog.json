@@ -2,6 +2,30 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.1.0",
+   "date": "2026-11-03",
+   "title": "Second Chance Pawn",
+   "summary": "A new job is up on the whiteboards: Second Chance Pawn, a corner pawn shop on a little high street. Five new tools are in the gear shop too.",
+   "added": [
+    "Second Chance Pawn, a 3 star smash and grab. Glass cases full of jewellery and watches, a guitar wall, an arcade corner, a stock room, an office and storage upstairs, and a back alley with a fire escape",
+    "The shop has a roller shutter you raise with a switch inside, an old bell alarm that goes off on any break and calls the cops, and a night guard who walks his rounds and radios it in. The cops take longer to show up here",
+    "14 new loot pieces from the pawn shop, like guitars, an amp, a trumpet, a sax, a turntable, a jukebox and an arcade cabinet",
+    "Wrench. Hold it on something bolted down and it unbolts it slowly and quietly, instead of the loud rip you get with the hammer",
+    "Ladder. Aim at a wall and a ghost shows where it goes, click and it opens out to reach there, then climb it",
+    "Appraiser 3000. Point it at loot and pull the trigger and a screen pops up with its name and price",
+    "Lamp Disguise. Wear the lampshade and keep still for two seconds, and residents, guards and cameras look right past you",
+    "Glass Cutter. Stick it on a locked window and wind it round. It quietly cuts a hole so you can reach in and undo the latch. On desktop hold left click on it, in VR it winds itself"
+   ],
+   "changed": [
+    "Perks are a lot weaker. Running Away 101 had you sprinting way too fast in VR, and the jump and carry perks were too strong as well"
+   ],
+   "fixed": [
+    "Only the crew leader could knock out residents and guards. Everyone in the crew can now",
+    "The spotted warning only showed for the crew leader when a resident ran off to call the cops",
+    "VR players could shove other people's loot around for a moment when grabbing it or bumping into it"
+   ]
+  },
+  {
    "version": "1.0.0",
    "date": "2026-11-02",
    "title": "First release",
