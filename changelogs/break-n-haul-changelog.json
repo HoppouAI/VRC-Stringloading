@@ -2,6 +2,34 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.2.0",
+   "date": "2026-11-04",
+   "title": "Hilltop Mansion",
+   "summary": "A new big score job is up on the whiteboards: the Hilltop Mansion. There's a new top ride to haul it all, job contracts, paint jobs for your rides and a VR hotbar.",
+   "added": [
+    "Hilltop Mansion, a 4 star big score. Two floors plus a basement with a wine cellar, a security room and a vault, a garage, a pool, a fountain out front and a long drive up the hill",
+    "A rich couple sleeps upstairs and a guard walks his rounds. Tripwire lasers in the basement make a racket when you cross them, and they go dark when you cut the power at the breaker",
+    "The vault door opens with a colored keycard. One is hidden somewhere in the house every run, so find the one that matches the reader",
+    "Big score loot: gold bars, an old master and two more paintings, a marble bust, an ancient urn, vintage wine, whiskey decanters, a jeweled goblet, a grand piano and a motorbike",
+    "Flatbed Truck, the new top ride. A semi pulling an open flatbed trailer with 6 gear slots and no weight limit. $600,000 or 2,000 credits",
+    "Job contracts. A new board next to the jobs board sells Uptown Jobs for $40,000 and Big Score for $150,000, or 500 and 1,000 credits. The crew leader's contracts decide which jobs come up, and your contact takes a cut of the haul, 5% on Uptown and 15% on Big Score",
+    "Paint jobs. Six paints for your rides on their own tab on the shop board, or all six together. The getaway wears your paint when you lead the crew",
+    "VR hotbar. Turn it on in the tab menu settings and your belt slots float low in front of you. Point at one and click and the item floats into your hand",
+    "The tab menu has a crew strip with a Ready up button, so you don't have to walk over to the plan board",
+    "Menus and boards make sounds now, a click on buttons and a page flip on tabs and page buttons"
+   ],
+   "changed": [
+    "Second Chance Pawn is an Uptown job now and needs the Uptown contract. Maple Street, Cedar Bungalow and Lakeside Cabin stay free",
+    "Windows have a new latch and sills, and from inside you can click the glass to unlock them",
+    "The cop van has barred windows you can actually see out of, a push bar on the bumper and headlights that light up",
+    "The gear page in the tab menu shows your loadout slots"
+   ],
+   "fixed": [
+    "In VR, grabbing a window or walking past one could break the glass. You have to swing a closed fist into it now",
+    "Loot could spawn inside the Cedar Bungalow chimney or under the TV"
+   ]
+  },
+  {
    "version": "1.1.3",
    "date": "2026-11-03",
    "title": "Board Fixes",
