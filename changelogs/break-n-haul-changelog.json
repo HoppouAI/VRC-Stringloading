@@ -2,6 +2,23 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.1.1",
+   "date": "2026-11-03",
+   "title": "Bags and Bolts",
+   "summary": "Fixes for the pawn shop update. Bags work on every map now, bolted down stuff actually comes loose, and you can see how close it is.",
+   "added": [
+    "Hitting something bolted down shows a ring for how close it is to coming loose",
+    "In VR, bringing a hammer or the wrench close to something bolted down shows a Bolted down tag over it"
+   ],
+   "fixed": [
+    "Duffel bags and loot sacks wouldn't take loot on Maple Street or at the pawn shop. They work on every map now",
+    "Once one bolted down thing ripped free, nothing else bolted down in that house could be hit for the rest of the session",
+    "Hammer swings in VR only counted the first hit on big bolted things like the AC unit",
+    "The pawn shop guard dropped through the floor when he came back down from upstairs. He takes the stairs now",
+    "You could walk into the buildings next to the pawn shop and fall out of the map"
+   ]
+  },
+  {
    "version": "1.1.0",
    "date": "2026-11-03",
    "title": "Second Chance Pawn",
