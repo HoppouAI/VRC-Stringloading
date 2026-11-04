@@ -2,6 +2,26 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.1.2",
+   "date": "2026-11-03",
+   "title": "Cops and Cases",
+   "summary": "More pawn shop fixes, and the cops are a lot better at getting around.",
+   "added": [
+    "The pawn shop cases have ring trays and necklace busts in them now, and you can take them"
+   ],
+   "changed": [
+    "Cops search the house properly now. They go from room to room instead of standing around or wandering back and forth"
+   ],
+   "fixed": [
+    "In VR you couldn't grab stuff out of a pawn shop case you had just smashed yourself",
+    "You could grab loot through the pawn shop walls from outside",
+    "Respawning during a job sent you back to the hideout. It puts you back at the house now",
+    "Cops walked through parked cars, open doors and the getaway board",
+    "For other players, cops could look like they walked through walls",
+    "You could walk straight through the parked cars, bins and bench outside the pawn shop"
+   ]
+  },
+  {
    "version": "1.1.1",
    "date": "2026-11-03",
    "title": "Bags and Bolts",
