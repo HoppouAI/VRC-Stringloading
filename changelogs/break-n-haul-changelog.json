@@ -2,6 +2,20 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.1.3",
+   "date": "2026-11-03",
+   "title": "Board Fixes",
+   "summary": "Small fixes for the hideout boards.",
+   "changed": [
+    "The supporters list on the shop board is two columns now and scrolls round on a loop instead of rewinding back to the top"
+   ],
+   "fixed": [
+    "Names on the supporters list ran off the bottom of the paper",
+    "Gear prices like 4 for $1,000 didn't fit inside their circle on the gear board",
+    "The Or credits button on the rides board sat on top of the You ride note"
+   ]
+  },
+  {
    "version": "1.1.2",
    "date": "2026-11-03",
    "title": "Cops and Cases",
