@@ -2,6 +2,22 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.2.2",
+   "date": "2026-11-05",
+   "title": "Playtest Fixes",
+   "summary": "Changes from your playtest feedback, plus fixes.",
+   "changed": [
+    "Anyone in the crew who isn't locked up can hit the getaway button now, not just the crew leader",
+    "The duffel bag takes loot up to 25kg now, so gold bars, typewriters, dumbbells and guitar amps go in. In VR you can drop a heavy carry straight into it. The loot sack still takes up to 10kg",
+    "Residents and guards close doors you left open when they walk past",
+    "The mansion front door is a big pair of double doors that swing out onto the porch. One lock holds both, and a click throws them all the way open so the grand piano fits through"
+   ],
+   "fixed": [
+    "On desktop, holding the click on the glass cutter didn't cut a locked window. It cuts like it's supposed to now",
+    "Some gear waiting in storage kept falling out of the world and respawning over and over the whole session, which kept the network busy for whoever owned it"
+   ]
+  },
+  {
    "version": "1.2.1",
    "date": "2026-11-04",
    "title": "Glass Cutter Fix",
