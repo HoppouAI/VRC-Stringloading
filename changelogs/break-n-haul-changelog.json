@@ -2,6 +2,16 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.2.1",
+   "date": "2026-11-04",
+   "title": "Glass Cutter Fix",
+   "summary": "Fixes for the mansion update.",
+   "fixed": [
+    "The glass cutter didn't work on any window on any map. It works everywhere again, the mansion too",
+    "The mansion guard said he had someone in the pawn shop when he radioed it in. He says the mansion now"
+   ]
+  },
+  {
    "version": "1.2.0",
    "date": "2026-11-04",
    "title": "Hilltop Mansion",
