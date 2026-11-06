@@ -2,6 +2,27 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.3.0",
+   "date": "2026-11-06",
+   "title": "24 Hour Diner",
+   "summary": "A new uptown job is up on the whiteboards: the 24 Hour Diner out on the highway. There's also a loading ramp for your getaway, and more stuff knocks people out.",
+   "added": [
+    "24 Hour Diner, a 3 star smash and grab that needs the Uptown contract. A chrome dining car with booths and a counter, a kitchen line, restrooms, a storage room and an office, with a truck lot and a closed gas station out on the highway",
+    "A cook works the grill and a waitress works the floor on the night shift. Both go out back for smokes, and if they spot you they phone the cops",
+    "Diner loot: a cash register, a coffee brewer, a milkshake mixer, a deep fryer, the neon sign out of the window and a commercial toilet you can rip out",
+    "Loading Ramp in the gear shop for $25,000. Carry it to the back of the getaway and it folds out down to the ground, tailgates drop for it, so you can walk heavy stuff up instead of lifting it"
+   ],
+   "changed": [
+    "More stuff knocks people out. Dumbbells, kettlebells and gold bars do it in one hit, bottles, guitars, kettles and that kind of thing in two",
+    "Mansion loot is worth a lot less. Gold bars are $5,000, the grand piano $40,000 and the old master $30,000. A full clear was paying way too much"
+   ],
+   "fixed": [
+    "The mansion guard slid through the floor on his way to the basement. He walks down like he's supposed to now",
+    "NPCs stopped to open doors they weren't even going through. They only stop for a door they're walking through now",
+    "The Cedar back door hit the plant, and Maple and Cabin doors swung into the wall and furniture. They stop before them now"
+   ]
+  },
+  {
    "version": "1.2.2",
    "date": "2026-11-05",
    "title": "Playtest Fixes",
