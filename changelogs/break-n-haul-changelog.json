@@ -13,7 +13,8 @@
     "A CCTV office behind a keypad door, with kill switches for the cameras and the lasers on the console",
     "Bank loot: gold stacks behind a gate you pick open, cash bricks, jewelry in deposit boxes you pick open, and the computers and monitors off the desks",
     "Night School has four new courses: Nimble Fingers, Fence Contacts, Slow Response and Glass Work",
-    "Two kits in the Contracts tab of The Back Room. Side Hustle is the Delivery Truck key, the Uptown Jobs contract and $10,000 for 1,100 credits. The Big Haul is the Flatbed Truck key, the Big Score contract and $50,000 for 2,700 credits"
+    "Two kits in the Contracts tab of The Back Room. Side Hustle is the Delivery Truck key, the Uptown Jobs contract and $10,000 for 1,100 credits. The Big Haul is the Flatbed Truck key, the Big Score contract and $50,000 for 2,700 credits",
+    "Kit notes on the Getaway Rides board and the Uptown Jobs and Big Score cards. Click one to open the kit in the store"
    ],
    "changed": [
     "The pawn shop is a bigger corner shop on a new city street. It has a basement with a keypad vault, a workshop, an office and a CCTV room with a camera kill switch. The vault code is written down somewhere in the shop",
@@ -22,7 +23,8 @@
     "Intel is free twice after a run, then costs $250 and doubles each time up to $16,000",
     "The ladder reaches about 6.5m, high enough for the bank's upstairs windows",
     "Blending In slows a cop spotting you up close too, not just from far away",
-    "The box trucks and semis got redone grilles, frames and trailer doors"
+    "The box trucks and semis got redone grilles, frames and trailer doors",
+    "A bag on your belt slows you down too now, just a bit less than holding it since it's on your waist"
    ],
    "fixed": [
     "The wrench didn't work on any map. It works everywhere again",
