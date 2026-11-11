@@ -2,6 +2,19 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.2",
+   "date": "2026-11-10",
+   "title": "Save Fix",
+   "summary": "Some players joined and got treated like a brand new player, and their save got overwritten. That can't happen anymore.",
+   "added": [
+    "If your save doesn't load when you join, you get a \"Save data failed to load\" message and nothing saves until it does. Rejoin and it should load. If it shows up late it loads on its own"
+   ],
+   "changed": [],
+   "fixed": [
+    "When VRChat took too long to send your save on join, the world started you fresh and your first job wrote over your real save. It waits for your real save now"
+   ]
+  },
+  {
    "version": "1.4.1",
    "date": "2026-11-10",
    "title": "Lookout and Fixer",
