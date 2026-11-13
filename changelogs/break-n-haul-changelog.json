@@ -2,6 +2,34 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.3",
+   "date": "2026-11-12",
+   "title": "Extended Crew",
+   "summary": "Crews go up to 6 now. The Lowboy Truck is the new top ride, Night School has a sixth major called Crew Chief, and The Back Room has Job Boosts, Bundles and Holiday Lights.",
+   "added": [
+    "Crews of up to 6 instead of 4. Each cop van bench has three jail seats now",
+    "The Lowboy Truck, the new top ride. A semi with a drop deck trailer and two wheel ramps that fold down to the ground, so it doesn't need the Loading Ramp. $900,000 or 2,500 credits, 6 gear slots and a 28% driver's cut",
+    "Crew Chief, a sixth major with courses that help the crew around you: Bust Out, Pep Talk, Hand Signals, Ringleader, Shared Kit, Medic, Two to Carry and Rally. Double Major covers it",
+    "Hush Money, Fixer's 8th course. Anyone you knock out wakes up dazed. Residents go back to what they were doing instead of calling it in, and guards search instead of radioing",
+    "A Job Boosts tab in The Back Room with two new instant buys. Bail Money pays your next lawyer bill. Study Group makes homework count double for your whole crew on your next job",
+    "Payday Pack, five Double Pays for 800 credits",
+    "A Bundles tab with six new bundles: Starter Kit, Lowboy Haul, Honor Roll, Lowboy Showroom, Holiday Lights Set and The Whole Operation. Side Hustle and The Big Haul are there too. If you already own part of a bundle, the board tells you and points you to the pieces you're missing",
+    "Holiday Lights paint and gear skin, dark green with strings of red, amber and green bulbs that twinkle. 250 credits each, or 400 for both in the Holiday Lights Set until January 1",
+    "New items have a red NEW tag in The Back Room until January 1"
+   ],
+   "changed": [
+    "The hideout bay is 6m deeper, so every ride parks at full size",
+    "In VR you point the ladder with your hand to place it. Aiming low puts up the shortest ladder, and it places on a lot more spots than before",
+    "The gear board says when your ride's slots are full instead of hiding the Equip button",
+    "All Six Paints and All Six Skins don't include Holiday Lights. Their cards name the six they cover"
+   ],
+   "fixed": [
+    "Loot you dropped into a crewmate's sack fell straight out. It goes in now",
+    "The lampshade could say Hidden while guards and cameras still saw you. They go by the same timer now",
+    "Truck ramps at some getaway spots hung in the air. They sit on the ground now"
+   ]
+  },
+  {
    "version": "1.4.2",
    "date": "2026-11-10",
    "title": "Save Fix",
