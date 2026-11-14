@@ -2,6 +2,22 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.4",
+   "date": "2026-11-13",
+   "title": "Bag Fix",
+   "summary": "Bags sync for everyone again, lockpicks open the cop van again, and cop tasers stop at doors and walls.",
+   "added": [],
+   "changed": [
+    "Two cops can't zap you at the same moment anymore, they space their shots out",
+    "The Lowboy's page on the rides board has a Lowboy Haul note like the Delivery Truck and Flatbed have, or Lowboy Showroom if you already own part of the Haul"
+   ],
+   "fixed": [
+    "Since 1.4.3 bags weren't telling other players what went in, so loot you bagged stayed hanging in the air for everyone else. They see it go in now",
+    "Lockpicks couldn't open the cop van, so anyone who got caught stayed locked in for the rest of the job. You can pick the van open again",
+    "Cop tasers could hit you through doors and walls. Darts stop at the first wall now, and a cop that can't actually see you goes looking for you instead of firing"
+   ]
+  },
+  {
    "version": "1.4.3",
    "date": "2026-11-12",
    "title": "Extended Crew",
