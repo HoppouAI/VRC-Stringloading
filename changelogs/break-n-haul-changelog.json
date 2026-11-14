@@ -2,6 +2,18 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.5",
+   "date": "2026-11-14",
+   "title": "Rides Board Fix",
+   "summary": "The rides board works again, and See Through Walls actually shows residents through walls now.",
+   "added": [],
+   "changed": [],
+   "fixed": [
+    "The rides board was stuck in 1.4.4. You couldn't flip through rides, buy one or switch to another. It works again",
+    "See Through Walls still missed most residents and guards. It shows all of them now"
+   ]
+  },
+  {
    "version": "1.4.4",
    "date": "2026-11-13",
    "title": "Bag Fix",
