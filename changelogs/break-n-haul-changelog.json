@@ -2,6 +2,21 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.6",
+   "date": "2026-11-14",
+   "title": "Cop Fix",
+   "summary": "Cops don't freeze in place anymore, the Mansion and Cedar cameras can't see you the second you arrive, and Bad Reception homework counts like it should.",
+   "added": [],
+   "changed": [
+    "Knocking out a resident while she runs off to call the cops counts toward the Bad Reception homework now, not just the moment she's on the phone",
+    "You arrive a few steps over at Hilltop Mansion and Cedar Bungalow"
+   ],
+   "fixed": [
+    "Cops could freeze in place and stay standing there into the next job. They don't anymore",
+    "A security camera at Hilltop Mansion and one at Cedar Bungalow could see you as soon as you arrived. You arrive out of their view now"
+   ]
+  },
+  {
    "version": "1.4.5",
    "date": "2026-11-14",
    "title": "Rides Board Fix",
