@@ -2,6 +2,19 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.7",
+   "date": "2026-11-14",
+   "title": "Spawn Fix",
+   "summary": "Taking a big ride to Hilltop Mansion doesn't trap the crew inside it anymore.",
+   "added": [],
+   "changed": [
+    "You arrive a few steps over at Hilltop Mansion again, still out of the cameras' view"
+   ],
+   "fixed": [
+    "At Hilltop Mansion the RV, Cargo Truck, Flatbed and Lowboy parked right on top of where the crew arrives, so everyone got stuck in the truck floor and respawning put you back in it. You arrive next to the truck now"
+   ]
+  },
+  {
    "version": "1.4.6",
    "date": "2026-11-14",
    "title": "Cop Fix",
