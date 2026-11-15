@@ -2,6 +2,24 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.10",
+   "date": "2026-11-15",
+   "title": "Bug Report Fixes",
+   "summary": "Cops need a clear line to you before they shoot, Hidden stays hidden when a resident wakes up, and there's a Discord sign in the hideout for bug reports.",
+   "added": [
+    "Discord sign on the wall left of the plan board. Click the invite and VRChat's text box opens with the link already in it so you can copy it"
+   ],
+   "changed": [],
+   "fixed": [
+    "Cops could see and tase you through walls, floors and windows. They need a clear line to you now",
+    "Cop darts could hit you from past their range. They stop at the cop's range now",
+    "Holding still with the lampshade on Hidden got you spotted the moment a resident woke up. It keeps counting while they sleep now",
+    "The bank guard walked straight through the locked CCTV door. She walks around it while it's locked now",
+    "Two crew duffels could spawn inside each other at the start of a job and one got knocked away. Each crew member gets their own spot now",
+    "Heavy loot could stay stuck on someone who wasn't anywhere near it, so nobody else could pick it up or move it"
+   ]
+  },
+  {
    "version": "1.4.9",
    "date": "2026-11-15",
    "title": "Footstep Fix",
