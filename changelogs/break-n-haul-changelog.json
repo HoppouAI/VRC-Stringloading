@@ -2,6 +2,24 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.8",
+   "date": "2026-11-15",
+   "title": "Spectate",
+   "summary": "Watch a job you're not on, watch your crew from the back of the cop van, a stats tab on the haul board and footsteps on everyone in the house.",
+   "added": [
+    "Spectate button on the plan board while a job is running. Anyone not on the job can drop into the house and watch. You can't pick up or touch anything, residents, guards, cops and cameras don't see you, you get a Spectator tag over your head and you can still talk to the crew. Respawn to go home",
+    "A monitor on the wall inside the cop van. If you get caught you can flip between crewmates still on the job and see what they see. Sound on turns the person you're watching up so you hear them clearly from the van",
+    "Stats tab on the haul board: time played, cash earned and spent, best payout, jobs pulled, clean escapes, times caught, times bailed out, people knocked out, alarms set off and cops called. Jobs pulled and best payout go all the way back, the rest count from this update on",
+    "Residents, guards and cops have footsteps now. They sound different on wood, tile, carpet, concrete, grass, gravel and metal, they're muffled through walls, and guards and cops have heavier boots"
+   ],
+   "changed": [
+    "The catwalk under the changelog board is a meter deeper so you can stand back and actually see the whole board"
+   ],
+   "fixed": [
+    "Players who joined in the middle of an arrest didn't see the cop van. It shows for them now"
+   ]
+  },
+  {
    "version": "1.4.7",
    "date": "2026-11-14",
    "title": "Spawn Fix",
