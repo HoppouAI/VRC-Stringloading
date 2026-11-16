@@ -9,7 +9,8 @@
    "added": [
     "Make My Major button on the night school board. Flip to a major with the arrows and press it to switch",
     "Statue Mode shows a small eye under your view when you stop moving. It turns into a crossed out eye once you're hidden",
-    "Belt up/down slider in the Belt tab, for avatars where the belt sat at your feet or in your chest, plus a Reset Belt button"
+    "Belt up/down slider in the Belt tab, for avatars where the belt sat at your feet or in your chest, plus a Reset Belt button",
+    "Crew cam TV on the crate next to the plan board. While a job runs anyone in the hideout can watch the crew live, flip between them and turn their voice up"
    ],
    "changed": [
     "The night school arrows only let you look through the majors now, they don't change your major",
