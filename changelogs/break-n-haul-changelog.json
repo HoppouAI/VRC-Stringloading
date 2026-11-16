@@ -5,7 +5,7 @@
    "version": "1.4.11",
    "date": "2026-11-15",
    "title": "Taser Fix",
-   "summary": "Tasers work again, Statue Mode actually hides you and shows when you're hidden, the night school arrows don't switch your major anymore, and cops and residents stop getting stuck on each other in halls and at the Mansion garage door.",
+   "summary": "Tasers work again, Statue Mode actually hides you and shows when you're hidden, there's a crew cam TV in the hideout and a belt height slider, and cops and residents stop getting stuck on each other in halls and at the Mansion garage door.",
    "added": [
     "Make My Major button on the night school board. Flip to a major with the arrows and press it to switch",
     "Statue Mode shows a small eye under your view when you stop moving. It turns into a crossed out eye once you're hidden",
