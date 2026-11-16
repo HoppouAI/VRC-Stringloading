@@ -8,11 +8,13 @@
    "summary": "Tasers work again, Statue Mode actually hides you and shows when you're hidden, the night school arrows don't switch your major anymore, and npcs stop piling up at the Mansion garage door.",
    "added": [
     "Make My Major button on the night school board. Flip to a major with the arrows and press it to switch",
-    "Statue Mode shows a small eye under your view when you stop moving. It turns into a crossed out eye once you're hidden"
+    "Statue Mode shows a small eye under your view when you stop moving. It turns into a crossed out eye once you're hidden",
+    "Belt up/down slider in the Belt tab, for avatars where the belt sat at your feet or in your chest, plus a Reset Belt button"
    ],
    "changed": [
     "The night school arrows only let you look through the majors now, they don't change your major",
-    "The lampshade readout is smaller and looks like the hotbar now, with the same eye"
+    "The lampshade readout is smaller and looks like the hotbar now, with the same eye",
+    "The settings board and the Tab menu are split into Audio, Graphics, Belt and VR tabs"
    ],
    "fixed": [
     "Residents and cops couldn't see anyone in 1.4.10, so tasers never fired. They see you and tase you again",
