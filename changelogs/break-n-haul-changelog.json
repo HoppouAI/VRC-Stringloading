@@ -2,6 +2,26 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.11",
+   "date": "2026-11-15",
+   "title": "Taser Fix",
+   "summary": "Tasers work again, the night school arrows don't switch your major anymore, and npcs stop piling up at the Mansion garage door.",
+   "added": [
+    "Make My Major button on the night school board. Flip to a major with the arrows and press it to switch"
+   ],
+   "changed": [
+    "The night school arrows only let you look through the majors now, they don't change your major"
+   ],
+   "fixed": [
+    "Residents and cops couldn't see anyone in 1.4.10, so tasers never fired. They see you and tase you again",
+    "A cop dart could still get you from past the cop's range. It misses now",
+    "Flipping through the majors on the night school board switched your major, so the courses you passed in your real major stopped working",
+    "Duffels and other big gear could still land inside each other or inside a parked truck at the start of a job. Every crew member's gear gets its own clear spot now",
+    "Heavy loot someone walked away from couldn't be clicked on desktop. It can be picked up again",
+    "Closing the Hilltop Mansion garage door made npcs come check it and get stuck against the door and each other. They check it from inside the garage and go back to what they were doing"
+   ]
+  },
+  {
    "version": "1.4.10",
    "date": "2026-11-15",
    "title": "Bug Report Fixes",
