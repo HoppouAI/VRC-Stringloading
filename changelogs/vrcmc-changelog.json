@@ -1,6 +1,35 @@
 {
- "title": "Minecraft VRChat Edition",
+ "title": "Dig-n-Build",
  "updates": [
+  {
+   "version": "1.10.3",
+   "date": "2026-11-16",
+   "title": "Texture Packs",
+   "added": [
+    "Texture packs. Open the options menu and pick TEXTURES to switch between the Dig-n-Build textures and Classic, which brings back the look from before 1.10.2. Classic downloads when you pick it and stays picked next time you join",
+    "You can load your own texture pack too. Paste a link to a pack image on the same page and press LOAD. The pack image for the default textures is linked in our Discord, paint over it, upload it to GitHub Pages or Imgur and paste the link. Your own link has to be pasted again each time you join",
+    "Packs change the blocks, block and item icons, dropped items, breaking cracks and mobs. Tools and food in your hand, the menus and the sounds stay the same for now",
+    "Texture packs only change what you see, everyone else sees the pack they picked"
+   ],
+   "fixed": [
+    "Block icons in the inventory, hotbar, chests and furnaces were still showing the old textures, they match the new ones now",
+    "The recipe book, raw iron, raw gold and the breeding hearts were still using the old textures"
+   ]
+  },
+  {
+   "version": "1.10.2",
+   "date": "2026-11-16",
+   "title": "Dig-n-Build",
+   "added": [
+    "Every texture and sound creator is credited on the welcome board, scroll down on it to see them all"
+   ],
+   "changed": [
+    "The world is called Dig-n-Build now. Your saved worlds, inventories, chests, builds and world codes are all still there, nothing was reset",
+    "New default textures, Mizuno's 16 Craft. Big thanks to Mizuno for the pack",
+    "Every sound in the world is new, block breaking, footsteps, mobs, doors, chests, explosions and the music, from VoxeLibre and a bunch of Freesound creators",
+    "Villagers have a new look and their own voices, they hum and grunt at you instead of the old sounds"
+   ]
+  },
   {
    "version": "1.10.1",
    "date": "2026-09-11",
