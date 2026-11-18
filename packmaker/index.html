@@ -433,12 +433,13 @@ input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); ou
     <div class="bar">
       <button class="btn" data-pick="snd-add" data-lock>ADD SOUNDS</button>
       <button class="btn" data-pick="snd-open" data-lock>OPEN A PACK</button>
+      <button class="btn" id="snd-classic" data-lock>ADD THE CLASSIC SOUNDS</button>
       <button class="btn" id="snd-zip" data-lock>NORMAL SOUNDS AS WAV</button>
     </div>
     <input type="file" id="snd-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
     <input type="file" id="snd-one" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" hidden>
     <input type="file" id="snd-open" accept=".bin" hidden>
-    <p class="hint">To start from the real ones, get the normal sounds as WAV files, edit the ones you want and drop them back in.</p>
+    <p class="hint">To start from the real ones, get the normal sounds as WAV files, edit the ones you want and drop them back in. ADD THE CLASSIC SOUNDS fills every sound you have not changed with the old ones, so you can mix the two.</p>
     <div class="find">
       <input type="search" id="snd-find" placeholder="Find a sound, like grass or zombie" aria-label="Find a sound">
       <label class="check"><input type="checkbox" id="snd-mine"> Only show the ones I changed</label>
@@ -554,6 +555,7 @@ const QUEST = 64 * 1024 * 1024;
 const LIMIT = 100000000;
 const MAX_TRACKS = 64;
 const NORMAL_SOUNDS = "../soundpacks/dig-n-build-sounds.bin";
+const CLASSIC_SOUNDS = "../soundpacks/classic-sounds.bin";
 const CLASSIC_MUSIC = "../soundpacks/classic-music.bin";
 const BASES = { classic: "../texturepacks/classic.png", dnb: "../texturepacks/dig-n-build.png" };
 const BASE_NAMES = { classic: "the Classic sheet", dnb: "the Dig-n-Build sheet" };
@@ -1017,6 +1019,42 @@ async function replaceOne(n, file) {
   }
 }
 
+function addPackSounds(list, label, keep) {
+  let n = 0, skip = 0, kept = 0, note = "";
+  if (!S.mine.size && list.length) {
+    S.rate = list[0].src.rate;
+    matchRate("snd-rate", S.rate);
+    note = " Quality set to match it.";
+  }
+  for (const e of list) {
+    const slot = SLOTKEY.get(e.name.toLowerCase());
+    if (!slot) { skip++; continue; }
+    if (keep && S.mine.has(slot)) { kept++; continue; }
+    S.mine.set(slot, { src: e.src, file: label });
+    paintRow(slot);
+    n++;
+  }
+  paintCounts();
+  applyFilter();
+  return { n, skip, kept, note };
+}
+
+async function addClassicSounds() {
+  if (busy) return;
+  lock(true);
+  stop();
+  try {
+    const u8 = await fetchBytes(CLASSIC_SOUNDS, p => say("snd-status", "Downloading the classic sounds " + Math.round(p * 100) + "%"));
+    const pk = parsePack(u8);
+    lock(false);
+    const r = addPackSounds(pk.list, "classic", true);
+    say("snd-status", "Added " + plural(r.n, "classic sound", "classic sounds") + "." + (r.kept ? " Kept your " + plural(r.kept, "sound", "sounds") + "." : "") + r.note, "good");
+  } catch (e) {
+    lock(false);
+    say("snd-status", "Could not get the classic sounds: " + e.message, "bad");
+  }
+}
+
 // want is null when a pack gets dropped somewhere else, it goes to the page that fits it
 async function openPack(file, want) {
   if (busy) return;
@@ -1030,22 +1068,8 @@ async function openPack(file, want) {
     lock(false);
     if (want === "music") addPackTracks(pk.list, file.name);
     else {
-      let n = 0, skip = 0, note = "";
-      if (!S.mine.size && pk.list.length) {
-        S.rate = pk.list[0].src.rate;
-        matchRate("snd-rate", S.rate);
-        note = " Quality set to match it.";
-      }
-      for (const e of pk.list) {
-        const slot = SLOTKEY.get(e.name.toLowerCase());
-        if (!slot) { skip++; continue; }
-        S.mine.set(slot, { src: e.src, file: "from " + file.name });
-        paintRow(slot);
-        n++;
-      }
-      paintCounts();
-      applyFilter();
-      say(sid, "Opened " + file.name + ", " + plural(n, "sound", "sounds") + " loaded." + (skip ? " " + plural(skip, "sound was", "sounds were") + " not used by the world and got skipped." : "") + note, "good");
+      const r = addPackSounds(pk.list, "from " + file.name, false);
+      say(sid, "Opened " + file.name + ", " + plural(r.n, "sound", "sounds") + " loaded." + (r.skip ? " " + plural(r.skip, "sound was", "sounds were") + " not used by the world and got skipped." : "") + r.note, "good");
     }
   } catch (e) {
     lock(false);
@@ -1113,6 +1137,7 @@ $("#snd-add").addEventListener("change", e => { addSoundFiles([...e.target.files
 $("#snd-one").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f && pickFor) replaceOne(pickFor, f); });
 $("#snd-open").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f) openPack(f, "sounds"); });
 $("#snd-zip").addEventListener("click", normalZip);
+$("#snd-classic").addEventListener("click", addClassicSounds);
 $("#snd-go").addEventListener("click", buildSounds);
 $("#snd-find").addEventListener("input", applyFilter);
 $("#snd-mine").addEventListener("change", applyFilter);
