@@ -2,6 +2,20 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.13",
+   "date": "2026-11-17",
+   "title": "Loadout and Window Fix",
+   "summary": "Buying a ride doesn't mess with your gear anymore, and windows stop breaking when you just walk past them.",
+   "added": [],
+   "changed": [
+    "Buying a ride with cash doesn't equip it anymore. Press Equip on the rides board when you want to use it"
+   ],
+   "fixed": [
+    "Buying the Electric Van while you had a bigger ride equipped switched you to the van and sent your extra gear back to storage",
+    "Walking past a window or up to one while holding loot could break it. Brushing the glass doesn't count anymore, throwing or swinging something into it still breaks it"
+   ]
+  },
+  {
    "version": "1.4.12",
    "date": "2026-11-17",
    "title": "Electric Van",
