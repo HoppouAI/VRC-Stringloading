@@ -2,6 +2,17 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.14",
+   "date": "2026-11-18",
+   "title": "Double Major Switch",
+   "summary": "Double Major can be switched off now, so you can play as one major again whenever you want.",
+   "added": [
+    "If you own Double Major, its card in the Back Room has a Turn Off button. With it off only your major's courses are on, the same as before you had it. Press Turn On to get every course back"
+   ],
+   "changed": [],
+   "fixed": []
+  },
+  {
    "version": "1.4.13",
    "date": "2026-11-17",
    "title": "Loadout and Window Fix",
