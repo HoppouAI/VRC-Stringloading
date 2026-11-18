@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dig-n-Build Pack Maker</title>
+<meta name="description" content="Make sound, music and texture packs for the Dig-n-Build VRChat world.">
+<meta name="theme-color" content="#24221d">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACY0lEQVR42l2SO2/UQBhFvxnPw/Z6bK83WSdU5AVIocj/TUVFkWolFCFRg/gHERJayFPJ7tre8dszY5tipRTc4uqW50gXLa4ul39ux3EoCkkpIxZBGJ+dnnRd44mgLKQfTH/++D6PYynz8/NzolR3f/+XUjIOo+O4zA+32abr3ngi6NqGUsa47QlfyjwI/Lat8Sw+pJRY2BqGwRidpWvKWNt2lmUBQDQ/VF2LMFFdK2WOsYWuF58AAADSZAMA0WwP/g96XWVZEEIIcyYyWQvhO67LnMnXLwtCqRCBUl1TV8aY2d78w/t3AOB5Hm7qWjUVZTyY7RtjZLImlBqti0LWVWmMAYBks6KMU8arsiCU8aauAUAm62C2XxcSxtEY0/d9OI0IoclmBQCEWMyZEGKRIs9s29VaecJ/ebzl3Lm4uPCEb1lEazWOY12/BbDKooCisB2X3N3dMmor3QLA0dHJTq5tmjTLhPCSJEEIRVH09PQcHxxo1eEgiJRuOXOEFxBCjdGEUEIsrVWapkKEWqmX52cAyPMcAHBdlZQwpbuyKozRALDrvu8Zs5ummng+ZWwa7e9U0bfrzwAgtykATDxRV2XTNH3fz+MDhNAOjzKOsDUOfdfW5NfNTdc1jPPjk1MAeLxfrlarKJpuVg/b7TaO4+Ozj8vfS4SQ7U6aqiDD0FPKAIDbtszS+4cHX7h1XVkYh2GYS0kp28p06HuU4WkYYcd183w7DuM4jO7Ec2xucydJc247AEApzWXGGLcdF2GcbVO0uLoU4VS1TZKshec77sQY3bXtMPTcdsahr6oSY+v1Wf8A7TVQLfOdKBwAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2b2a27;
+  --ink2: #4d4b45;
+  --line: #8f8d88;
+  --slot: #ababaa;
+  --slot-lo: #8a8989;
+  --slot-hi: #cbcbcb;
+  --mine: #a3c2b3;
+  --mine-lo: #6f9583;
+  --mine-hi: #cbded5;
+  --btn: #898989;
+  --btn-edge: #a4a4a4;
+  --btn-shade: #5f5f5f;
+  --btn-hi: #8fb7a4;
+  --btn-hi-edge: #cbded5;
+  --btn-hi-shade: #5d8572;
+  --btn-off: #393939;
+  --btn-off-edge: #7e7e7e;
+  --sage-ink: #2f5545;
+  --gold: #c9a24a;
+  --bad: #9b1c1c;
+  --px: "Silkscreen", ui-monospace, monospace;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { background: #24221d; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font: 16px/1.5 var(--body);
+  background: linear-gradient(rgba(24, 22, 18, .8), rgba(24, 22, 18, .8)), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACY0lEQVR42l2SO2/UQBhFvxnPw/Z6bK83WSdU5AVIocj/TUVFkWolFCFRg/gHERJayFPJ7tre8dszY5tipRTc4uqW50gXLa4ul39ux3EoCkkpIxZBGJ+dnnRd44mgLKQfTH/++D6PYynz8/NzolR3f/+XUjIOo+O4zA+32abr3ngi6NqGUsa47QlfyjwI/Lat8Sw+pJRY2BqGwRidpWvKWNt2lmUBQDQ/VF2LMFFdK2WOsYWuF58AAADSZAMA0WwP/g96XWVZEEIIcyYyWQvhO67LnMnXLwtCqRCBUl1TV8aY2d78w/t3AOB5Hm7qWjUVZTyY7RtjZLImlBqti0LWVWmMAYBks6KMU8arsiCU8aauAUAm62C2XxcSxtEY0/d9OI0IoclmBQCEWMyZEGKRIs9s29VaecJ/ebzl3Lm4uPCEb1lEazWOY12/BbDKooCisB2X3N3dMmor3QLA0dHJTq5tmjTLhPCSJEEIRVH09PQcHxxo1eEgiJRuOXOEFxBCjdGEUEIsrVWapkKEWqmX52cAyPMcAHBdlZQwpbuyKozRALDrvu8Zs5ummng+ZWwa7e9U0bfrzwAgtykATDxRV2XTNH3fz+MDhNAOjzKOsDUOfdfW5NfNTdc1jPPjk1MAeLxfrlarKJpuVg/b7TaO4+Ozj8vfS4SQ7U6aqiDD0FPKAIDbtszS+4cHX7h1XVkYh2GYS0kp28p06HuU4WkYYcd183w7DuM4jO7Ec2xucydJc247AEApzWXGGLcdF2GcbVO0uLoU4VS1TZKshec77sQY3bXtMPTcdsahr6oSY+v1Wf8A7TVQLfOdKBwAAAAASUVORK5CYII=") 0 0 / 64px 64px;
+  image-rendering: pixelated;
+}
+[hidden] { display: none !important; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+
+.top { padding: 44px 0 26px; color: #ece9df; }
+.kicker { margin: 0 0 6px; font: 15px var(--px); color: var(--btn-hi); letter-spacing: .06em; }
+h1 { margin: 0; font: 400 clamp(40px, 8vw, 76px)/1 var(--px); color: #fff; text-shadow: 4px 4px 0 #3f3f3f; }
+.lede { max-width: 64ch; margin: 18px 0 0; font-size: 17px; color: #d9d5c9; }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; padding-bottom: 28px; }
+@media (max-width: 920px) { .grid { grid-template-columns: 1fr; } }
+
+.panel {
+  background: linear-gradient(#cdcdcd, #b3b1ac);
+  border: 3px solid #141310;
+  box-shadow: inset 3px 3px 0 #ededed, inset -3px -3px 0 #7d7b76;
+  padding: 20px;
+}
+.side { display: grid; gap: 20px; }
+h2, h3 { font-family: var(--px); font-weight: 400; color: #34332e; text-transform: uppercase; }
+h2 { margin: 0 0 12px; font-size: 19px; }
+h3 { margin: 18px 0 8px; font-size: 16px; }
+p { margin: 0 0 10px; }
+.hint { color: var(--ink2); font-size: 15px; }
+.muted { color: #5c5a54; font-size: 14px; }
+code { font: 500 14px var(--mono); background: #bdbbb6; padding: 1px 5px; }
+a { color: var(--sage-ink); }
+
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 40px; padding: 0 16px;
+  font: 15px var(--px); color: #fff; text-shadow: 2px 2px 0 #3f3f3f; text-decoration: none; white-space: nowrap;
+  background: var(--btn);
+  border: 2px solid #111;
+  box-shadow: inset 2px 2px 0 var(--btn-edge), inset -2px -2px 0 var(--btn-shade);
+  cursor: pointer; user-select: none;
+}
+.btn:hover, .btn[aria-selected="true"], .btn[aria-pressed="true"] {
+  background: var(--btn-hi);
+  box-shadow: inset 2px 2px 0 var(--btn-hi-edge), inset -2px -2px 0 var(--btn-hi-shade);
+}
+.btn:focus-visible { outline: 3px solid #fff; outline-offset: 1px; }
+.btn[disabled] {
+  background: var(--btn-off); color: #8a8a8a; text-shadow: none;
+  box-shadow: inset 2px 2px 0 var(--btn-off-edge);
+  cursor: default;
+}
+.btn.sm { min-height: 32px; padding: 0 10px; font-size: 13px; }
+.btn.ic { width: 32px; min-height: 32px; padding: 0; }
+.btn.ic svg { width: 12px; height: 12px; fill: currentColor; shape-rendering: crispEdges; filter: drop-shadow(1px 1px 0 #3f3f3f); }
+.btn.go { min-height: 46px; padding: 0 22px; font-size: 17px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.tabs .btn { min-width: 132px; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+
+input[type=search], input[type=text], select {
+  height: 38px; padding: 0 10px;
+  font: 15px var(--body); color: var(--ink);
+  background: #e4e2dc; border: 2px solid #3f3d38; border-radius: 0;
+}
+input[type=search] { flex: 1 1 240px; min-width: 0; }
+input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); outline-offset: 0; }
+.find { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 14px 0 10px; }
+.check { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--sage-ink); }
+
+.group { border-top: 2px solid var(--line); }
+.group summary {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 4px; cursor: pointer; list-style: none;
+}
+.group summary::-webkit-details-marker { display: none; }
+.group summary::before {
+  content: ""; width: 10px; height: 10px; flex: none;
+  background: #4a4843; clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.group[open] summary::before { transform: rotate(90deg); }
+.gname { font: 15px var(--px); text-transform: uppercase; color: #34332e; }
+.gcount { margin-left: auto; font-size: 14px; color: #5c5a54; }
+.gcount.has { color: var(--sage-ink); font-weight: 700; }
+.rows { list-style: none; margin: 0 0 12px; padding: 0; }
+.row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "play name acts" "yours yours yours";
+  align-items: center; column-gap: 10px; row-gap: 6px;
+  min-height: 46px; padding: 6px 8px; margin-bottom: 4px;
+  background: var(--slot);
+  box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi);
+}
+.row > .btn.ic { grid-area: play; }
+.row .name { grid-area: name; background: none; padding: 0; overflow-wrap: anywhere; }
+.row .acts { grid-area: acts; }
+.row .yours { grid-area: yours; padding-left: 42px; }
+.row:not(.mine) .yours { display: none; }
+.row.mine { background: var(--mine); box-shadow: inset 2px 2px 0 var(--mine-lo), inset -2px -2px 0 var(--mine-hi); }
+.yours { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.tag { flex: none; font: 12px var(--px); color: #233e33; }
+.fname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 700; color: #233e33; }
+.dur { font: 13px var(--mono); color: #4b5a53; flex: none; }
+.acts { display: flex; gap: 6px; justify-content: flex-end; }
+@media (max-width: 520px) {
+  .panel { padding: 14px 12px; }
+  .wrap { padding: 0 10px; }
+  .row { column-gap: 8px; padding: 6px; }
+  .row .yours { padding-left: 0; }
+  .btn.sm { padding: 0 7px; }
+  .tabs .btn { min-width: 0; flex: 1; padding: 0 8px; }
+}
+
+.loose { margin: 4px 0 14px; padding: 12px 14px 6px; background: #d9cfae; box-shadow: inset 2px 2px 0 #a8996c, inset -2px -2px 0 #efe7cd; }
+.loose h3 { margin-top: 0; }
+.loose ul { list-style: none; margin: 0; padding: 0; }
+.loose li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 14rem) auto auto;
+  align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid #b9ad86;
+}
+.loose .fname { color: var(--ink); }
+.loose select { height: 34px; width: 100%; }
+@media (max-width: 640px) {
+  .loose li { grid-template-columns: auto minmax(0, 1fr) auto auto; }
+  .loose select { grid-column: 1 / -1; grid-row: 2; }
+}
+
+.tracks { list-style: none; margin: 0; padding: 0; counter-reset: t; }
+.tracks li {
+  display: grid; grid-template-columns: 2.2rem auto minmax(0, 1fr) auto auto;
+  align-items: center; gap: 10px;
+  min-height: 46px; padding: 6px 8px; margin-bottom: 4px;
+  background: var(--slot);
+  box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi);
+  counter-increment: t;
+}
+.tracks li::before { content: counter(t); font: 15px var(--px); color: #4a4843; text-align: right; }
+.tracks .fname { color: var(--ink); }
+.empty { padding: 18px; text-align: center; color: var(--ink2); background: var(--slot); box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi); }
+
+.build { margin-top: 18px; padding-top: 16px; border-top: 2px solid var(--line); }
+.meter {
+  position: relative; height: 20px; margin: 4px 0 22px;
+  background: #3a3a3a; box-shadow: inset 2px 2px 0 #222, inset -2px -2px 0 #6a6a6a;
+}
+.meter .fill { height: 100%; width: 0; background: var(--btn-hi); transition: width .2s; }
+.meter.pc .fill { background: var(--gold); }
+.meter.over .fill { background: #b84a3a; width: 100% !important; }
+.meter .mark { position: absolute; top: -4px; bottom: -4px; width: 3px; background: #fff; }
+.meter .mark span { position: absolute; top: calc(100% + 2px); left: 50%; transform: translateX(-50%); font: 12px var(--px); color: #3f3d38; white-space: nowrap; }
+.meter .mark.end { right: 0; }
+.meter .mark.end span { left: auto; right: 0; transform: none; }
+.size { font-size: 15px; font-weight: 700; }
+.size.pc { color: #7a5a12; }
+.size.over { color: var(--bad); }
+.opts { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; margin-top: 10px; }
+.opts label { display: grid; gap: 4px; font-size: 14px; color: var(--ink2); }
+.opts .namebox { display: flex; align-items: center; gap: 4px; }
+.opts .namebox input { width: 11rem; }
+.opts .go { margin-left: auto; }
+.status { min-height: 1.5em; margin: 10px 0 0; font-size: 15px; }
+.status.bad { color: var(--bad); font-weight: 700; }
+.status.good { color: var(--sage-ink); font-weight: 700; }
+
+.steps { margin: 0 0 12px; padding-left: 0; list-style: none; counter-reset: s; }
+.steps li { position: relative; padding-left: 38px; margin-bottom: 12px; counter-increment: s; }
+.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 0;
+  width: 26px; height: 26px; display: grid; place-items: center;
+  font: 14px var(--px); color: #fff; text-shadow: 1px 1px 0 #3f3f3f;
+  background: var(--btn); box-shadow: inset 2px 2px 0 var(--btn-edge), inset -2px -2px 0 var(--btn-shade); border: 2px solid #111;
+}
+.notes { margin: 0; padding-left: 18px; color: var(--ink2); font-size: 15px; }
+.notes li { margin-bottom: 6px; }
+.url { display: block; margin: 6px 0 0; padding: 6px 8px; font: 13px var(--mono); background: #bdbbb6; overflow-wrap: anywhere; }
+
+.map { margin: 6px 0 12px; }
+.map canvas { display: block; width: 100%; max-width: 512px; aspect-ratio: 1; background: #2a2926; border: 3px solid #141310; }
+.legend { margin: 0; padding: 0; list-style: none; }
+.legend li { padding: 6px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.legend b { font: 400 14px var(--px); margin-right: 6px; }
+.tool.drag { outline: 4px dashed var(--btn-hi); outline-offset: -12px; }
+
+.foot { padding: 0 0 40px; color: #a9a59a; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">DIG-N-BUILD</p>
+    <h1>PACK MAKER</h1>
+    <p class="lede">Change the sounds, the music or the textures in the Dig-n-Build world. Make the pack here, put it online, then paste the link on the PACKS page in the world. Only you see and hear your pack.</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <section class="panel tool" id="tool" aria-label="Pack maker">
+    <div class="tabs" role="tablist">
+      <button class="btn" role="tab" id="tb-sounds" aria-controls="tab-sounds" aria-selected="true" data-tab="sounds">SOUNDS</button>
+      <button class="btn" role="tab" id="tb-music" aria-controls="tab-music" aria-selected="false" data-tab="music">MUSIC</button>
+      <button class="btn" role="tab" id="tb-textures" aria-controls="tab-textures" aria-selected="false" data-tab="textures">TEXTURES</button>
+    </div>
+
+    <div class="tabpage" id="tab-sounds" role="tabpanel" aria-labelledby="tb-sounds">
+      <div class="bar">
+        <button class="btn" data-pick="snd-add" data-lock>ADD SOUNDS</button>
+        <button class="btn" data-pick="snd-open" data-lock>OPEN A PACK</button>
+        <button class="btn" id="snd-zip" data-lock>NORMAL SOUNDS AS WAV</button>
+      </div>
+      <input type="file" id="snd-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
+      <input type="file" id="snd-one" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" hidden>
+      <input type="file" id="snd-open" accept=".bin" hidden>
+      <p class="hint">Name your files after the sound they replace, like <code>step_grass1.wav</code>, and they go in the right spot when you add them or drop them here. Every sound you leave alone keeps the normal Dig-n-Build sound. To start from the real ones, get the normal sounds as WAV files, edit the ones you want and drop them back in.</p>
+      <div class="find">
+        <input type="search" id="snd-find" placeholder="Find a sound, like grass or zombie" aria-label="Find a sound">
+        <label class="check"><input type="checkbox" id="snd-mine"> Only show the ones I changed</label>
+      </div>
+      <div class="loose" id="snd-loose" hidden></div>
+      <div id="snd-groups"></div>
+      <p class="empty" id="snd-none" hidden>No sounds match that.</p>
+      <div class="build" id="snd-build">
+        <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
+        <p class="size" id="snd-size"></p>
+        <div class="opts">
+          <label>Quality
+            <select id="snd-rate">
+              <option value="44100" selected>44.1 kHz, normal</option>
+              <option value="32000">32 kHz</option>
+              <option value="22050">22 kHz, smaller</option>
+            </select>
+          </label>
+          <label>File name
+            <span class="namebox"><input type="text" id="snd-name" value="my-sounds" spellcheck="false"><span>.bin</span></span>
+          </label>
+          <button class="btn go" id="snd-go" data-lock disabled>BUILD PACK</button>
+        </div>
+        <p class="status" id="snd-status" role="status"></p>
+      </div>
+    </div>
+
+    <div class="tabpage" id="tab-music" role="tabpanel" aria-labelledby="tb-music" hidden>
+      <div class="bar">
+        <button class="btn" data-pick="mus-add" data-lock>ADD TRACKS</button>
+        <button class="btn" data-pick="mus-open" data-lock>OPEN A PACK</button>
+        <button class="btn" id="mus-classic" data-lock>ADD THE CLASSIC MUSIC</button>
+      </div>
+      <input type="file" id="mus-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
+      <input type="file" id="mus-open" accept=".bin" hidden>
+      <p class="hint">Your tracks replace the world music. The world plays a random one, then stays quiet for a few minutes before the next. You can put up to 64 tracks in a pack.</p>
+      <ol class="tracks" id="mus-list"></ol>
+      <p class="empty" id="mus-empty">No tracks yet. Add MP3, OGG, WAV or FLAC files, or drop them here.</p>
+      <div class="build" id="mus-build">
+        <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
+        <p class="size" id="mus-size"></p>
+        <p class="muted" id="mus-room"></p>
+        <div class="opts">
+          <label>Quality
+            <select id="mus-rate">
+              <option value="44100">44.1 kHz, best</option>
+              <option value="32000">32 kHz</option>
+              <option value="22050" selected>22 kHz, normal</option>
+              <option value="16000">16 kHz, smallest</option>
+            </select>
+          </label>
+          <label>Channels
+            <select id="mus-ch">
+              <option value="1" selected>Mono, half the size</option>
+              <option value="2">Stereo</option>
+            </select>
+          </label>
+          <label>File name
+            <span class="namebox"><input type="text" id="mus-name" value="my-music" spellcheck="false"><span>.bin</span></span>
+          </label>
+          <button class="btn go" id="mus-go" data-lock disabled>BUILD PACK</button>
+        </div>
+        <p class="status" id="mus-status" role="status"></p>
+      </div>
+    </div>
+
+    <div class="tabpage" id="tab-textures" role="tabpanel" aria-labelledby="tb-textures" hidden>
+      <p>A texture pack is one 2048 by 2048 PNG image. Download a sheet, paint over it, keep everything where it is, and save it at the same size. Leave the empty spots empty.</p>
+      <div class="bar">
+        <a class="btn" href="../texturepacks/dig-n-build.png" download="dig-n-build.png">DIG-N-BUILD SHEET</a>
+        <a class="btn" href="../texturepacks/classic.png" download="classic.png">CLASSIC SHEET</a>
+      </div>
+      <figure class="map">
+        <canvas id="tex-map" width="512" height="512" aria-label="Map of the texture sheet"></canvas>
+      </figure>
+      <label class="check"><input type="checkbox" id="tex-areas" checked> Show what goes where</label>
+      <ul class="legend" style="margin-top:10px">
+        <li><b>BLOCKS</b> The textures on the blocks in the world, 16 by 16 tiles.</li>
+        <li><b>BLOCK ICONS</b> The block pictures in your inventory, hotbar, chests and furnaces.</li>
+        <li><b>ITEMS</b> Item icons. Tools, food, doors and the bow you hold use these too.</li>
+        <li><b>MOBS</b> Mob skins, arrows, the fishing bobber and the minecart.</li>
+        <li><b>MENUS</b> Buttons, panels, hearts, hunger and the hotbar.</li>
+      </ul>
+      <h3>Check your sheet</h3>
+      <div class="bar">
+        <button class="btn" data-pick="tex-file">CHOOSE YOUR IMAGE</button>
+      </div>
+      <input type="file" id="tex-file" accept="image/png,image/jpeg,image/webp" hidden>
+      <p class="status" id="tex-status" role="status"></p>
+    </div>
+  </section>
+
+  <aside class="side">
+    <section class="panel">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>Pick SOUNDS, MUSIC or TEXTURES and add your files.</li>
+        <li>Press BUILD PACK to save your pack file. A texture pack is just the image you painted.</li>
+        <li>Put the file online. See below.</li>
+        <li>In the world, open the options menu and press the PACKS button. Pick the same tab, paste your link and press LOAD.</li>
+      </ol>
+      <ul class="notes">
+        <li>Only you see and hear your pack. Everyone else keeps their own.</li>
+        <li>Paste your link again each time you join.</li>
+        <li>Quest only loads sound and music packs up to 64 MB. The bar under your pack shows where that is.</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>Putting it online</h2>
+      <p class="hint">GitHub Pages works for everyone. Other sites only load for players who turned on Allow Untrusted URLs in their VRChat settings.</p>
+      <ol class="steps">
+        <li>Make a GitHub account and a new public repository.</li>
+        <li>Upload your pack file to it. The website only takes files up to 25 MB, so use GitHub Desktop for bigger ones.</li>
+        <li>In the repository, open Settings, then Pages, and have it deploy from the main branch.</li>
+        <li>After a minute your link works. It looks like this:<span class="url">https://yourname.github.io/yourrepo/my-sounds.bin</span></li>
+      </ol>
+      <p class="hint">Texture packs can also go on Imgur. Use the direct i.imgur.com link to the image.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="wrap foot">
+  <p>Your files never leave your computer. Packs are built right here in your browser.</p>
+</footer>
+
+<script>
+"use strict";
+const SLOTS = ["bow","bowhit1","bowhit2","bowhit3","bowhit4","chicken_hurt1","chicken_hurt2","chicken_plop","chicken_say1","chicken_say2","chicken_say3","chicken_step1","chicken_step2","cow_hurt1","cow_hurt2","cow_hurt3","cow_say1","cow_say2","cow_say3","cow_say4","cow_step1","cow_step2","cow_step3","cow_step4","creeper_death","creeper_fuse","creeper_say1","creeper_say2","creeper_say3","creeper_say4","creeper_step1","creeper_step2","creeper_step3","creeper_step4","explode1","explode2","explode3","explode4","pig_death","pig_say1","pig_say2","pig_say3","pig_step1","pig_step2","pig_step3","pig_step4","pig_step5","sheep_say1","sheep_say2","sheep_say3","sheep_step1","sheep_step2","sheep_step3","sheep_step4","sheep_step5","skeleton_death","skeleton_hurt1","skeleton_hurt2","skeleton_hurt3","skeleton_hurt4","skeleton_say1","skeleton_say2","skeleton_say3","skeleton_step1","skeleton_step2","skeleton_step3","skeleton_step4","spider_death","spider_say1","spider_say2","spider_say3","spider_say4","spider_step1","spider_step2","spider_step3","spider_step4","step_grass1","step_grass2","step_grass3","step_grass4","step_grass5","villager_death","villager_hurt1","villager_hurt2","villager_hurt3","villager_hurt4","villager_say1","villager_say2","villager_say3","zombie_death","zombie_hurt1","zombie_hurt2","zombie_say1","zombie_say2","zombie_say3","zombie_step1","zombie_step2","zombie_step3","zombie_step4","zombie_step5","damage_fallbig","damage_fallsmall","damage_hit1","damage_hit2","damage_hit3","dig_cloth1","dig_cloth2","dig_cloth3","dig_cloth4","dig_grass1","dig_grass2","dig_grass3","dig_grass4","dig_gravel1","dig_gravel2","dig_gravel3","dig_gravel4","dig_sand1","dig_sand2","dig_sand3","dig_sand4","dig_snow1","dig_snow2","dig_snow3","dig_snow4","dig_stone1","dig_stone2","dig_stone3","dig_stone4","dig_wood1","dig_wood2","dig_wood3","dig_wood4","entity_cow_milk1","entity_cow_milk2","entity_cow_milk3","entity_sheep_shear1","fire_fire","fire_ignite","item_bucket_empty1","item_bucket_empty2","item_bucket_empty3","item_bucket_empty_lava1","item_bucket_empty_lava2","item_bucket_empty_lava3","item_bucket_fill1","item_bucket_fill2","item_bucket_fill3","item_bucket_fill_lava1","item_bucket_fill_lava2","item_bucket_fill_lava3","liquid_lava","liquid_water","minecart_base","random_break","random_burp","random_chestclosed","random_chestopen","random_click","random_door_close","random_door_open","random_drink","random_eat1","random_eat2","random_eat3","random_fizz","random_glass1","random_glass2","random_glass3","random_orb","random_pop","random_splash","step_cloth1","step_cloth2","step_cloth3","step_cloth4","step_grass6","step_gravel1","step_gravel2","step_gravel3","step_gravel4","step_sand1","step_sand2","step_sand3","step_sand4","step_sand5","step_snow1","step_snow2","step_snow3","step_snow4","step_stone1","step_stone2","step_stone3","step_stone4","step_stone5","step_stone6","step_wood1","step_wood2","step_wood3","step_wood4","step_wood5","step_wood6"];
+const QUEST = 64 * 1024 * 1024;
+const LIMIT = 100000000;
+const MAX_TRACKS = 64;
+const NORMAL_SOUNDS = "../soundpacks/dig-n-build-sounds.bin";
+const CLASSIC_MUSIC = "../soundpacks/classic-music.bin";
+const TEMPLATE = "../texturepacks/dig-n-build.png";
+const PLAY = '<svg viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1h1v1h1v1h1v2h-1v1h-1v1h-1z"/></svg>';
+const STOP = '<svg viewBox="0 0 8 8" aria-hidden="true"><path d="M2 2h4v4h-4z"/></svg>';
+
+const MOBS = ["chicken", "cow", "creeper", "pig", "sheep", "skeleton", "spider", "villager", "zombie"];
+const GROUPS = [
+  { name: "Footsteps", test: n => n.startsWith("step_") },
+  { name: "Breaking and placing blocks", test: n => n.startsWith("dig_") || n.startsWith("random_glass") },
+  { name: "Player damage", test: n => n.startsWith("damage_") },
+  ...MOBS.map(m => ({ name: m, test: n => n.startsWith(m + "_") || n.startsWith("entity_" + m + "_") })),
+  { name: "Bow and arrows", test: n => n.startsWith("bow") },
+  { name: "Explosions", test: n => n.startsWith("explode") },
+  { name: "Fire, water and lava", test: n => n.startsWith("fire_") || n.startsWith("liquid_") },
+  { name: "Buckets", test: n => n.startsWith("item_bucket") },
+  { name: "Minecarts", test: n => n.startsWith("minecart") },
+  { name: "Everything else", test: () => true },
+];
+
+const $ = (s, r = document) => r.querySelector(s);
+const mb = b => (b / 1048576).toFixed(1) + " MB";
+const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
+function fmt(sec) {
+  if (sec < 10) return sec.toFixed(1) + " s";
+  const m = Math.floor(sec / 60), s = Math.round(sec % 60);
+  return m + ":" + String(s).padStart(2, "0");
+}
+function say(id, text, kind) {
+  const p = $("#" + id);
+  p.textContent = text || "";
+  p.className = "status" + (kind ? " " + kind : "");
+}
+
+// audio
+
+let ctx = null;
+function ac() {
+  if (!ctx) ctx = new AudioContext();
+  if (ctx.state === "suspended") ctx.resume();
+  return ctx;
+}
+// decodeAudioData detaches the buffer it gets, so always hand it a copy
+const decode = bytes => ac().decodeAudioData(bytes.slice(0));
+
+async function readAudio(file) {
+  const bytes = await file.arrayBuffer();
+  const b = await decode(bytes);
+  return { kind: "file", bytes, rate: b.sampleRate, ch: b.numberOfChannels, len: b.length };
+}
+const pcmSrc = (data, rate, ch) => ({ kind: "pcm", data, rate, ch, len: data.length / ch });
+const dur = src => src.len / src.rate;
+const framesAt = (src, rate) => src.rate === rate ? src.len : Math.max(1, Math.round(src.len * rate / src.rate));
+
+async function toBuffer(src) {
+  if (src.kind === "file") return decode(src.bytes);
+  const b = new AudioBuffer({ length: src.len, numberOfChannels: src.ch, sampleRate: src.rate });
+  if (src.ch === 1) b.copyToChannel(src.data, 0);
+  else for (let c = 0; c < src.ch; c++) {
+    const d = new Float32Array(src.len);
+    for (let i = 0; i < src.len; i++) d[i] = src.data[i * src.ch + c];
+    b.copyToChannel(d, c);
+  }
+  return b;
+}
+
+async function render(buf, rate, ch, frames) {
+  let b = buf;
+  if (buf.sampleRate !== rate || buf.numberOfChannels !== ch) {
+    const oc = new OfflineAudioContext(ch, frames, rate);
+    const s = oc.createBufferSource();
+    s.buffer = buf;
+    s.connect(oc.destination);
+    s.start(0);
+    b = await oc.startRendering();
+  }
+  const n = Math.min(frames, b.length);
+  const out = new Float32Array(frames * ch);
+  if (ch === 1) out.set(b.getChannelData(0).subarray(0, n));
+  else {
+    const L = b.getChannelData(0), R = b.numberOfChannels > 1 ? b.getChannelData(1) : L;
+    for (let i = 0; i < n; i++) { out[2 * i] = L[i]; out[2 * i + 1] = R[i]; }
+  }
+  return out;
+}
+
+let now = null;
+async function play(btn, getSrc, onErr) {
+  if (now && now.btn === btn) { stop(); return; }
+  stop();
+  const me = now = { btn, node: null };
+  btn.innerHTML = STOP;
+  btn.setAttribute("aria-pressed", "true");
+  try {
+    const src = await getSrc();
+    if (now !== me) return;
+    const buf = await toBuffer(src);
+    if (now !== me) return;
+    const n = ac().createBufferSource();
+    n.buffer = buf;
+    n.connect(ac().destination);
+    n.onended = () => { if (now === me) stop(); };
+    n.start();
+    me.node = n;
+  } catch (e) {
+    if (now === me) stop();
+    if (onErr) onErr(e);
+  }
+}
+function stop() {
+  if (!now) return;
+  const t = now;
+  now = null;
+  try { if (t.node) t.node.stop(); } catch (e) { }
+  t.btn.innerHTML = PLAY;
+  t.btn.setAttribute("aria-pressed", "false");
+}
+
+// pack files: "DNBS", int32 version, int32 header length, utf8 json, pad to 4, float32 pcm
+
+function parsePack(u8) {
+  if (u8.length < 16 || u8[0] !== 68 || u8[1] !== 78 || u8[2] !== 66 || u8[3] !== 83) throw new Error("That is not a pack file.");
+  const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+  const ver = dv.getInt32(4, true), hl = dv.getInt32(8, true);
+  if (ver !== 1) throw new Error("That pack was made for a newer version of the world.");
+  if (hl <= 2 || 12 + hl > u8.length) throw new Error("That pack file is broken.");
+  const h = JSON.parse(new TextDecoder().decode(u8.subarray(12, 12 + hl)));
+  const start = (12 + hl + 3) & ~3;
+  const list = [];
+  for (const e of h.sounds || []) {
+    const bytes = e.s * e.c * 4;
+    if (!(e.c >= 1 && e.c <= 2) || start + e.o + bytes > u8.length) throw new Error("That pack file is broken.");
+    const data = new Float32Array(e.s * e.c);
+    new Uint8Array(data.buffer).set(u8.subarray(start + e.o, start + e.o + bytes));
+    list.push({ name: e.n, src: pcmSrc(data, e.r, e.c) });
+  }
+  return { kind: h.kind, list };
+}
+
+function headerFor(kind, entries, rate, ch) {
+  let off = 0;
+  const meta = entries.map(e => {
+    const s = framesAt(e.src, rate);
+    const m = { n: e.name, r: rate, c: ch, s, o: off };
+    off += s * ch * 4;
+    return m;
+  });
+  return { json: new TextEncoder().encode(JSON.stringify({ kind, sounds: meta })), data: off };
+}
+function estimate(kind, entries, rate, ch) {
+  if (!entries.length) return 0;
+  const h = headerFor(kind, entries, rate, ch);
+  return ((12 + h.json.length + 3) & ~3) + h.data;
+}
+
+async function buildPack(kind, entries, rate, ch, onProg) {
+  const h = headerFor(kind, entries, rate, ch);
+  const pad = (4 - ((12 + h.json.length) % 4)) % 4;
+  const pre = new Uint8Array(12 + h.json.length + pad);
+  pre.set([68, 78, 66, 83]);
+  const dv = new DataView(pre.buffer);
+  dv.setInt32(4, 1, true);
+  dv.setInt32(8, h.json.length, true);
+  pre.set(h.json, 12);
+  const parts = [pre];
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    const buf = await toBuffer(e.src);
+    parts.push(await render(buf, rate, ch, framesAt(e.src, rate)));
+    onProg((i + 1) / entries.length);
+  }
+  return new Blob(parts, { type: "application/octet-stream" });
+}
+
+async function fetchBytes(url, onProg) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error("Could not download it (" + r.status + ").");
+  const total = +r.headers.get("content-length") || 0;
+  if (!r.body) return new Uint8Array(await r.arrayBuffer());
+  const rd = r.body.getReader();
+  const chunks = [];
+  let got = 0;
+  for (;;) {
+    const { done, value } = await rd.read();
+    if (done) break;
+    chunks.push(value);
+    got += value.length;
+    if (total) onProg(Math.min(1, got / total));
+  }
+  const out = new Uint8Array(got);
+  let o = 0;
+  for (const c of chunks) { out.set(c, o); o += c.length; }
+  return out;
+}
+
+function save(blob, name) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 5000);
+}
+function fileName(id, fallback) {
+  const v = $("#" + id).value.trim().replace(/\.bin$/i, "").replace(/[^\w.-]+/g, "-");
+  return (v || fallback) + ".bin";
+}
+
+function wav(f32, rate, ch) {
+  const n = f32.length, b = new ArrayBuffer(44 + n * 2), v = new DataView(b);
+  const str = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+  str(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); str(8, "WAVE");
+  str(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, ch, true);
+  v.setUint32(24, rate, true); v.setUint32(28, rate * ch * 2, true); v.setUint16(32, ch * 2, true); v.setUint16(34, 16, true);
+  str(36, "data"); v.setUint32(40, n * 2, true);
+  for (let i = 0; i < n; i++) {
+    const s = Math.max(-1, Math.min(1, f32[i]));
+    v.setInt16(44 + i * 2, s < 0 ? s * 32768 : s * 32767, true);
+  }
+  return new Uint8Array(b);
+}
+
+const CRC = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(u8) {
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < u8.length; i++) c = CRC[(c ^ u8[i]) & 255] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+// stored zip, no compression, wav barely shrinks anyway
+function zip(files) {
+  const enc = new TextEncoder(), parts = [], dir = [];
+  let off = 0;
+  for (const f of files) {
+    const nm = enc.encode(f.name), crc = crc32(f.data);
+    const h = new Uint8Array(30 + nm.length), v = new DataView(h.buffer);
+    v.setUint32(0, 0x04034b50, true); v.setUint16(4, 20, true); v.setUint16(12, 0x21, true);
+    v.setUint32(14, crc, true); v.setUint32(18, f.data.length, true); v.setUint32(22, f.data.length, true);
+    v.setUint16(26, nm.length, true); h.set(nm, 30);
+    parts.push(h, f.data);
+    const c = new Uint8Array(46 + nm.length), w = new DataView(c.buffer);
+    w.setUint32(0, 0x02014b50, true); w.setUint16(4, 20, true); w.setUint16(6, 20, true); w.setUint16(14, 0x21, true);
+    w.setUint32(16, crc, true); w.setUint32(20, f.data.length, true); w.setUint32(24, f.data.length, true);
+    w.setUint16(28, nm.length, true); w.setUint32(42, off, true); c.set(nm, 46);
+    dir.push(c);
+    off += h.length + f.data.length;
+  }
+  const size = dir.reduce((a, c) => a + c.length, 0);
+  const e = new Uint8Array(22), ev = new DataView(e.buffer);
+  ev.setUint32(0, 0x06054b50, true); ev.setUint16(8, files.length, true); ev.setUint16(10, files.length, true);
+  ev.setUint32(12, size, true); ev.setUint32(16, off, true);
+  return new Blob([...parts, ...dir, e], { type: "application/zip" });
+}
+
+// shared bits
+
+let busy = false;
+function lock(on) {
+  busy = on;
+  document.querySelectorAll("[data-lock]").forEach(b => { b.disabled = on; });
+  if (!on) { paintSoundsMeter(); paintMusicMeter(); }
+}
+function paintMeter(prefix, bytes, count) {
+  const box = $("#" + prefix + "-build"), m = $(".meter", box), size = $("#" + prefix + "-size");
+  $(".fill", m).style.width = Math.min(100, bytes / LIMIT * 100) + "%";
+  $(".mark.quest", m).style.left = (QUEST / LIMIT * 100) + "%";
+  const pc = bytes > QUEST && bytes <= LIMIT, over = bytes > LIMIT;
+  m.className = "meter" + (pc ? " pc" : "") + (over ? " over" : "");
+  size.className = "size" + (pc ? " pc" : "") + (over ? " over" : "");
+  if (!count) size.textContent = "Nothing added yet.";
+  else if (over) size.textContent = mb(bytes) + ". Too big, VRChat will not load it. Lower the quality or take something out.";
+  else if (pc) size.textContent = mb(bytes) + ". Too big for Quest, so it only loads on PC. Quest stops at 64 MB.";
+  else size.textContent = mb(bytes) + ". Works on PC and Quest.";
+  $("#" + prefix + "-go").disabled = busy || !count || over;
+}
+
+// sounds tab
+
+const S = { mine: new Map(), loose: [], normal: null, normalLoading: null, rate: 44100 };
+const SLOTKEY = new Map(SLOTS.map(n => [n.toLowerCase(), n]));
+const rowEl = new Map();
+let uid = 0, pickFor = null;
+const norm = name => name.replace(/\.[^.]+$/, "").trim().toLowerCase().replace(/\s*\(\d+\)$/, "").replace(/[\s-]+/g, "_");
+
+function loadNormal() {
+  if (S.normal) return Promise.resolve(S.normal);
+  if (!S.normalLoading) {
+    S.normalLoading = fetchBytes(NORMAL_SOUNDS, p => say("snd-status", "Loading the normal sounds " + Math.round(p * 100) + "%"))
+      .then(u8 => {
+        const map = new Map();
+        for (const e of parsePack(u8).list) map.set(e.name, e.src);
+        S.normal = map;
+        if ($("#snd-status").textContent.startsWith("Loading the normal")) say("snd-status", "");
+        return map;
+      })
+      .catch(e => { S.normalLoading = null; throw e; });
+  }
+  return S.normalLoading;
+}
+
+function buildGroups() {
+  const root = $("#snd-groups");
+  const sorted = [...SLOTS].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  for (const g of GROUPS) g.list = [];
+  for (const n of sorted) GROUPS.find(g => g.test(n)).list.push(n);
+  for (const g of GROUPS) {
+    if (!g.list.length) continue;
+    const det = document.createElement("details");
+    det.className = "group";
+    det.innerHTML = '<summary><span class="gname"></span><span class="gcount"></span></summary><ul class="rows"></ul>';
+    $(".gname", det).textContent = g.name;
+    const ul = $(".rows", det);
+    for (const n of g.list) {
+      const li = document.createElement("li");
+      li.className = "row";
+      li.dataset.n = n;
+      li.innerHTML = '<code class="name">' + n + '</code><button class="btn ic" data-act="normal" aria-pressed="false" title="Play the normal sound" aria-label="Play the normal ' + n + '">' + PLAY + '</button><span class="yours"></span><span class="acts"></span>';
+      ul.appendChild(li);
+      rowEl.set(n, li);
+      paintRow(n);
+    }
+    root.appendChild(det);
+    g.el = det;
+  }
+  paintCounts();
+}
+
+function paintRow(n) {
+  const li = rowEl.get(n), m = S.mine.get(n);
+  li.classList.toggle("mine", !!m);
+  const y = $(".yours", li), acts = $(".acts", li);
+  if (m) {
+    y.innerHTML = '<button class="btn ic" data-act="mine" aria-pressed="false" title="Play your sound" aria-label="Play your ' + n + '">' + PLAY + '</button><span class="tag">YOURS</span><span class="fname"></span><span class="dur"></span>';
+    $(".fname", y).textContent = m.file;
+    $(".fname", y).title = m.file;
+    $(".dur", y).textContent = fmt(dur(m.src));
+    acts.innerHTML = '<button class="btn sm" data-act="pick" data-lock>REPLACE</button><button class="btn sm" data-act="clear" data-lock>CLEAR</button>';
+  } else {
+    y.innerHTML = "";
+    acts.innerHTML = '<button class="btn sm" data-act="pick" data-lock>REPLACE</button>';
+  }
+  if (busy) acts.querySelectorAll("button").forEach(b => { b.disabled = true; });
+}
+
+function paintCounts() {
+  for (const g of GROUPS) {
+    if (!g.el) continue;
+    const c = g.list.filter(n => S.mine.has(n)).length;
+    const el = $(".gcount", g.el);
+    el.textContent = c ? c + " of " + g.list.length + " changed" : plural(g.list.length, "sound", "sounds");
+    el.classList.toggle("has", c > 0);
+  }
+  paintSoundsMeter();
+}
+
+function soundEntries() {
+  return [...S.mine].map(([name, m]) => ({ name, src: m.src }));
+}
+function paintSoundsMeter() {
+  paintMeter("snd", estimate("sounds", soundEntries(), S.rate, 1), S.mine.size);
+}
+
+function applyFilter() {
+  const q = norm($("#snd-find").value), only = $("#snd-mine").checked;
+  let any = false;
+  for (const g of GROUPS) {
+    if (!g.el) continue;
+    const gq = g.name.toLowerCase().includes(q.replace(/_/g, " "));
+    let vis = 0;
+    for (const n of g.list) {
+      const show = (!q || n.includes(q) || gq) && (!only || S.mine.has(n));
+      rowEl.get(n).hidden = !show;
+      if (show) vis++;
+    }
+    g.el.hidden = vis === 0;
+    if (q || only) g.el.open = vis > 0;
+    if (vis) any = true;
+  }
+  $("#snd-none").hidden = any;
+}
+
+function paintLoose() {
+  const box = $("#snd-loose");
+  box.hidden = !S.loose.length;
+  if (!S.loose.length) { box.innerHTML = ""; return; }
+  box.innerHTML = "<h3>These names did not match a sound</h3><p class=\"hint\">Pick which sound each one replaces.</p><ul></ul>";
+  const ul = $("ul", box);
+  const opts = '<option value="">Pick a sound</option>' + [...SLOTS].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })).map(n => '<option value="' + n + '">' + n + "</option>").join("");
+  for (const l of S.loose) {
+    const li = document.createElement("li");
+    li.dataset.id = l.id;
+    li.innerHTML = '<button class="btn ic" data-act="play" aria-pressed="false" title="Play it" aria-label="Play this file">' + PLAY + '</button><span class="fname"></span><select aria-label="Sound it replaces">' + opts + '</select><button class="btn sm" data-act="use">USE</button><button class="btn sm" data-act="remove">REMOVE</button>';
+    $(".fname", li).textContent = l.file + ", " + fmt(dur(l.src));
+    $(".fname", li).title = l.file;
+    ul.appendChild(li);
+  }
+}
+
+function setMine(n, entry) {
+  if (entry) S.mine.set(n, entry); else S.mine.delete(n);
+  paintRow(n);
+  paintCounts();
+  applyFilter();
+}
+
+async function addSoundFiles(files) {
+  if (busy || !files.length) return;
+  lock(true);
+  stop();
+  let matched = 0, loose = 0;
+  const bad = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    say("snd-status", "Reading " + f.name + " (" + (i + 1) + " of " + files.length + ")");
+    let src;
+    try { src = await readAudio(f); } catch (e) { bad.push(f.name); continue; }
+    const slot = SLOTKEY.get(norm(f.name));
+    if (slot) { S.mine.set(slot, { src, file: f.name }); paintRow(slot); matched++; }
+    else { S.loose.push({ id: ++uid, src, file: f.name }); loose++; }
+  }
+  lock(false);
+  paintCounts();
+  paintLoose();
+  applyFilter();
+  const parts = [];
+  if (matched) parts.push("Added " + plural(matched, "sound", "sounds") + ".");
+  if (loose) parts.push(plural(loose, "file did", "files did") + " not match a sound name, pick where " + (loose === 1 ? "it goes" : "they go") + " above.");
+  if (bad.length) parts.push("Could not read " + bad.join(", ") + ". Try WAV or MP3.");
+  say("snd-status", parts.join(" "), bad.length ? "bad" : (matched ? "good" : ""));
+}
+
+async function replaceOne(n, file) {
+  if (busy) return;
+  lock(true);
+  stop();
+  try {
+    const src = await readAudio(file);
+    lock(false);
+    setMine(n, { src, file: file.name });
+    say("snd-status", n + " now uses " + file.name + ".", "good");
+  } catch (e) {
+    lock(false);
+    say("snd-status", "Could not read " + file.name + ". Try WAV or MP3.", "bad");
+  }
+}
+
+async function openPack(file, want) {
+  if (busy) return;
+  const sid = want === "music" ? "mus-status" : "snd-status";
+  lock(true);
+  stop();
+  try {
+    say(sid, "Opening " + file.name);
+    const pk = parsePack(new Uint8Array(await file.arrayBuffer()));
+    if (pk.kind !== want) throw new Error(pk.kind === "music" ? "That is a music pack. Open it on the MUSIC tab." : "That is a sounds pack. Open it on the SOUNDS tab.");
+    lock(false);
+    if (want === "music") addPackTracks(pk.list, file.name);
+    else {
+      let n = 0, skip = 0, note = "";
+      if (!S.mine.size && pk.list.length) {
+        S.rate = pk.list[0].src.rate;
+        matchRate("snd-rate", S.rate);
+        note = " Quality set to match it.";
+      }
+      for (const e of pk.list) {
+        const slot = SLOTKEY.get(e.name.toLowerCase());
+        if (!slot) { skip++; continue; }
+        S.mine.set(slot, { src: e.src, file: "from " + file.name });
+        paintRow(slot);
+        n++;
+      }
+      paintCounts();
+      applyFilter();
+      say(sid, "Opened " + file.name + ", " + plural(n, "sound", "sounds") + " loaded." + (skip ? " " + plural(skip, "sound was", "sounds were") + " not used by the world and got skipped." : "") + note, "good");
+    }
+  } catch (e) {
+    lock(false);
+    say(sid, e.message && !/JSON|Unexpected/i.test(e.message) ? e.message : "That pack file is broken.", "bad");
+  }
+}
+
+async function buildSounds() {
+  if (busy || !S.mine.size) return;
+  lock(true);
+  stop();
+  try {
+    const blob = await buildPack("sounds", soundEntries(), S.rate, 1, p => say("snd-status", "Building " + Math.round(p * 100) + "%"));
+    const name = fileName("snd-name", "my-sounds");
+    save(blob, name);
+    say("snd-status", "Saved " + name + ", " + mb(blob.size) + ". Put it online and paste the link on the SOUNDS tab in the world.", "good");
+  } catch (e) {
+    say("snd-status", "Building failed: " + e.message, "bad");
+  }
+  lock(false);
+}
+
+async function normalZip() {
+  if (busy) return;
+  lock(true);
+  try {
+    const map = await loadNormal();
+    const files = [{ name: "README.txt", data: new TextEncoder().encode("These are the normal Dig-n-Build sounds.\r\nEdit the ones you want to change and keep the file names.\r\nThen drop only the edited files onto the pack maker and build your pack.\r\n") }];
+    for (const [n, src] of map) files.push({ name: n + ".wav", data: wav(src.data, src.rate, src.ch) });
+    save(zip(files), "dig-n-build-sounds.zip");
+    say("snd-status", "Saved dig-n-build-sounds.zip with " + plural(map.size, "sound", "sounds") + ".", "good");
+  } catch (e) {
+    say("snd-status", "Could not get the normal sounds: " + e.message, "bad");
+  }
+  lock(false);
+}
+
+$("#snd-groups").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]");
+  if (!b) return;
+  const n = b.closest(".row").dataset.n;
+  const act = b.dataset.act;
+  if (act === "normal") play(b, () => loadNormal().then(m => m.get(n)), err => say("snd-status", "Could not get the normal sounds: " + err.message, "bad"));
+  else if (act === "mine") play(b, async () => S.mine.get(n).src);
+  else if (act === "pick") { pickFor = n; $("#snd-one").click(); }
+  else if (act === "clear") { stop(); setMine(n, null); }
+});
+$("#snd-loose").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]");
+  if (!b) return;
+  const li = b.closest("li"), id = +li.dataset.id;
+  const l = S.loose.find(x => x.id === id);
+  if (!l) return;
+  if (b.dataset.act === "play") { play(b, async () => l.src); return; }
+  if (b.dataset.act === "use") {
+    const n = $("select", li).value;
+    if (!n) { $("select", li).focus(); return; }
+    setMine(n, { src: l.src, file: l.file });
+  }
+  stop();
+  S.loose = S.loose.filter(x => x.id !== id);
+  paintLoose();
+});
+$("#snd-add").addEventListener("change", e => { addSoundFiles([...e.target.files]); e.target.value = ""; });
+$("#snd-one").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f && pickFor) replaceOne(pickFor, f); });
+$("#snd-open").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f) openPack(f, "sounds"); });
+$("#snd-zip").addEventListener("click", normalZip);
+$("#snd-go").addEventListener("click", buildSounds);
+$("#snd-find").addEventListener("input", applyFilter);
+$("#snd-mine").addEventListener("change", applyFilter);
+$("#snd-rate").addEventListener("change", e => { S.rate = +e.target.value; paintSoundsMeter(); });
+
+// music tab
+
+const M = { tracks: [], rate: 22050, ch: 1 };
+
+function musicEntries() {
+  return M.tracks.map(t => ({ name: t.name, src: t.src }));
+}
+function paintMusicMeter() {
+  const bytes = estimate("music", musicEntries(), M.rate, M.ch);
+  paintMeter("mus", bytes, M.tracks.length);
+  const perMin = M.rate * M.ch * 4 * 60;
+  const room = $("#mus-room");
+  const more = (left, where) => {
+    const m = Math.floor(left / perMin);
+    return m < 1 ? "Less than a minute more fits before " + where + "." : "About " + plural(m, "more minute fits", "more minutes fit") + " before " + where + ".";
+  };
+  if (!M.tracks.length) room.textContent = "About " + Math.floor(QUEST / perMin) + " minutes of music fit at this quality before the Quest limit.";
+  else if (bytes <= QUEST) room.textContent = more(QUEST - bytes, "the Quest limit");
+  else if (bytes <= LIMIT) room.textContent = more(LIMIT - bytes, "the size limit, PC only");
+  else room.textContent = "";
+}
+function paintTracks() {
+  const ol = $("#mus-list");
+  ol.innerHTML = "";
+  for (const t of M.tracks) {
+    const li = document.createElement("li");
+    li.dataset.id = t.id;
+    li.innerHTML = '<button class="btn ic" data-act="play" aria-pressed="false" title="Play" aria-label="Play this track">' + PLAY + '</button><span class="fname"></span><span class="dur"></span><button class="btn sm" data-act="remove" data-lock>REMOVE</button>';
+    $(".fname", li).textContent = t.name;
+    $(".fname", li).title = t.name;
+    $(".dur", li).textContent = fmt(dur(t.src));
+    ol.appendChild(li);
+  }
+  $("#mus-empty").hidden = M.tracks.length > 0;
+  if (busy) ol.querySelectorAll("button[data-lock]").forEach(b => { b.disabled = true; });
+  paintMusicMeter();
+}
+
+async function addTracks(files) {
+  if (busy || !files.length) return;
+  lock(true);
+  stop();
+  let added = 0, full = 0;
+  const bad = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    if (M.tracks.length >= MAX_TRACKS) { full++; continue; }
+    say("mus-status", "Reading " + f.name + " (" + (i + 1) + " of " + files.length + ")");
+    try {
+      const src = await readAudio(f);
+      M.tracks.push({ id: ++uid, name: f.name.replace(/\.[^.]+$/, ""), src });
+      added++;
+    } catch (e) { bad.push(f.name); }
+  }
+  lock(false);
+  paintTracks();
+  const parts = [];
+  if (added) parts.push("Added " + plural(added, "track", "tracks") + ".");
+  if (full) parts.push("A pack holds 64 tracks, " + plural(full, "file was", "files were") + " left out.");
+  if (bad.length) parts.push("Could not read " + bad.join(", ") + ". Try MP3 or WAV.");
+  say("mus-status", parts.join(" "), bad.length ? "bad" : (added ? "good" : ""));
+}
+
+function matchRate(selId, rate) {
+  const sel = $("#" + selId);
+  if (![...sel.options].some(o => +o.value === rate)) sel.add(new Option(Math.round(rate / 100) / 10 + " kHz, same as the pack", rate));
+  sel.value = String(rate);
+}
+
+function addPackTracks(list, from) {
+  let note = "";
+  if (!M.tracks.length && list.length) {
+    M.rate = list[0].src.rate;
+    M.ch = list[0].src.ch;
+    matchRate("mus-rate", M.rate);
+    $("#mus-ch").value = String(M.ch);
+    note = " Quality set to match it.";
+  }
+  let added = 0;
+  for (const e of list) {
+    if (M.tracks.length >= MAX_TRACKS) break;
+    M.tracks.push({ id: ++uid, name: e.name, src: e.src });
+    added++;
+  }
+  paintTracks();
+  say("mus-status", "Added " + plural(added, "track", "tracks") + " from " + from + "." + note, "good");
+}
+
+async function addClassic() {
+  if (busy) return;
+  lock(true);
+  stop();
+  try {
+    const u8 = await fetchBytes(CLASSIC_MUSIC, p => say("mus-status", "Downloading the classic music " + Math.round(p * 100) + "%"));
+    const pk = parsePack(u8);
+    lock(false);
+    addPackTracks(pk.list, "the classic music");
+  } catch (e) {
+    lock(false);
+    say("mus-status", "Could not get the classic music: " + e.message, "bad");
+  }
+}
+
+async function buildMusic() {
+  if (busy || !M.tracks.length) return;
+  lock(true);
+  stop();
+  try {
+    const blob = await buildPack("music", musicEntries(), M.rate, M.ch, p => say("mus-status", "Building " + Math.round(p * 100) + "%"));
+    const name = fileName("mus-name", "my-music");
+    save(blob, name);
+    say("mus-status", "Saved " + name + ", " + mb(blob.size) + ". Put it online and paste the link on the MUSIC tab in the world.", "good");
+  } catch (e) {
+    say("mus-status", "Building failed: " + e.message, "bad");
+  }
+  lock(false);
+}
+
+$("#mus-list").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]");
+  if (!b) return;
+  const id = +b.closest("li").dataset.id;
+  const t = M.tracks.find(x => x.id === id);
+  if (!t) return;
+  if (b.dataset.act === "play") play(b, async () => t.src);
+  else { stop(); M.tracks = M.tracks.filter(x => x.id !== id); paintTracks(); }
+});
+$("#mus-add").addEventListener("change", e => { addTracks([...e.target.files]); e.target.value = ""; });
+$("#mus-open").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; if (f) openPack(f, "music"); });
+$("#mus-classic").addEventListener("click", addClassic);
+$("#mus-go").addEventListener("click", buildMusic);
+$("#mus-rate").addEventListener("change", e => { M.rate = +e.target.value; paintMusicMeter(); });
+$("#mus-ch").addEventListener("change", e => { M.ch = +e.target.value; paintMusicMeter(); });
+
+// textures tab
+
+const REGIONS = [
+  { name: "MOBS", x: 0, y: 0, w: 1024, h: 512 },
+  { name: "MENUS", x: 1024, y: 0, w: 1024, h: 512 },
+  { name: "ITEMS", x: 0, y: 512, w: 1024, h: 512 },
+  { name: "BLOCK ICONS", x: 1024, y: 512, w: 1024, h: 1536 },
+  { name: "BLOCKS", x: 0, y: 1024, w: 1024, h: 1024 },
+];
+let texImg = null, texLoaded = false;
+
+function drawMap() {
+  const cv = $("#tex-map"), g = cv.getContext("2d");
+  const k = cv.width / 2048;
+  g.imageSmoothingEnabled = false;
+  g.fillStyle = "#2a2926";
+  g.fillRect(0, 0, cv.width, cv.height);
+  if (texImg) g.drawImage(texImg, 0, 0, cv.width, cv.height);
+  if (!$("#tex-areas").checked) return;
+  g.font = "11px Silkscreen, monospace";
+  g.textBaseline = "top";
+  for (const r of REGIONS) {
+    g.strokeStyle = "#fff";
+    g.lineWidth = 2;
+    g.strokeRect(r.x * k + 1, r.y * k + 1, r.w * k - 2, r.h * k - 2);
+    const tw = g.measureText(r.name).width + 10;
+    g.fillStyle = "#2f5545";
+    g.fillRect(r.x * k + 4, r.y * k + 4, tw, 17);
+    g.fillStyle = "#fff";
+    g.fillText(r.name, r.x * k + 9, r.y * k + 7);
+  }
+}
+function loadTemplate() {
+  if (texLoaded) return;
+  texLoaded = true;
+  const img = new Image();
+  img.onload = () => { if (!texImg) { texImg = img; drawMap(); } };
+  img.src = TEMPLATE;
+  drawMap();
+}
+function checkTexture(file) {
+  if (!file) return;
+  if (!/^image\//.test(file.type)) { say("tex-status", "That is not an image. A texture pack is a PNG.", "bad"); return; }
+  const img = new Image();
+  img.onload = () => {
+    texImg = img;
+    drawMap();
+    const w = img.naturalWidth, h = img.naturalHeight;
+    const jpg = file.type === "image/jpeg";
+    if (w !== 2048 || h !== 2048) say("tex-status", "This image is " + w + " by " + h + ". It has to be exactly 2048 by 2048 or the world will not load it.", "bad");
+    else if (jpg) say("tex-status", "The size is right, but it is a JPG. JPG has no see-through parts, so glass, leaves and the menus would turn solid. Save it as PNG.", "bad");
+    else say("tex-status", "Looks good, it is 2048 by 2048. Put it online and paste the link on the TEXTURES tab in the world.", "good");
+  };
+  img.onerror = () => say("tex-status", "Could not open that image.", "bad");
+  img.src = URL.createObjectURL(file);
+}
+$("#tex-file").addEventListener("change", e => { checkTexture(e.target.files[0]); e.target.value = ""; });
+$("#tex-areas").addEventListener("change", drawMap);
+
+// tabs, file buttons and drag and drop
+
+let tab = "sounds";
+function showTab(t) {
+  tab = t;
+  for (const b of document.querySelectorAll("[role=tab]")) b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false");
+  for (const p of document.querySelectorAll(".tabpage")) p.hidden = p.id !== "tab-" + t;
+  if (t === "textures") loadTemplate();
+}
+for (const b of document.querySelectorAll("[role=tab]")) b.addEventListener("click", () => showTab(b.dataset.tab));
+for (const b of document.querySelectorAll("[data-pick]")) b.addEventListener("click", () => $("#" + b.dataset.pick).click());
+
+const tool = $("#tool");
+let depth = 0;
+const hasFiles = e => e.dataTransfer && [...e.dataTransfer.types].includes("Files");
+document.addEventListener("dragenter", e => { if (hasFiles(e)) { depth++; tool.classList.add("drag"); } });
+document.addEventListener("dragleave", e => { if (hasFiles(e) && --depth <= 0) { depth = 0; tool.classList.remove("drag"); } });
+document.addEventListener("dragover", e => { if (hasFiles(e)) e.preventDefault(); });
+document.addEventListener("drop", e => {
+  if (!hasFiles(e)) return;
+  e.preventDefault();
+  depth = 0;
+  tool.classList.remove("drag");
+  const files = [...e.dataTransfer.files];
+  if (!files.length) return;
+  const bin = files.find(f => /\.bin$/i.test(f.name));
+  if (tab === "textures") checkTexture(files[0]);
+  else if (bin) openPack(bin, tab);
+  else if (tab === "music") addTracks(files);
+  else addSoundFiles(files);
+});
+window.addEventListener("beforeunload", e => {
+  if (S.mine.size || M.tracks.length) { e.preventDefault(); e.returnValue = ""; }
+});
+
+buildGroups();
+applyFilter();
+paintTracks();
+if (document.fonts) document.fonts.ready.then(() => { if (texLoaded) drawMap(); });
+</script>
+</body>
+</html>
