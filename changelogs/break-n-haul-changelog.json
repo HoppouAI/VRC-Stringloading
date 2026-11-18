@@ -2,6 +2,32 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.4.12",
+   "date": "2026-11-17",
+   "title": "Electric Van",
+   "summary": "There's a new ride, the Electric Van, every night school track gets a 5th course, and sneaky rides actually keep the cops away longer now.",
+   "added": [
+    "Electric Van, a new ride between the Ambulance and the Delivery Truck. $70,000 or 650 credits, brings 3 gear, 10% driver's cut, 1,100 kg max load and full width back doors that fold flat to the sides",
+    "A 5th course on every night school track, 12 in all at $400,000 each. Double Major covers them too",
+    "Cat Burglar: Out of Range (cops have to get closer to tase you) and Night Owl (the dark hides you better from people and cameras)",
+    "Muscle: Heavy Hitter (your throws and swings break glass easier) and Fight or Flight (knock someone out and you run faster for 4 s)",
+    "Brains: Treasure Sense (the most valuable loot nearby that isn't bagged shows through walls) and Police Scanner (a countdown to the cops showing up once they're called)",
+    "Lookout: Stake Out (a quick rundown of the house when you get there) and Tight Squeeze (your bags take bigger and heavier things)",
+    "Fixer: Out of Sight (people and cameras lose track of you twice as fast) and Tripwire Tamer (cameras and lasers you set off make half the noise)",
+    "Crew Chief: Cover Me (people and cameras lose track of crewmates near you faster) and Pivot (team carries hold with you up to 2 m apart)",
+    "X-ray outlines checkbox on the Graphics settings page. Turn it off to hide every see through walls outline on your screen, your courses stay passed"
+   ],
+   "changed": [
+    "Ride stealth actually does something now. The boss's ride makes the cops show up later once they're called, up to 8 s later with the Basket Bike. The rides board and the plan board say how much later",
+    "The rides board says how much gear a ride brings instead of gear slots, so it doesn't read like your belt slots",
+    "The rides board goes through the rides from cheapest to most expensive",
+    "The Back Room's Rides tab has page arrows now that there are 9 keys"
+   ],
+   "fixed": [
+    "16 loot items (gold chain, pocket watch, the instruments and more) and the diner key showed a number on the desktop belt instead of an icon. They all have icons now"
+   ]
+  },
+  {
    "version": "1.4.11",
    "date": "2026-11-15",
    "title": "Taser Fix",
