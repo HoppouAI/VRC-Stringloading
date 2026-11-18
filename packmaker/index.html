@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dig-n-Build Pack Maker</title>
-<meta name="description" content="Make sound, music and texture packs for the Dig-n-Build VRChat world.">
-<meta name="theme-color" content="#24221d">
+<meta name="description" content="Make texture, sound and music packs for the Dig-n-Build VRChat world, or convert a Minecraft Java resource pack.">
+<meta name="theme-color" content="#1b1a17">
 <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACY0lEQVR42l2SO2/UQBhFvxnPw/Z6bK83WSdU5AVIocj/TUVFkWolFCFRg/gHERJayFPJ7tre8dszY5tipRTc4uqW50gXLa4ul39ux3EoCkkpIxZBGJ+dnnRd44mgLKQfTH/++D6PYynz8/NzolR3f/+XUjIOo+O4zA+32abr3ngi6NqGUsa47QlfyjwI/Lat8Sw+pJRY2BqGwRidpWvKWNt2lmUBQDQ/VF2LMFFdK2WOsYWuF58AAADSZAMA0WwP/g96XWVZEEIIcyYyWQvhO67LnMnXLwtCqRCBUl1TV8aY2d78w/t3AOB5Hm7qWjUVZTyY7RtjZLImlBqti0LWVWmMAYBks6KMU8arsiCU8aauAUAm62C2XxcSxtEY0/d9OI0IoclmBQCEWMyZEGKRIs9s29VaecJ/ebzl3Lm4uPCEb1lEazWOY12/BbDKooCisB2X3N3dMmor3QLA0dHJTq5tmjTLhPCSJEEIRVH09PQcHxxo1eEgiJRuOXOEFxBCjdGEUEIsrVWapkKEWqmX52cAyPMcAHBdlZQwpbuyKozRALDrvu8Zs5ummng+ZWwa7e9U0bfrzwAgtykATDxRV2XTNH3fz+MDhNAOjzKOsDUOfdfW5NfNTdc1jPPjk1MAeLxfrlarKJpuVg/b7TaO4+Ozj8vfS4SQ7U6aqiDD0FPKAIDbtszS+4cHX7h1XVkYh2GYS0kp28p06HuU4WkYYcd183w7DuM4jO7Ec2xucydJc247AEApzWXGGLcdF2GcbVO0uLoU4VS1TZKshec77sQY3bXtMPTcdsahr6oSY+v1Wf8A7TVQLfOdKBwAAAAASUVORK5CYII=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +13,11 @@
 <style>
 :root {
   --ink: #2b2a27;
-  --ink2: #4d4b45;
-  --line: #8f8d88;
+  --ink2: #4a4843;
+  --line: #8b8b8b;
+  --panel: #c6c6c6;
+  --panel-hi: #ffffff;
+  --panel-lo: #555555;
   --slot: #ababaa;
   --slot-lo: #8a8989;
   --slot-hi: #cbcbcb;
@@ -32,6 +35,10 @@
   --sage-ink: #2f5545;
   --gold: #c9a24a;
   --bad: #9b1c1c;
+  --side: #1b1a17;
+  --side-btn: #34332f;
+  --side-ink: #e9e6dc;
+  --side-ink2: #a9a59a;
   --px: "Silkscreen", ui-monospace, monospace;
   --body: "Atkinson Hyperlegible", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -43,35 +50,77 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font: 16px/1.5 var(--body);
-  background: linear-gradient(rgba(24, 22, 18, .8), rgba(24, 22, 18, .8)), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACY0lEQVR42l2SO2/UQBhFvxnPw/Z6bK83WSdU5AVIocj/TUVFkWolFCFRg/gHERJayFPJ7tre8dszY5tipRTc4uqW50gXLa4ul39ux3EoCkkpIxZBGJ+dnnRd44mgLKQfTH/++D6PYynz8/NzolR3f/+XUjIOo+O4zA+32abr3ngi6NqGUsa47QlfyjwI/Lat8Sw+pJRY2BqGwRidpWvKWNt2lmUBQDQ/VF2LMFFdK2WOsYWuF58AAADSZAMA0WwP/g96XWVZEEIIcyYyWQvhO67LnMnXLwtCqRCBUl1TV8aY2d78w/t3AOB5Hm7qWjUVZTyY7RtjZLImlBqti0LWVWmMAYBks6KMU8arsiCU8aauAUAm62C2XxcSxtEY0/d9OI0IoclmBQCEWMyZEGKRIs9s29VaecJ/ebzl3Lm4uPCEb1lEazWOY12/BbDKooCisB2X3N3dMmor3QLA0dHJTq5tmjTLhPCSJEEIRVH09PQcHxxo1eEgiJRuOXOEFxBCjdGEUEIsrVWapkKEWqmX52cAyPMcAHBdlZQwpbuyKozRALDrvu8Zs5ummng+ZWwa7e9U0bfrzwAgtykATDxRV2XTNH3fz+MDhNAOjzKOsDUOfdfW5NfNTdc1jPPjk1MAeLxfrlarKJpuVg/b7TaO4+Ozj8vfS4SQ7U6aqiDD0FPKAIDbtszS+4cHX7h1XVkYh2GYS0kp28p06HuU4WkYYcd183w7DuM4jO7Ec2xucydJc247AEApzWXGGLcdF2GcbVO0uLoU4VS1TZKshec77sQY3bXtMPTcdsahr6oSY+v1Wf8A7TVQLfOdKBwAAAAASUVORK5CYII=") 0 0 / 64px 64px;
+  background: linear-gradient(rgba(24, 22, 18, .82), rgba(24, 22, 18, .82)), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACY0lEQVR42l2SO2/UQBhFvxnPw/Z6bK83WSdU5AVIocj/TUVFkWolFCFRg/gHERJayFPJ7tre8dszY5tipRTc4uqW50gXLa4ul39ux3EoCkkpIxZBGJ+dnnRd44mgLKQfTH/++D6PYynz8/NzolR3f/+XUjIOo+O4zA+32abr3ngi6NqGUsa47QlfyjwI/Lat8Sw+pJRY2BqGwRidpWvKWNt2lmUBQDQ/VF2LMFFdK2WOsYWuF58AAADSZAMA0WwP/g96XWVZEEIIcyYyWQvhO67LnMnXLwtCqRCBUl1TV8aY2d78w/t3AOB5Hm7qWjUVZTyY7RtjZLImlBqti0LWVWmMAYBks6KMU8arsiCU8aauAUAm62C2XxcSxtEY0/d9OI0IoclmBQCEWMyZEGKRIs9s29VaecJ/ebzl3Lm4uPCEb1lEazWOY12/BbDKooCisB2X3N3dMmor3QLA0dHJTq5tmjTLhPCSJEEIRVH09PQcHxxo1eEgiJRuOXOEFxBCjdGEUEIsrVWapkKEWqmX52cAyPMcAHBdlZQwpbuyKozRALDrvu8Zs5ummng+ZWwa7e9U0bfrzwAgtykATDxRV2XTNH3fz+MDhNAOjzKOsDUOfdfW5NfNTdc1jPPjk1MAeLxfrlarKJpuVg/b7TaO4+Ozj8vfS4SQ7U6aqiDD0FPKAIDbtszS+4cHX7h1XVkYh2GYS0kp28p06HuU4WkYYcd183w7DuM4jO7Ec2xucydJc247AEApzWXGGLcdF2GcbVO0uLoU4VS1TZKshec77sQY3bXtMPTcdsahr6oSY+v1Wf8A7TVQLfOdKBwAAAAASUVORK5CYII=") 0 0 / 64px 64px;
   image-rendering: pixelated;
 }
 [hidden] { display: none !important; }
-.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
-
-.top { padding: 44px 0 26px; color: #ece9df; }
-.kicker { margin: 0 0 6px; font: 15px var(--px); color: var(--btn-hi); letter-spacing: .06em; }
-h1 { margin: 0; font: 400 clamp(40px, 8vw, 76px)/1 var(--px); color: #fff; text-shadow: 4px 4px 0 #3f3f3f; }
-.lede { max-width: 64ch; margin: 18px 0 0; font-size: 17px; color: #d9d5c9; }
-
-.grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; padding-bottom: 28px; }
-@media (max-width: 920px) { .grid { grid-template-columns: 1fr; } }
-
-.panel {
-  background: linear-gradient(#cdcdcd, #b3b1ac);
-  border: 3px solid #141310;
-  box-shadow: inset 3px 3px 0 #ededed, inset -3px -3px 0 #7d7b76;
-  padding: 20px;
-}
-.side { display: grid; gap: 20px; }
-h2, h3 { font-family: var(--px); font-weight: 400; color: #34332e; text-transform: uppercase; }
-h2 { margin: 0 0 12px; font-size: 19px; }
-h3 { margin: 18px 0 8px; font-size: 16px; }
+h1, h2, h3 { font-family: var(--px); font-weight: 400; color: #3a3935; text-transform: uppercase; }
 p { margin: 0 0 10px; }
+code { font: 500 14px var(--mono); background: #b4b4b4; padding: 1px 5px; }
+a { color: var(--sage-ink); }
 .hint { color: var(--ink2); font-size: 15px; }
 .muted { color: #5c5a54; font-size: 14px; }
-code { font: 500 14px var(--mono); background: #bdbbb6; padding: 1px 5px; }
-a { color: var(--sage-ink); }
+
+.app { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 100vh; }
+
+.side {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 18px;
+  padding: 18px 14px 16px;
+  background: rgba(17, 16, 14, .94);
+  border-right: 3px solid #000;
+  color: var(--side-ink);
+}
+.brand { display: flex; align-items: center; gap: 12px; padding: 2px 4px 4px; color: inherit; text-decoration: none; }
+.brand svg { width: 40px; height: 40px; flex: none; shape-rendering: crispEdges; }
+.brand .kicker { display: block; font: 12px var(--px); color: var(--btn-hi); letter-spacing: .06em; }
+.brand .title { display: block; font: 20px/1.1 var(--px); color: #fff; text-shadow: 2px 2px 0 #3f3f3f; }
+.nav { display: grid; gap: 6px; }
+.navhead { margin: 10px 4px 2px; font: 12px var(--px); color: var(--side-ink2); letter-spacing: .06em; }
+.navbtn {
+  display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; grid-template-areas: "ic name badge" "ic sub badge";
+  align-items: center; column-gap: 10px;
+  width: 100%; padding: 9px 10px; text-align: left;
+  font: 13px var(--px); color: var(--side-ink);
+  background: var(--side-btn); border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #55534d, inset -2px -2px 0 #24231f;
+  cursor: pointer;
+}
+.navbtn svg { grid-area: ic; width: 18px; height: 18px; fill: currentColor; shape-rendering: crispEdges; }
+.navbtn .nl { grid-area: name; }
+.navbtn small { grid-area: sub; font: 13px/1.3 var(--body); color: var(--side-ink2); }
+.navbtn .badge { grid-area: badge; padding: 1px 6px; font: 12px var(--px); color: #1d2f27; background: var(--btn-hi); }
+.navbtn:hover { background: #42413c; }
+.navbtn[aria-current="page"] {
+  background: var(--btn-hi); color: #fff; text-shadow: 2px 2px 0 #3f3f3f;
+  box-shadow: inset 2px 2px 0 var(--btn-hi-edge), inset -2px -2px 0 var(--btn-hi-shade);
+}
+.navbtn[aria-current="page"] small { color: #1f3a2f; text-shadow: none; }
+.navbtn[aria-current="page"] .badge { background: #fff; text-shadow: none; }
+.navbtn:focus-visible { outline: 3px solid #fff; outline-offset: 1px; }
+.sidefoot { margin-top: auto; padding: 0 4px; font-size: 13px; color: var(--side-ink2); }
+
+.main { min-width: 0; padding: 14px; }
+.page {
+  display: flex; flex-direction: column;
+  min-height: calc(100vh - 28px);
+  background: var(--panel);
+  border: 3px solid #000;
+  box-shadow: inset 3px 3px 0 var(--panel-hi), inset -3px -3px 0 var(--panel-lo);
+}
+.phead { padding: 22px 26px 4px; }
+.phead h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.1; }
+.phead p { max-width: 74ch; color: var(--ink2); }
+.pbody { flex: 1; padding: 8px 26px 24px; }
+.pbody h2 { margin: 22px 0 10px; font-size: 17px; }
+.pbody h2:first-child { margin-top: 6px; }
+.dock {
+  position: sticky; bottom: 0; z-index: 2;
+  padding: 14px 26px 12px;
+  background: #b9b9b9;
+  border-top: 3px solid #000;
+  box-shadow: inset 0 3px 0 #dedede, inset -3px -3px 0 var(--panel-lo), inset 3px 0 0 var(--panel-hi);
+}
 
 .btn {
   position: relative;
@@ -83,7 +132,7 @@ a { color: var(--sage-ink); }
   box-shadow: inset 2px 2px 0 var(--btn-edge), inset -2px -2px 0 var(--btn-shade);
   cursor: pointer; user-select: none;
 }
-.btn:hover, .btn[aria-selected="true"], .btn[aria-pressed="true"] {
+.btn:hover, .btn[aria-pressed="true"] {
   background: var(--btn-hi);
   box-shadow: inset 2px 2px 0 var(--btn-hi-edge), inset -2px -2px 0 var(--btn-hi-shade);
 }
@@ -97,9 +146,6 @@ a { color: var(--sage-ink); }
 .btn.ic { width: 32px; min-height: 32px; padding: 0; }
 .btn.ic svg { width: 12px; height: 12px; fill: currentColor; shape-rendering: crispEdges; filter: drop-shadow(1px 1px 0 #3f3f3f); }
 .btn.go { min-height: 46px; padding: 0 22px; font-size: 17px; }
-
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.tabs .btn { min-width: 132px; }
 .bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
 
 input[type=search], input[type=text], select {
@@ -111,18 +157,12 @@ input[type=search] { flex: 1 1 240px; min-width: 0; }
 input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); outline-offset: 0; }
 .find { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 14px 0 10px; }
 .check { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; cursor: pointer; }
-.check input { width: 18px; height: 18px; accent-color: var(--sage-ink); }
+.check input { width: 18px; height: 18px; margin: 0; accent-color: var(--sage-ink); }
 
 .group { border-top: 2px solid var(--line); }
-.group summary {
-  display: flex; align-items: center; gap: 12px;
-  padding: 11px 4px; cursor: pointer; list-style: none;
-}
+.group summary { display: flex; align-items: center; gap: 12px; padding: 11px 4px; cursor: pointer; list-style: none; }
 .group summary::-webkit-details-marker { display: none; }
-.group summary::before {
-  content: ""; width: 10px; height: 10px; flex: none;
-  background: #4a4843; clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
+.group summary::before { content: ""; width: 10px; height: 10px; flex: none; background: #4a4843; clip-path: polygon(0 0, 100% 50%, 0 100%); }
 .group[open] summary::before { transform: rotate(90deg); }
 .gname { font: 15px var(--px); text-transform: uppercase; color: #34332e; }
 .gcount { margin-left: auto; font-size: 14px; color: #5c5a54; }
@@ -147,28 +187,13 @@ input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); ou
 .fname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 700; color: #233e33; }
 .dur { font: 13px var(--mono); color: #4b5a53; flex: none; }
 .acts { display: flex; gap: 6px; justify-content: flex-end; }
-@media (max-width: 520px) {
-  .panel { padding: 14px 12px; }
-  .wrap { padding: 0 10px; }
-  .row { column-gap: 8px; padding: 6px; }
-  .row .yours { padding-left: 0; }
-  .btn.sm { padding: 0 7px; }
-  .tabs .btn { min-width: 0; flex: 1; padding: 0 8px; }
-}
 
 .loose { margin: 4px 0 14px; padding: 12px 14px 6px; background: #d9cfae; box-shadow: inset 2px 2px 0 #a8996c, inset -2px -2px 0 #efe7cd; }
-.loose h3 { margin-top: 0; }
+.loose h3 { margin: 0 0 6px; font-size: 15px; }
 .loose ul { list-style: none; margin: 0; padding: 0; }
-.loose li {
-  display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 14rem) auto auto;
-  align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid #b9ad86;
-}
+.loose li { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 14rem) auto auto; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid #b9ad86; }
 .loose .fname { color: var(--ink); }
 .loose select { height: 34px; width: 100%; }
-@media (max-width: 640px) {
-  .loose li { grid-template-columns: auto minmax(0, 1fr) auto auto; }
-  .loose select { grid-column: 1 / -1; grid-row: 2; }
-}
 
 .tracks { list-style: none; margin: 0; padding: 0; counter-reset: t; }
 .tracks li {
@@ -183,11 +208,7 @@ input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); ou
 .tracks .fname { color: var(--ink); }
 .empty { padding: 18px; text-align: center; color: var(--ink2); background: var(--slot); box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi); }
 
-.build { margin-top: 18px; padding-top: 16px; border-top: 2px solid var(--line); }
-.meter {
-  position: relative; height: 20px; margin: 4px 0 22px;
-  background: #3a3a3a; box-shadow: inset 2px 2px 0 #222, inset -2px -2px 0 #6a6a6a;
-}
+.meter { position: relative; height: 20px; margin: 4px 0 22px; background: #3a3a3a; box-shadow: inset 2px 2px 0 #222, inset -2px -2px 0 #6a6a6a; }
 .meter .fill { height: 100%; width: 0; background: var(--btn-hi); transition: width .2s; }
 .meter.pc .fill { background: var(--gold); }
 .meter.over .fill { background: #b84a3a; width: 100% !important; }
@@ -195,19 +216,83 @@ input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); ou
 .meter .mark span { position: absolute; top: calc(100% + 2px); left: 50%; transform: translateX(-50%); font: 12px var(--px); color: #3f3d38; white-space: nowrap; }
 .meter .mark.end { right: 0; }
 .meter .mark.end span { left: auto; right: 0; transform: none; }
-.size { font-size: 15px; font-weight: 700; }
+.size { margin: 0; font-size: 15px; font-weight: 700; }
 .size.pc { color: #7a5a12; }
 .size.over { color: var(--bad); }
-.opts { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; margin-top: 10px; }
+.opts { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; margin-top: 8px; }
 .opts label { display: grid; gap: 4px; font-size: 14px; color: var(--ink2); }
 .opts .namebox { display: flex; align-items: center; gap: 4px; }
 .opts .namebox input { width: 11rem; }
 .opts .go { margin-left: auto; }
-.status { min-height: 1.5em; margin: 10px 0 0; font-size: 15px; }
+.status { min-height: 1.5em; margin: 8px 0 0; font-size: 15px; }
 .status.bad { color: var(--bad); font-weight: 700; }
 .status.good { color: var(--sage-ink); font-weight: 700; }
 
-.steps { margin: 0 0 12px; padding-left: 0; list-style: none; counter-reset: s; }
+.drop {
+  display: grid; justify-items: center; gap: 4px;
+  margin: 8px 0 18px; padding: 44px 20px 34px; text-align: center;
+  background: #b4b4b4;
+  border: 3px dashed #6d6d6d;
+}
+.drop svg { width: 64px; height: 64px; margin-bottom: 8px; shape-rendering: crispEdges; }
+.drop .big { margin: 0; font: 22px var(--px); color: #3a3935; }
+.drop p { max-width: 56ch; color: var(--ink2); }
+.drop .bar { justify-content: center; margin-top: 8px; }
+.main.drag .page:not([hidden]) { outline: 4px dashed var(--btn-hi); outline-offset: -14px; }
+
+.cv { display: grid; grid-template-columns: minmax(290px, 360px) minmax(0, 1fr); gap: 22px; align-items: start; }
+.cv-side h2:first-child { margin-top: 6px; }
+.packs { list-style: none; margin: 0 0 10px; padding: 0; }
+.pk {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 10px; align-items: start;
+  padding: 8px; margin-bottom: 6px;
+  background: var(--slot); box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi);
+}
+.pk img, .pk .noicon { width: 48px; height: 48px; border: 2px solid #3f3d38; background: #8a8989; image-rendering: pixelated; object-fit: cover; }
+.pk b { display: block; overflow-wrap: anywhere; font-size: 15px; }
+.pk .desc { display: block; font-size: 13px; color: var(--ink2); overflow-wrap: anywhere; }
+.pk .meta { display: block; margin-top: 2px; font: 12px var(--mono); color: #3d4a44; }
+.pk .pacts { display: grid; grid-template-columns: repeat(3, 28px); gap: 4px; }
+.pk .pacts .btn { width: 28px; min-height: 28px; padding: 0; font-size: 13px; }
+.choice { display: grid; gap: 6px; }
+.opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 10px; cursor: pointer; background: var(--slot); box-shadow: inset 2px 2px 0 var(--slot-lo), inset -2px -2px 0 var(--slot-hi); }
+.opt input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--sage-ink); }
+.opt b { display: block; font: 400 14px var(--px); }
+.opt small { display: block; font-size: 14px; color: var(--ink2); }
+.opt:has(input:checked) { background: var(--mine); box-shadow: inset 2px 2px 0 var(--mine-lo), inset -2px -2px 0 var(--mine-hi); }
+.cats { list-style: none; margin: 0; padding: 0; }
+.cat { padding: 8px 0 6px; border-top: 2px solid var(--line); }
+.cat .top { display: flex; align-items: center; gap: 10px; }
+.cat .check b { font: 400 14px var(--px); }
+.cat .ct { margin-left: auto; font: 13px var(--mono); color: #3d4a44; }
+.cat .mini { height: 6px; margin: 6px 0 2px; background: #8a8989; }
+.cat .mini i { display: block; height: 100%; width: 0; background: var(--sage-ink); }
+.cat details { margin-top: 2px; font-size: 14px; color: var(--ink2); }
+.cat summary { cursor: pointer; }
+.cat .kept { margin: 4px 0 2px; font-size: 13px; line-height: 1.45; }
+.notes { margin: 14px 0 0; padding-left: 18px; color: var(--ink2); font-size: 14px; }
+.notes li { margin-bottom: 6px; }
+
+.viewer { background: #2a2926; border: 3px solid #000; color: var(--side-ink); }
+.vbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 8px; background: #3a3936; border-bottom: 2px solid #000; }
+.vbar .check { font-size: 14px; color: var(--side-ink); }
+.seg { display: inline-flex; }
+.seg .btn { min-width: 0; }
+.zoom { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+.zoom .zl { min-width: 3.4em; text-align: center; font: 13px var(--px); }
+.vbox { position: relative; overflow: auto; height: min(72vh, 760px); }
+.vwrap {
+  position: relative; margin: 0 auto;
+  background: repeating-conic-gradient(#3b3a37 0 25%, #2c2b28 0 50%) 0 0 / 16px 16px;
+}
+.vwrap canvas { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+.vinfo { margin: 0; min-height: 3.2em; padding: 8px 10px; font: 13px/1.5 var(--mono); color: var(--side-ink); background: #1f1e1b; border-top: 2px solid #000; }
+.vinfo b { color: #fff; font-weight: 500; }
+.legend { margin: 14px 0 0; padding: 0; list-style: none; }
+.legend li { padding: 6px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.legend b { font: 400 14px var(--px); margin-right: 6px; }
+
+.steps { margin: 0 0 12px; padding-left: 0; list-style: none; counter-reset: s; max-width: 70ch; }
 .steps li { position: relative; padding-left: 38px; margin-bottom: 12px; counter-increment: s; }
 .steps li::before {
   content: counter(s); position: absolute; left: 0; top: 0;
@@ -215,171 +300,252 @@ input:focus-visible, select:focus-visible { outline: 3px solid var(--btn-hi); ou
   font: 14px var(--px); color: #fff; text-shadow: 1px 1px 0 #3f3f3f;
   background: var(--btn); box-shadow: inset 2px 2px 0 var(--btn-edge), inset -2px -2px 0 var(--btn-shade); border: 2px solid #111;
 }
-.notes { margin: 0; padding-left: 18px; color: var(--ink2); font-size: 15px; }
-.notes li { margin-bottom: 6px; }
-.url { display: block; margin: 6px 0 0; padding: 6px 8px; font: 13px var(--mono); background: #bdbbb6; overflow-wrap: anywhere; }
+.plain { margin: 0 0 12px; padding-left: 18px; color: var(--ink2); max-width: 70ch; }
+.plain li { margin-bottom: 6px; }
+.url { display: block; margin: 6px 0 0; padding: 6px 8px; font: 13px var(--mono); background: #b4b4b4; overflow-wrap: anywhere; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 8px 32px; }
 
-.map { margin: 6px 0 12px; }
-.map canvas { display: block; width: 100%; max-width: 512px; aspect-ratio: 1; background: #2a2926; border: 3px solid #141310; }
-.legend { margin: 0; padding: 0; list-style: none; }
-.legend li { padding: 6px 0; border-top: 1px solid var(--line); font-size: 15px; }
-.legend b { font: 400 14px var(--px); margin-right: 6px; }
-.tool.drag { outline: 4px dashed var(--btn-hi); outline-offset: -12px; }
-
-.foot { padding: 0 0 40px; color: #a9a59a; font-size: 14px; }
+.cv-side, .cv-view { min-width: 0; }
+@media (max-width: 1180px) {
+  .cv { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; gap: 10px; padding: 12px; border-right: 0; border-bottom: 3px solid #000; }
+  .nav { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; padding-bottom: 4px; }
+  .navhead, .sidefoot { display: none; }
+  .navbtn small { display: none; }
+  .navbtn .nl { white-space: nowrap; }
+  .dock { position: static; }
+  .main { padding: 8px; }
+  .page { min-height: 0; }
+  .phead { padding: 16px 14px 2px; }
+  .phead h1 { font-size: 22px; }
+  .pbody { padding: 6px 14px 18px; }
+  .dock { padding: 12px 14px 10px; }
+  .row { column-gap: 8px; padding: 6px; }
+  .row .yours { padding-left: 0; }
+  .btn.sm { padding: 0 7px; }
+  .loose li { grid-template-columns: auto minmax(0, 1fr) auto auto; }
+  .loose select { grid-column: 1 / -1; grid-row: 2; }
+  .vbox { height: 60vh; }
+  .opts .go { margin-left: 0; }
+}
 </style>
 </head>
 <body>
-<header class="top">
-  <div class="wrap">
-    <p class="kicker">DIG-N-BUILD</p>
-    <h1>PACK MAKER</h1>
-    <p class="lede">Change the sounds, the music or the textures in the Dig-n-Build world. Make the pack here, put it online, then paste the link on the PACKS page in the world. Only you see and hear your pack.</p>
+<div class="app">
+<aside class="side">
+  <a class="brand" href="#convert" data-page="convert">
+    <svg viewBox="0 0 10 10" aria-hidden="true"><path fill="#5d9c3c" d="M0 0h10v3H0z"/><path fill="#7cbd56" d="M1 0h2v1H1zm4 0h3v1H5zM2 1h1v1H2zm5 1h2v1H7z"/><path fill="#8a5a36" d="M0 3h10v7H0z"/><path fill="#5d9c3c" d="M0 3h1v2H0zm3 0h1v1H3zm4 0h2v2H7z"/><path fill="#6b4428" d="M2 5h1v1H2zm4 1h1v1H6zM1 8h1v1H1zm7 0h1v1H8zM4 8h1v1H4z"/><path fill="#a87650" d="M5 4h1v1H5zM8 6h1v1H8zM2 7h1v1H2z"/></svg>
+    <span><span class="kicker">DIG-N-BUILD</span><span class="title">PACK MAKER</span></span>
+  </a>
+  <nav class="nav" aria-label="Tools">
+    <p class="navhead">TEXTURES</p>
+    <button class="navbtn" data-page="convert"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h7v7H1zm2 2v3h3V3zM8 8h7v7H8zm2 2v3h3v-3zM10 2h3v3h2l-3 3-3-3h1zM1 10h1v3h4v-1l2 2-2 2v-1H1z"/></svg><span class="nl">CONVERT A PACK</span><small>Java resource pack to a sheet</small><span class="badge" id="nb-convert" hidden></span></button>
+    <button class="navbtn" data-page="sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 1h14v14H1zm2 2v4h4V3zm6 0v4h4V3zM3 9v4h4V9zm6 0v4h4V9z"/></svg><span class="nl">SHEET TOOLS</span><small>Templates, map and checker</small></button>
+    <p class="navhead">AUDIO</p>
+    <button class="navbtn" data-page="sounds"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 6h3l4-4h1v12H8l-4-4H1zM11 5h1v6h-1zm2-2h1v10h-1z"/></svg><span class="nl">SOUNDS</span><small>Replace any of the 202 sounds</small><span class="badge" id="nb-sounds" hidden></span></button>
+    <button class="navbtn" data-page="music"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 2h9v9h-1V5H7v8H6v1H2v-1H1v-3h1V9h3zm6 6v4h-1v1H8v-1h1v-2h1V8z"/></svg><span class="nl">MUSIC</span><small>Up to 64 tracks</small><span class="badge" id="nb-music" hidden></span></button>
+    <p class="navhead">HELP</p>
+    <button class="navbtn" data-page="help"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h8v1h1v4h-1v1h-2v1H9v2H7V8h1V7h2V6h1V4H6v2H4V3h0zM7 12h2v2H7z"/></svg><span class="nl">USE YOUR PACK</span><small>Put it online and load it</small></button>
+  </nav>
+  <p class="sidefoot">Everything here runs in your browser. Your files never leave your computer.</p>
+</aside>
+
+<main class="main" id="main">
+
+<section class="page" id="page-convert" aria-labelledby="h-convert">
+  <header class="phead">
+    <h1 id="h-convert">CONVERT A PACK</h1>
+    <p>Drop in a Minecraft Java Edition resource pack and get a Dig-n-Build texture pack out of it. Blocks, block icons, items, mobs, the hotbar, hearts and the menus all come across. Anything the pack does not have stays the way it is on the start sheet.</p>
+  </header>
+  <div class="pbody">
+    <div class="drop" id="cv-drop">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="#6d6d6d" d="M2 6h12v9H2z"/><path fill="#8b8b8b" d="M3 7h10v7H3z"/><path fill="#c9a24a" d="M6 7h4v2H6z"/><path fill="#3a3935" d="M7 1h2v4h2l-3 3-3-3h2z"/></svg>
+      <p class="big">DROP A RESOURCE PACK HERE</p>
+      <p>A .zip file or an unzipped pack folder. Packs made for Minecraft 1.8 up to 1.21 work, and HD packs get scaled down to 16x.</p>
+      <div class="bar"><button class="btn" data-pick="cv-zip">CHOOSE A ZIP</button><button class="btn" data-pick="cv-dir">CHOOSE A FOLDER</button></div>
+    </div>
+    <input type="file" id="cv-zip" accept=".zip,application/zip,application/x-zip-compressed" multiple hidden>
+    <input type="file" id="cv-dir" webkitdirectory hidden>
+    <div class="cv" id="cv-main" hidden>
+      <div class="cv-side">
+        <h2>YOUR PACKS</h2>
+        <ul class="packs" id="cv-packs"></ul>
+        <p class="hint" id="cv-order" hidden>When two packs have the same texture, the one higher up wins.</p>
+        <div class="bar"><button class="btn sm" data-pick="cv-zip">ADD A ZIP</button><button class="btn sm" data-pick="cv-dir">ADD A FOLDER</button></div>
+        <h2>START FROM</h2>
+        <div class="choice" role="radiogroup" aria-label="Start sheet">
+          <label class="opt"><input type="radio" name="cv-base" value="classic" checked><span><b>CLASSIC</b><small>The normal Minecraft look. Best for most packs.</small></span></label>
+          <label class="opt"><input type="radio" name="cv-base" value="dnb"><span><b>DIG-N-BUILD</b><small>The look the world has right now.</small></span></label>
+        </div>
+        <h2>WHAT TO CONVERT</h2>
+        <ul class="cats" id="cv-cats"></ul>
+        <ul class="notes" id="cv-notes"></ul>
+      </div>
+      <div class="cv-view">
+        <div class="viewer" id="cv-view"></div>
+      </div>
+    </div>
   </div>
-</header>
-
-<main class="wrap grid">
-  <section class="panel tool" id="tool" aria-label="Pack maker">
-    <div class="tabs" role="tablist">
-      <button class="btn" role="tab" id="tb-sounds" aria-controls="tab-sounds" aria-selected="true" data-tab="sounds">SOUNDS</button>
-      <button class="btn" role="tab" id="tb-music" aria-controls="tab-music" aria-selected="false" data-tab="music">MUSIC</button>
-      <button class="btn" role="tab" id="tb-textures" aria-controls="tab-textures" aria-selected="false" data-tab="textures">TEXTURES</button>
+  <div class="dock" id="cv-dock">
+    <div class="opts">
+      <label>File name
+        <span class="namebox"><input type="text" id="cv-name" value="my-pack" spellcheck="false"><span>.png</span></span>
+      </label>
+      <button class="btn go" id="cv-go" disabled>SAVE TEXTURE PACK</button>
     </div>
+    <p class="status" id="cv-status" role="status">Add a resource pack to start.</p>
+  </div>
+</section>
 
-    <div class="tabpage" id="tab-sounds" role="tabpanel" aria-labelledby="tb-sounds">
-      <div class="bar">
-        <button class="btn" data-pick="snd-add" data-lock>ADD SOUNDS</button>
-        <button class="btn" data-pick="snd-open" data-lock>OPEN A PACK</button>
-        <button class="btn" id="snd-zip" data-lock>NORMAL SOUNDS AS WAV</button>
-      </div>
-      <input type="file" id="snd-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
-      <input type="file" id="snd-one" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" hidden>
-      <input type="file" id="snd-open" accept=".bin" hidden>
-      <p class="hint">Name your files after the sound they replace, like <code>step_grass1.wav</code>, and they go in the right spot when you add them or drop them here. Every sound you leave alone keeps the normal Dig-n-Build sound. To start from the real ones, get the normal sounds as WAV files, edit the ones you want and drop them back in.</p>
-      <div class="find">
-        <input type="search" id="snd-find" placeholder="Find a sound, like grass or zombie" aria-label="Find a sound">
-        <label class="check"><input type="checkbox" id="snd-mine"> Only show the ones I changed</label>
-      </div>
-      <div class="loose" id="snd-loose" hidden></div>
-      <div id="snd-groups"></div>
-      <p class="empty" id="snd-none" hidden>No sounds match that.</p>
-      <div class="build" id="snd-build">
-        <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
-        <p class="size" id="snd-size"></p>
-        <div class="opts">
-          <label>Quality
-            <select id="snd-rate">
-              <option value="44100" selected>44.1 kHz, normal</option>
-              <option value="32000">32 kHz</option>
-              <option value="22050">22 kHz, smaller</option>
-            </select>
-          </label>
-          <label>File name
-            <span class="namebox"><input type="text" id="snd-name" value="my-sounds" spellcheck="false"><span>.bin</span></span>
-          </label>
-          <button class="btn go" id="snd-go" data-lock disabled>BUILD PACK</button>
-        </div>
-        <p class="status" id="snd-status" role="status"></p>
-      </div>
+<section class="page" id="page-sheet" aria-labelledby="h-sheet" hidden>
+  <header class="phead">
+    <h1 id="h-sheet">SHEET TOOLS</h1>
+    <p>A texture pack is one 2048 by 2048 PNG image. Start from a template, paint over it, keep everything where it is and save it at the same size. Point at the sheet below to see what each spot is for.</p>
+  </header>
+  <div class="pbody">
+    <div class="bar">
+      <a class="btn" href="../texturepacks/classic.png" download="classic.png">CLASSIC TEMPLATE</a>
+      <a class="btn" href="../texturepacks/dig-n-build.png" download="dig-n-build.png">DIG-N-BUILD TEMPLATE</a>
+      <button class="btn" data-pick="sh-file">CHECK YOUR SHEET</button>
     </div>
+    <input type="file" id="sh-file" accept="image/png,image/jpeg,image/webp" hidden>
+    <p class="status" id="sh-status" role="status"></p>
+    <div class="viewer" id="sh-view"></div>
+    <ul class="legend">
+      <li><b>BLOCKS</b> The textures on the blocks in the world. 16 by 16 tiles, each with an 8 pixel border that repeats the edge.</li>
+      <li><b>BLOCK ICONS</b> The block pictures in your inventory, hotbar, chests and furnaces.</li>
+      <li><b>ITEMS</b> Item icons. Tools, food, doors and the bow you hold use these too.</li>
+      <li><b>MOBS</b> Mob skins, arrows, the fishing bobber and the minecart.</li>
+      <li><b>MENUS</b> Buttons, panels, hearts, hunger, the hotbar and the burning overlay.</li>
+    </ul>
+  </div>
+</section>
 
-    <div class="tabpage" id="tab-music" role="tabpanel" aria-labelledby="tb-music" hidden>
-      <div class="bar">
-        <button class="btn" data-pick="mus-add" data-lock>ADD TRACKS</button>
-        <button class="btn" data-pick="mus-open" data-lock>OPEN A PACK</button>
-        <button class="btn" id="mus-classic" data-lock>ADD THE CLASSIC MUSIC</button>
-      </div>
-      <input type="file" id="mus-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
-      <input type="file" id="mus-open" accept=".bin" hidden>
-      <p class="hint">Your tracks replace the world music. The world plays a random one, then stays quiet for a few minutes before the next. You can put up to 64 tracks in a pack.</p>
-      <ol class="tracks" id="mus-list"></ol>
-      <p class="empty" id="mus-empty">No tracks yet. Add MP3, OGG, WAV or FLAC files, or drop them here.</p>
-      <div class="build" id="mus-build">
-        <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
-        <p class="size" id="mus-size"></p>
-        <p class="muted" id="mus-room"></p>
-        <div class="opts">
-          <label>Quality
-            <select id="mus-rate">
-              <option value="44100">44.1 kHz, best</option>
-              <option value="32000">32 kHz</option>
-              <option value="22050" selected>22 kHz, normal</option>
-              <option value="16000">16 kHz, smallest</option>
-            </select>
-          </label>
-          <label>Channels
-            <select id="mus-ch">
-              <option value="1" selected>Mono, half the size</option>
-              <option value="2">Stereo</option>
-            </select>
-          </label>
-          <label>File name
-            <span class="namebox"><input type="text" id="mus-name" value="my-music" spellcheck="false"><span>.bin</span></span>
-          </label>
-          <button class="btn go" id="mus-go" data-lock disabled>BUILD PACK</button>
-        </div>
-        <p class="status" id="mus-status" role="status"></p>
-      </div>
+<section class="page" id="page-sounds" aria-labelledby="h-sounds" hidden>
+  <header class="phead">
+    <h1 id="h-sounds">SOUNDS</h1>
+    <p>Name your files after the sound they replace, like <code>step_grass1.wav</code>, and they go in the right spot when you add them or drop them here. Every sound you leave alone keeps the normal Dig-n-Build sound.</p>
+  </header>
+  <div class="pbody">
+    <div class="bar">
+      <button class="btn" data-pick="snd-add" data-lock>ADD SOUNDS</button>
+      <button class="btn" data-pick="snd-open" data-lock>OPEN A PACK</button>
+      <button class="btn" id="snd-zip" data-lock>NORMAL SOUNDS AS WAV</button>
     </div>
-
-    <div class="tabpage" id="tab-textures" role="tabpanel" aria-labelledby="tb-textures" hidden>
-      <p>A texture pack is one 2048 by 2048 PNG image. Download a sheet, paint over it, keep everything where it is, and save it at the same size. Leave the empty spots empty.</p>
-      <div class="bar">
-        <a class="btn" href="../texturepacks/dig-n-build.png" download="dig-n-build.png">DIG-N-BUILD SHEET</a>
-        <a class="btn" href="../texturepacks/classic.png" download="classic.png">CLASSIC SHEET</a>
-      </div>
-      <figure class="map">
-        <canvas id="tex-map" width="512" height="512" aria-label="Map of the texture sheet"></canvas>
-      </figure>
-      <label class="check"><input type="checkbox" id="tex-areas" checked> Show what goes where</label>
-      <ul class="legend" style="margin-top:10px">
-        <li><b>BLOCKS</b> The textures on the blocks in the world, 16 by 16 tiles.</li>
-        <li><b>BLOCK ICONS</b> The block pictures in your inventory, hotbar, chests and furnaces.</li>
-        <li><b>ITEMS</b> Item icons. Tools, food, doors and the bow you hold use these too.</li>
-        <li><b>MOBS</b> Mob skins, arrows, the fishing bobber and the minecart.</li>
-        <li><b>MENUS</b> Buttons, panels, hearts, hunger and the hotbar.</li>
-      </ul>
-      <h3>Check your sheet</h3>
-      <div class="bar">
-        <button class="btn" data-pick="tex-file">CHOOSE YOUR IMAGE</button>
-      </div>
-      <input type="file" id="tex-file" accept="image/png,image/jpeg,image/webp" hidden>
-      <p class="status" id="tex-status" role="status"></p>
+    <input type="file" id="snd-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
+    <input type="file" id="snd-one" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" hidden>
+    <input type="file" id="snd-open" accept=".bin" hidden>
+    <p class="hint">To start from the real ones, get the normal sounds as WAV files, edit the ones you want and drop them back in.</p>
+    <div class="find">
+      <input type="search" id="snd-find" placeholder="Find a sound, like grass or zombie" aria-label="Find a sound">
+      <label class="check"><input type="checkbox" id="snd-mine"> Only show the ones I changed</label>
     </div>
-  </section>
+    <div class="loose" id="snd-loose" hidden></div>
+    <div id="snd-groups"></div>
+    <p class="empty" id="snd-none" hidden>No sounds match that.</p>
+  </div>
+  <div class="dock" id="snd-build">
+    <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
+    <p class="size" id="snd-size"></p>
+    <div class="opts">
+      <label>Quality
+        <select id="snd-rate">
+          <option value="44100" selected>44.1 kHz, normal</option>
+          <option value="32000">32 kHz</option>
+          <option value="22050">22 kHz, smaller</option>
+        </select>
+      </label>
+      <label>File name
+        <span class="namebox"><input type="text" id="snd-name" value="my-sounds" spellcheck="false"><span>.bin</span></span>
+      </label>
+      <button class="btn go" id="snd-go" data-lock disabled>BUILD PACK</button>
+    </div>
+    <p class="status" id="snd-status" role="status"></p>
+  </div>
+</section>
 
-  <aside class="side">
-    <section class="panel">
-      <h2>How it works</h2>
+<section class="page" id="page-music" aria-labelledby="h-music" hidden>
+  <header class="phead">
+    <h1 id="h-music">MUSIC</h1>
+    <p>Your tracks replace the world music. The world plays a random one, then stays quiet for a few minutes before the next. A pack holds up to 64 tracks.</p>
+  </header>
+  <div class="pbody">
+    <div class="bar">
+      <button class="btn" data-pick="mus-add" data-lock>ADD TRACKS</button>
+      <button class="btn" data-pick="mus-open" data-lock>OPEN A PACK</button>
+      <button class="btn" id="mus-classic" data-lock>ADD THE CLASSIC MUSIC</button>
+    </div>
+    <input type="file" id="mus-add" accept="audio/*,.ogg,.wav,.mp3,.flac,.m4a,.opus" multiple hidden>
+    <input type="file" id="mus-open" accept=".bin" hidden>
+    <ol class="tracks" id="mus-list"></ol>
+    <p class="empty" id="mus-empty">No tracks yet. Add MP3, OGG, WAV or FLAC files, or drop them here.</p>
+  </div>
+  <div class="dock" id="mus-build">
+    <div class="meter"><div class="fill"></div><span class="mark quest"><span>QUEST</span></span><span class="mark end"><span>MAX</span></span></div>
+    <p class="size" id="mus-size"></p>
+    <p class="muted" id="mus-room"></p>
+    <div class="opts">
+      <label>Quality
+        <select id="mus-rate">
+          <option value="44100">44.1 kHz, best</option>
+          <option value="32000">32 kHz</option>
+          <option value="22050" selected>22 kHz, normal</option>
+          <option value="16000">16 kHz, smallest</option>
+        </select>
+      </label>
+      <label>Channels
+        <select id="mus-ch">
+          <option value="1" selected>Mono, half the size</option>
+          <option value="2">Stereo</option>
+        </select>
+      </label>
+      <label>File name
+        <span class="namebox"><input type="text" id="mus-name" value="my-music" spellcheck="false"><span>.bin</span></span>
+      </label>
+      <button class="btn go" id="mus-go" data-lock disabled>BUILD PACK</button>
+    </div>
+    <p class="status" id="mus-status" role="status"></p>
+  </div>
+</section>
+
+<section class="page" id="page-help" aria-labelledby="h-help" hidden>
+  <header class="phead">
+    <h1 id="h-help">USE YOUR PACK</h1>
+    <p>Packs load from a link. Put your pack file online, then paste the link into the world.</p>
+  </header>
+  <div class="pbody cols">
+    <div>
+      <h2>In the world</h2>
       <ol class="steps">
-        <li>Pick SOUNDS, MUSIC or TEXTURES and add your files.</li>
-        <li>Press BUILD PACK to save your pack file. A texture pack is just the image you painted.</li>
-        <li>Put the file online. See below.</li>
-        <li>In the world, open the options menu and press the PACKS button. Pick the same tab, paste your link and press LOAD.</li>
+        <li>Open the options menu and press PACKS.</li>
+        <li>Pick the TEXTURES, SOUNDS or MUSIC tab, paste your link and press LOAD.</li>
       </ol>
-      <ul class="notes">
+      <ul class="plain">
         <li>Only you see and hear your pack. Everyone else keeps their own.</li>
         <li>Paste your link again each time you join.</li>
-        <li>Quest only loads sound and music packs up to 64 MB. The bar under your pack shows where that is.</li>
+        <li>Texture packs are a 2048 by 2048 PNG image.</li>
+        <li>Quest loads sound and music packs up to 64 MB. The bar under your pack shows where that is.</li>
       </ul>
-    </section>
-    <section class="panel">
+    </div>
+    <div>
       <h2>Putting it online</h2>
       <p class="hint">GitHub Pages works for everyone. Other sites only load for players who turned on Allow Untrusted URLs in their VRChat settings.</p>
       <ol class="steps">
         <li>Make a GitHub account and a new public repository.</li>
         <li>Upload your pack file to it. The website only takes files up to 25 MB, so use GitHub Desktop for bigger ones.</li>
         <li>In the repository, open Settings, then Pages, and have it deploy from the main branch.</li>
-        <li>After a minute your link works. It looks like this:<span class="url">https://yourname.github.io/yourrepo/my-sounds.bin</span></li>
+        <li>After a minute your link works. It looks like this:<span class="url">https://yourname.github.io/yourrepo/my-pack.png</span></li>
       </ol>
-      <p class="hint">Texture packs can also go on Imgur. Use the direct i.imgur.com link to the image.</p>
-    </section>
-  </aside>
-</main>
+      <p class="hint">Texture packs can also go on Imgur. Use the direct i.imgur.com link to the image. Imgur turns PNG files over 5 MB into JPG, which breaks glass, leaves and the menus, so keep it under that.</p>
+    </div>
+  </div>
+</section>
 
-<footer class="wrap foot">
-  <p>Your files never leave your computer. Packs are built right here in your browser.</p>
-</footer>
+</main>
+</div>
 
 <script>
 "use strict";
@@ -389,9 +555,11 @@ const LIMIT = 100000000;
 const MAX_TRACKS = 64;
 const NORMAL_SOUNDS = "../soundpacks/dig-n-build-sounds.bin";
 const CLASSIC_MUSIC = "../soundpacks/classic-music.bin";
-const TEMPLATE = "../texturepacks/dig-n-build.png";
+const BASES = { classic: "../texturepacks/classic.png", dnb: "../texturepacks/dig-n-build.png" };
+const BASE_NAMES = { classic: "the Classic sheet", dnb: "the Dig-n-Build sheet" };
 const PLAY = '<svg viewBox="0 0 8 8" aria-hidden="true"><path d="M2 1h1v1h1v1h1v2h-1v1h-1v1h-1z"/></svg>';
 const STOP = '<svg viewBox="0 0 8 8" aria-hidden="true"><path d="M2 2h4v4h-4z"/></svg>';
+const SZ = 2048;
 
 const MOBS = ["chicken", "cow", "creeper", "pig", "sheep", "skeleton", "spider", "villager", "zombie"];
 const GROUPS = [
@@ -410,6 +578,8 @@ const GROUPS = [
 const $ = (s, r = document) => r.querySelector(s);
 const mb = b => (b / 1048576).toFixed(1) + " MB";
 const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 function fmt(sec) {
   if (sec < 10) return sec.toFixed(1) + " s";
   const m = Math.floor(sec / 60), s = Math.round(sec % 60);
@@ -419,6 +589,11 @@ function say(id, text, kind) {
   const p = $("#" + id);
   p.textContent = text || "";
   p.className = "status" + (kind ? " " + kind : "");
+}
+function badge(id, text) {
+  const b = $("#" + id);
+  b.textContent = text || "";
+  b.hidden = !text;
 }
 
 // audio
@@ -505,7 +680,7 @@ function stop() {
   t.btn.setAttribute("aria-pressed", "false");
 }
 
-// pack files: "DNBS", int32 version, int32 header length, utf8 json, pad to 4, float32 pcm
+// sound pack files: "DNBS", int32 version, int32 header length, utf8 json, pad to 4, float32 pcm
 
 function parsePack(u8) {
   if (u8.length < 16 || u8[0] !== 68 || u8[1] !== 78 || u8[2] !== 66 || u8[3] !== 83) throw new Error("That is not a pack file.");
@@ -574,7 +749,7 @@ async function fetchBytes(url, onProg) {
     if (done) break;
     chunks.push(value);
     got += value.length;
-    if (total) onProg(Math.min(1, got / total));
+    if (total && onProg) onProg(Math.min(1, got / total));
   }
   const out = new Uint8Array(got);
   let o = 0;
@@ -590,9 +765,10 @@ function save(blob, name) {
   a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 5000);
 }
-function fileName(id, fallback) {
-  const v = $("#" + id).value.trim().replace(/\.bin$/i, "").replace(/[^\w.-]+/g, "-");
-  return (v || fallback) + ".bin";
+function fileName(id, fallback, ext) {
+  const re = new RegExp("\\." + ext + "$", "i");
+  const v = $("#" + id).value.trim().replace(re, "").replace(/[^\w.-]+/g, "-");
+  return (v || fallback) + "." + ext;
 }
 
 function wav(f32, rate, ch) {
@@ -670,7 +846,7 @@ function paintMeter(prefix, bytes, count) {
   $("#" + prefix + "-go").disabled = busy || !count || over;
 }
 
-// sounds tab
+// sounds page
 
 const S = { mine: new Map(), loose: [], normal: null, normalLoading: null, rate: 44100 };
 const SLOTKEY = new Map(SLOTS.map(n => [n.toLowerCase(), n]));
@@ -746,6 +922,7 @@ function paintCounts() {
     el.textContent = c ? c + " of " + g.list.length + " changed" : plural(g.list.length, "sound", "sounds");
     el.classList.toggle("has", c > 0);
   }
+  badge("nb-sounds", S.mine.size ? String(S.mine.size) : "");
   paintSoundsMeter();
 }
 
@@ -840,15 +1017,16 @@ async function replaceOne(n, file) {
   }
 }
 
+// want is null when a pack gets dropped somewhere else, it goes to the page that fits it
 async function openPack(file, want) {
   if (busy) return;
-  const sid = want === "music" ? "mus-status" : "snd-status";
   lock(true);
   stop();
+  let sid = want === "music" ? "mus-status" : "snd-status";
   try {
-    say(sid, "Opening " + file.name);
     const pk = parsePack(new Uint8Array(await file.arrayBuffer()));
-    if (pk.kind !== want) throw new Error(pk.kind === "music" ? "That is a music pack. Open it on the MUSIC tab." : "That is a sounds pack. Open it on the SOUNDS tab.");
+    if (!want) { want = pk.kind === "music" ? "music" : "sounds"; sid = want === "music" ? "mus-status" : "snd-status"; showPage(want); }
+    if (pk.kind !== want) throw new Error(pk.kind === "music" ? "That is a music pack. Open it on the MUSIC page." : "That is a sounds pack. Open it on the SOUNDS page.");
     lock(false);
     if (want === "music") addPackTracks(pk.list, file.name);
     else {
@@ -881,7 +1059,7 @@ async function buildSounds() {
   stop();
   try {
     const blob = await buildPack("sounds", soundEntries(), S.rate, 1, p => say("snd-status", "Building " + Math.round(p * 100) + "%"));
-    const name = fileName("snd-name", "my-sounds");
+    const name = fileName("snd-name", "my-sounds", "bin");
     save(blob, name);
     say("snd-status", "Saved " + name + ", " + mb(blob.size) + ". Put it online and paste the link on the SOUNDS tab in the world.", "good");
   } catch (e) {
@@ -940,7 +1118,7 @@ $("#snd-find").addEventListener("input", applyFilter);
 $("#snd-mine").addEventListener("change", applyFilter);
 $("#snd-rate").addEventListener("change", e => { S.rate = +e.target.value; paintSoundsMeter(); });
 
-// music tab
+// music page
 
 const M = { tracks: [], rate: 22050, ch: 1 };
 
@@ -975,6 +1153,7 @@ function paintTracks() {
   }
   $("#mus-empty").hidden = M.tracks.length > 0;
   if (busy) ol.querySelectorAll("button[data-lock]").forEach(b => { b.disabled = true; });
+  badge("nb-music", M.tracks.length ? String(M.tracks.length) : "");
   paintMusicMeter();
 }
 
@@ -1049,7 +1228,7 @@ async function buildMusic() {
   stop();
   try {
     const blob = await buildPack("music", musicEntries(), M.rate, M.ch, p => say("mus-status", "Building " + Math.round(p * 100) + "%"));
-    const name = fileName("mus-name", "my-music");
+    const name = fileName("mus-name", "my-music", "bin");
     save(blob, name);
     say("mus-status", "Saved " + name + ", " + mb(blob.size) + ". Put it online and paste the link on the MUSIC tab in the world.", "good");
   } catch (e) {
@@ -1074,8 +1253,249 @@ $("#mus-go").addEventListener("click", buildMusic);
 $("#mus-rate").addEventListener("change", e => { M.rate = +e.target.value; paintMusicMeter(); });
 $("#mus-ch").addEventListener("change", e => { M.ch = +e.target.value; paintMusicMeter(); });
 
-// textures tab
+// png and zip, done by hand so see-through pixels keep their color, the canvas would wipe it
 
+async function pipeBytes(u8, ts) {
+  return new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(ts)).arrayBuffer());
+}
+const inflate = (u8, raw) => pipeBytes(u8, new DecompressionStream(raw ? "deflate-raw" : "deflate"));
+const deflate = u8 => pipeBytes(u8, new CompressionStream("deflate"));
+
+function unfilter(f, c, p, bpp) {
+  const n = c.length;
+  if (f === 1) { for (let i = bpp; i < n; i++) c[i] = (c[i] + c[i - bpp]) & 255; }
+  else if (f === 2) { for (let i = 0; i < n; i++) c[i] = (c[i] + p[i]) & 255; }
+  else if (f === 3) {
+    for (let i = 0; i < bpp; i++) c[i] = (c[i] + (p[i] >> 1)) & 255;
+    for (let i = bpp; i < n; i++) c[i] = (c[i] + ((c[i - bpp] + p[i]) >> 1)) & 255;
+  } else if (f === 4) {
+    for (let i = 0; i < bpp; i++) c[i] = (c[i] + p[i]) & 255;
+    for (let i = bpp; i < n; i++) {
+      const a = c[i - bpp], b = p[i], d = p[i - bpp];
+      const pa = Math.abs(b - d), pb = Math.abs(a - d), pc = Math.abs(a + b - 2 * d);
+      c[i] = (c[i] + (pa <= pb && pa <= pc ? a : pb <= pc ? b : d)) & 255;
+    }
+  } else if (f !== 0) throw new Error("bad png filter");
+}
+
+async function decodePng(u8) {
+  if (!u8 || u8.length < 33 || u8[0] !== 137 || u8[1] !== 80 || u8[2] !== 78 || u8[3] !== 71) return null;
+  const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+  let p = 8, w = 0, h = 0, depth = 8, ct = 6, il = 0, pal = null, trns = null, total = 0;
+  const parts = [];
+  while (p + 12 <= u8.length) {
+    const len = dv.getUint32(p), t = dv.getUint32(p + 4), d = u8.subarray(p + 8, p + 8 + len);
+    if (t === 0x49484452) { w = dv.getUint32(p + 8); h = dv.getUint32(p + 12); depth = u8[p + 16]; ct = u8[p + 17]; il = u8[p + 20]; }
+    else if (t === 0x504c5445) pal = d;
+    else if (t === 0x74524e53) trns = d;
+    else if (t === 0x49444154) { parts.push(d); total += d.length; }
+    else if (t === 0x49454e44) break;
+    p += 12 + len;
+  }
+  const ch = { 0: 1, 2: 3, 3: 1, 4: 2, 6: 4 }[ct];
+  if (!w || !h || !ch || w * h > 4096 * 4096 || !parts.length || (ct === 3 && !pal)) return null;
+  const z = new Uint8Array(total);
+  let o = 0;
+  for (const c of parts) { z.set(c, o); o += c.length; }
+  const raw = await inflate(z, false);
+  const px = new Uint8Array(w * h * 4);
+  const bits = ch * depth, bpp = Math.max(1, bits >> 3), max = (1 << depth) - 1;
+  const get = depth === 8 ? (r, i) => r[i] : depth === 16 ? (r, i) => (r[2 * i] << 8) | r[2 * i + 1] : (r, i) => (r[(i * depth) >> 3] >> (8 - depth - ((i * depth) & 7))) & max;
+  const to8 = depth === 16 ? v => v >> 8 : depth === 8 ? v => v : v => Math.round(v * 255 / max);
+  const tk = trns && trns.length >= 2 ? [(trns[0] << 8) | trns[1], (trns[2] << 8) | trns[3], (trns[4] << 8) | trns[5]] : null;
+  const passes = il ? [[0, 0, 8, 8], [4, 0, 8, 8], [0, 4, 4, 8], [2, 0, 4, 4], [0, 2, 2, 4], [1, 0, 2, 2], [0, 1, 1, 2]] : [[0, 0, 1, 1]];
+  let pos = 0;
+  for (const [x0, y0, dx, dy] of passes) {
+    const pw = Math.ceil((w - x0) / dx), ph = Math.ceil((h - y0) / dy);
+    if (pw <= 0 || ph <= 0) continue;
+    const stride = Math.ceil(pw * bits / 8);
+    let prev = new Uint8Array(stride), cur = new Uint8Array(stride);
+    for (let r = 0; r < ph; r++) {
+      if (pos + 1 + stride > raw.length) throw new Error("png cut short");
+      const f = raw[pos++];
+      cur.set(raw.subarray(pos, pos + stride));
+      pos += stride;
+      unfilter(f, cur, prev, bpp);
+      const y = y0 + r * dy;
+      if (!il && ct === 6 && depth === 8) px.set(cur, y * w * 4);
+      else for (let i = 0; i < pw; i++) {
+        const q = (y * w + x0 + i * dx) * 4;
+        if (ct === 6) { px[q] = to8(get(cur, i * 4)); px[q + 1] = to8(get(cur, i * 4 + 1)); px[q + 2] = to8(get(cur, i * 4 + 2)); px[q + 3] = to8(get(cur, i * 4 + 3)); }
+        else if (ct === 2) {
+          const R = get(cur, i * 3), G = get(cur, i * 3 + 1), B = get(cur, i * 3 + 2);
+          px[q] = to8(R); px[q + 1] = to8(G); px[q + 2] = to8(B);
+          px[q + 3] = tk && R === tk[0] && G === tk[1] && B === tk[2] ? 0 : 255;
+        } else if (ct === 0) {
+          const v = get(cur, i), g = to8(v);
+          px[q] = px[q + 1] = px[q + 2] = g;
+          px[q + 3] = tk && v === tk[0] ? 0 : 255;
+        } else if (ct === 4) {
+          const g = to8(get(cur, i * 2));
+          px[q] = px[q + 1] = px[q + 2] = g;
+          px[q + 3] = to8(get(cur, i * 2 + 1));
+        } else {
+          const k = get(cur, i);
+          px[q] = pal[k * 3] || 0; px[q + 1] = pal[k * 3 + 1] || 0; px[q + 2] = pal[k * 3 + 2] || 0;
+          px[q + 3] = trns && k < trns.length ? trns[k] : 255;
+        }
+      }
+      const t = prev; prev = cur; cur = t;
+    }
+  }
+  return { w, h, px };
+}
+
+function pngChunk(type, data) {
+  const b = new Uint8Array(12 + data.length), v = new DataView(b.buffer);
+  v.setUint32(0, data.length);
+  for (let i = 0; i < 4; i++) b[4 + i] = type.charCodeAt(i);
+  b.set(data, 8);
+  v.setUint32(8 + data.length, crc32(b.subarray(4, 8 + data.length)));
+  return b;
+}
+async function encodePng(px, w, h) {
+  const st = w * 4, raw = new Uint8Array((st + 1) * h);
+  const zero = new Uint8Array(st), cand = [0, 1, 2, 3, 4].map(() => new Uint8Array(st));
+  for (let y = 0; y < h; y++) {
+    const c = px.subarray(y * st, y * st + st), p = y ? px.subarray((y - 1) * st, y * st) : zero;
+    let best = 0, bestSum = Infinity;
+    for (let f = 0; f < 5; f++) {
+      const o = cand[f];
+      let sum = 0;
+      for (let i = 0; i < st; i++) {
+        const a = i >= 4 ? c[i - 4] : 0, b = p[i], d = i >= 4 ? p[i - 4] : 0;
+        let pr = 0;
+        if (f === 1) pr = a;
+        else if (f === 2) pr = b;
+        else if (f === 3) pr = (a + b) >> 1;
+        else if (f === 4) { const pa = Math.abs(b - d), pb = Math.abs(a - d), pc = Math.abs(a + b - 2 * d); pr = pa <= pb && pa <= pc ? a : pb <= pc ? b : d; }
+        const v = (c[i] - pr) & 255;
+        o[i] = v;
+        sum += v < 128 ? v : 256 - v;
+      }
+      if (sum < bestSum) { bestSum = sum; best = f; }
+    }
+    raw[y * (st + 1)] = best;
+    raw.set(cand[best], y * (st + 1) + 1);
+  }
+  const ih = new Uint8Array(13), iv = new DataView(ih.buffer);
+  iv.setUint32(0, w); iv.setUint32(4, h); ih[8] = 8; ih[9] = 6;
+  return new Blob([new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]), pngChunk("IHDR", ih), pngChunk("IDAT", await deflate(raw)), pngChunk("IEND", new Uint8Array(0))], { type: "image/png" });
+}
+
+function readZip(u8) {
+  const dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+  let e = -1;
+  for (let i = u8.length - 22; i >= Math.max(0, u8.length - 65557); i--) if (dv.getUint32(i, true) === 0x06054b50) { e = i; break; }
+  if (e < 0) return null;
+  let count = dv.getUint16(e + 10, true), cd = dv.getUint32(e + 16, true);
+  if ((count === 0xFFFF || cd === 0xFFFFFFFF) && e >= 20 && dv.getUint32(e - 20, true) === 0x07064b50) {
+    const z = Number(dv.getBigUint64(e - 12, true));
+    if (dv.getUint32(z, true) === 0x06064b50) { count = Number(dv.getBigUint64(z + 32, true)); cd = Number(dv.getBigUint64(z + 48, true)); }
+  }
+  const td = new TextDecoder(), files = new Map();
+  let p = cd;
+  for (let i = 0; i < count && p + 46 <= u8.length && dv.getUint32(p, true) === 0x02014b50; i++) {
+    const flags = dv.getUint16(p + 8, true), method = dv.getUint16(p + 10, true);
+    let csize = dv.getUint32(p + 20, true), usize = dv.getUint32(p + 24, true), lho = dv.getUint32(p + 42, true);
+    const nl = dv.getUint16(p + 28, true), xl = dv.getUint16(p + 30, true), cl = dv.getUint16(p + 32, true);
+    const name = td.decode(u8.subarray(p + 46, p + 46 + nl)).replace(/\\/g, "/");
+    for (let x = p + 46 + nl, xe = x + xl; x + 4 <= xe;) {
+      const id = dv.getUint16(x, true), sz = dv.getUint16(x + 2, true);
+      if (id === 1) {
+        let q = x + 4;
+        if (usize === 0xFFFFFFFF) { usize = Number(dv.getBigUint64(q, true)); q += 8; }
+        if (csize === 0xFFFFFFFF) { csize = Number(dv.getBigUint64(q, true)); q += 8; }
+        if (lho === 0xFFFFFFFF) lho = Number(dv.getBigUint64(q, true));
+      }
+      x += 4 + sz;
+    }
+    p += 46 + nl + xl + cl;
+    if (name.endsWith("/")) continue;
+    files.set(name, async () => {
+      if (flags & 1) throw new Error("locked");
+      if (dv.getUint32(lho, true) !== 0x04034b50) throw new Error("bad zip entry");
+      const start = lho + 30 + dv.getUint16(lho + 26, true) + dv.getUint16(lho + 28, true);
+      const data = u8.subarray(start, start + csize);
+      if (method === 0) return data;
+      if (method === 8) return inflate(data, true);
+      throw new Error("zip method " + method);
+    });
+  }
+  return files;
+}
+
+// image helpers, everything is top down rgba bytes
+
+function blank(w, h) { return { w, h, px: new Uint8Array(w * h * 4) }; }
+function crop(img, x, y, w, h) {
+  const o = blank(w, h);
+  for (let yy = 0; yy < h; yy++) {
+    const sy = y + yy;
+    if (sy < 0 || sy >= img.h) continue;
+    for (let xx = 0; xx < w; xx++) {
+      const sx = x + xx;
+      if (sx < 0 || sx >= img.w) continue;
+      const s = (sy * img.w + sx) * 4, d = (yy * w + xx) * 4;
+      o.px[d] = img.px[s]; o.px[d + 1] = img.px[s + 1]; o.px[d + 2] = img.px[s + 2]; o.px[d + 3] = img.px[s + 3];
+    }
+  }
+  return o;
+}
+// same as the unity side: alpha weighted box for whole multiples, nearest for anything else
+function resize(img, w, h) {
+  if (img.w === w && img.h === h) return img;
+  const o = blank(w, h), s = img.px, sw = img.w, sh = img.h;
+  if (sw % w || sh % h || sw < w) {
+    for (let y = 0; y < h; y++)
+      for (let x = 0; x < w; x++) {
+        const i = (Math.floor(y * sh / h) * sw + Math.floor(x * sw / w)) * 4, d = (y * w + x) * 4;
+        o.px[d] = s[i]; o.px[d + 1] = s[i + 1]; o.px[d + 2] = s[i + 2]; o.px[d + 3] = s[i + 3];
+      }
+    return o;
+  }
+  const fx = sw / w, fy = sh / h;
+  for (let y = 0; y < h; y++)
+    for (let x = 0; x < w; x++) {
+      let r = 0, g = 0, b = 0, a = 0;
+      for (let yy = 0; yy < fy; yy++)
+        for (let xx = 0; xx < fx; xx++) {
+          const i = ((y * fy + yy) * sw + x * fx + xx) * 4, ca = s[i + 3] / 255;
+          r += s[i] * ca; g += s[i + 1] * ca; b += s[i + 2] * ca; a += ca;
+        }
+      if (a <= 0) continue;
+      const d = (y * w + x) * 4;
+      o.px[d] = Math.round(r / a); o.px[d + 1] = Math.round(g / a); o.px[d + 2] = Math.round(b / a); o.px[d + 3] = Math.round(a / (fx * fy) * 255);
+    }
+  return o;
+}
+// scales to w by h only when the shape matches, so a pack with a different layout gets skipped
+function fitTo(img, w, h) {
+  if (!img) return null;
+  if (img.w === w && img.h === h) return img;
+  if (img.w * h !== img.h * w) return null;
+  return resize(img, w, h);
+}
+function frameOf(img, f) {
+  const s = img.w, n = Math.max(1, Math.floor(img.h / s));
+  return crop(img, 0, (f % n) * s, s, Math.min(s, img.h));
+}
+function blit(out, img, x, top) {
+  for (let y = 0; y < img.h; y++) {
+    const dy = top + y;
+    if (dy < 0 || dy >= SZ) continue;
+    const s = y * img.w * 4, d = (dy * SZ + x) * 4;
+    out.set(img.px.subarray(s, s + img.w * 4), d);
+  }
+}
+function region(out, x, top, w, h) { return crop({ w: SZ, h: SZ, px: out }, x, top, w, h); }
+
+// sheet layout, unity rects are bottom up, these give the top row
+
+const atlasCell = i => ({ x: (i % 32) * 32, top: SZ - ((i >> 5) + 1) * 32 });
+const iconCell = c => { const q = c >= 256 ? 1 : 0, i = c - q * 256; return { x: 1024 + (i % 16) * 64, top: SZ - (q * 1024 + (i >> 4) * 64) - 64 }; };
+const itemCell = k => ({ x: (k % 32) * 32 + 8, top: SZ - (1024 + (k >> 5) * 32 + 8) - 16 });
+const mobCell = (s, h) => ({ x: (s % 8) * 128, top: SZ - (1536 + (s >> 3) * 128) - h });
 const REGIONS = [
   { name: "MOBS", x: 0, y: 0, w: 1024, h: 512 },
   { name: "MENUS", x: 1024, y: 0, w: 1024, h: 512 },
@@ -1083,95 +1503,1110 @@ const REGIONS = [
   { name: "BLOCK ICONS", x: 1024, y: 512, w: 1024, h: 1536 },
   { name: "BLOCKS", x: 0, y: 1024, w: 1024, h: 1024 },
 ];
-let texImg = null, texLoaded = false;
 
-function drawMap() {
-  const cv = $("#tex-map"), g = cv.getContext("2d");
-  const k = cv.width / 2048;
-  g.imageSmoothingEnabled = false;
-  g.fillStyle = "#2a2926";
-  g.fillRect(0, 0, cv.width, cv.height);
-  if (texImg) g.drawImage(texImg, 0, 0, cv.width, cv.height);
-  if (!$("#tex-areas").checked) return;
-  g.font = "11px Silkscreen, monospace";
-  g.textBaseline = "top";
-  for (const r of REGIONS) {
-    g.strokeStyle = "#fff";
-    g.lineWidth = 2;
-    g.strokeRect(r.x * k + 1, r.y * k + 1, r.w * k - 2, r.h * k - 2);
-    const tw = g.measureText(r.name).width + 10;
-    g.fillStyle = "#2f5545";
-    g.fillRect(r.x * k + 4, r.y * k + 4, tw, 17);
-    g.fillStyle = "#fff";
-    g.fillText(r.name, r.x * k + 9, r.y * k + 7);
+// old names, new on the left
+const LEG_B = (() => {
+  const m = {
+    grass_block_top: "grass_top", grass_block_side: "grass_side", oak_planks: "planks_oak", oak_log: "log_oak", oak_log_top: "log_oak_top", oak_leaves: "leaves_oak",
+    furnace_front: "furnace_front_off", bricks: "brick", sandstone: "sandstone_normal", mossy_cobblestone: "cobblestone_mossy",
+    granite: "stone_granite", diorite: "stone_diorite", andesite: "stone_andesite",
+    spruce_log: "log_spruce", spruce_log_top: "log_spruce_top", spruce_planks: "planks_spruce", spruce_leaves: "leaves_spruce", spruce_sapling: "sapling_spruce",
+    birch_log: "log_birch", birch_log_top: "log_birch_top", birch_planks: "planks_birch", birch_leaves: "leaves_birch", birch_sapling: "sapling_birch",
+    jungle_log: "log_jungle", jungle_log_top: "log_jungle_top", jungle_planks: "planks_jungle", jungle_leaves: "leaves_jungle", jungle_sapling: "sapling_jungle",
+    short_grass: "tallgrass", poppy: "flower_rose", dandelion: "flower_dandelion", torch: "torch_on", oak_sapling: "sapling_oak",
+    farmland: "farmland_dry", farmland_moist: "farmland_wet", dirt_path_top: "grass_path_top", dirt_path_side: "grass_path_side",
+    oak_door_bottom: "door_wood_lower", oak_door_top: "door_wood_upper", spruce_door_bottom: "door_spruce_lower", spruce_door_top: "door_spruce_upper",
+    birch_door_bottom: "door_birch_lower", birch_door_top: "door_birch_upper", jungle_door_bottom: "door_jungle_lower", jungle_door_top: "door_jungle_upper",
+    fire_0: "fire_layer_0", fire_1: "fire_layer_1", stone_bricks: "stonebrick", mossy_stone_bricks: "stonebrick_mossy", cracked_stone_bricks: "stonebrick_cracked", chiseled_stone_bricks: "stonebrick_carved",
+    carved_pumpkin: "pumpkin_face_off", jack_o_lantern: "pumpkin_face_on", pumpkin_stem: "pumpkin_stem_disconnected", dead_bush: "deadbush",
+    red_mushroom: "mushroom_red", brown_mushroom: "mushroom_brown", blue_orchid: "flower_blue_orchid", allium: "flower_allium", azure_bluet: "flower_houstonia",
+    red_tulip: "flower_tulip_red", orange_tulip: "flower_tulip_orange", white_tulip: "flower_tulip_white", pink_tulip: "flower_tulip_pink", oxeye_daisy: "flower_oxeye_daisy",
+    oak_trapdoor: "trapdoor", sugar_cane: "reeds", rail: "rail_normal", rail_corner: "rail_normal_turned", powered_rail: "rail_golden", powered_rail_on: "rail_golden_powered",
+    redstone_torch: "redstone_torch_on", brown_mushroom_block: "mushroom_block_skin_brown", red_mushroom_block: "mushroom_block_skin_red", mushroom_stem: "mushroom_block_skin_stem",
+  };
+  for (let i = 0; i < 8; i++) m["wheat_stage" + i] = "wheat_stage_" + i;
+  for (let i = 0; i < 4; i++) { m["carrots_stage" + i] = "carrots_stage_" + i; m["potatoes_stage" + i] = "potatoes_stage_" + i; }
+  for (let i = 0; i < 3; i++) m["cocoa_stage" + i] = "cocoa_stage_" + i;
+  for (const c of ["white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"]) {
+    const o = c === "light_gray" ? "silver" : c;
+    m[c + "_wool"] = "wool_colored_" + o;
+    m[c + "_concrete"] = "concrete_" + o;
+    m[c + "_concrete_powder"] = "concrete_powder_" + o;
+  }
+  return m;
+})();
+const LEG_I = (() => {
+  const m = {
+    lapis_lazuli: "dye_powder_blue", redstone: "redstone_dust", wheat_seeds: "seeds_wheat", porkchop: "porkchop_raw", cooked_porkchop: "porkchop_cooked",
+    beef: "beef_raw", cooked_beef: "beef_cooked", chicken: "chicken_raw", cooked_chicken: "chicken_cooked", bow: "bow_standby", bucket: "bucket_empty",
+    water_bucket: "bucket_water", lava_bucket: "bucket_lava", milk_bucket: "bucket_milk", mutton: "mutton_raw", cooked_mutton: "mutton_cooked",
+    baked_potato: "potato_baked", melon_slice: "melon", melon_seeds: "seeds_melon", pumpkin_seeds: "seeds_pumpkin", bone_meal: "dye_powder_white",
+    ink_sac: "dye_powder_black", cocoa_beans: "dye_powder_brown", book: "book_normal", minecart: "minecart_normal", furnace_minecart: "minecart_furnace",
+    cod: "fish_cod_raw", cooked_cod: "fish_cod_cooked", salmon: "fish_salmon_raw", cooked_salmon: "fish_salmon_cooked", tropical_fish: "fish_clownfish_raw",
+    pufferfish: "fish_pufferfish_raw", fishing_rod: "fishing_rod_uncast", oak_door: "door_wood", spruce_door: "door_spruce", birch_door: "door_birch",
+    jungle_door: "door_jungle", filled_map: "map_filled", writable_book: "book_writable",
+  };
+  for (const t of ["pickaxe", "axe", "shovel", "sword", "hoe"]) { m["wooden_" + t] = "wood_" + t; m["golden_" + t] = "gold_" + t; }
+  for (const t of ["helmet", "chestplate", "leggings", "boots"]) m["golden_" + t] = "gold_" + t;
+  for (const c of ["red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "purple", "magenta", "pink", "gray"]) m[c + "_dye"] = "dye_powder_" + c;
+  m.light_gray_dye = "dye_powder_silver";
+  return m;
+})();
+const MORE_RENAMES = { "item/rose_red.png": "item/red_dye.png", "item/dandelion_yellow.png": "item/yellow_dye.png", "item/cactus_green.png": "item/green_dye.png" };
+const ENT_OLD = { "entity/projectiles/arrow.png": "entity/arrow.png", "entity/cow/red_mooshroom.png": "entity/cow/mooshroom.png", "entity/bed/light_gray.png": "entity/bed/silver.png" };
+const CHEST_SHEET = { chest_top: "normal", chest_side: "normal", chest_front: "normal", chest_top_left: "normal_right", chest_top_right: "normal_left", chest_front_left: "normal_left", chest_front_right: "normal_right", chest_back_left: "normal_left", chest_back_right: "normal_right" };
+const FORMATS = [[1, "1.6 to 1.8"], [2, "1.9 to 1.10"], [3, "1.11 to 1.12"], [4, "1.13 to 1.14"], [5, "1.15 to 1.16.1"], [6, "1.16.2 to 1.16.5"], [7, "1.17"], [8, "1.18"], [9, "1.19 to 1.19.2"], [12, "1.19.3"], [13, "1.19.4"], [15, "1.20 to 1.20.1"], [18, "1.20.2"], [22, "1.20.3 to 1.20.4"], [32, "1.20.5 to 1.20.6"], [34, "1.21 to 1.21.1"], [42, "1.21.2 to 1.21.3"], [46, "1.21.4"], [55, "1.21.5"], [63, "1.21.6"], [64, "1.21.7 to 1.21.8"]];
+function versionOf(fmt) {
+  if (fmt == null) return null;
+  let best = null;
+  for (const [f, v] of FORMATS) if (f <= fmt) best = [f, v];
+  if (!best) return null;
+  if (fmt > FORMATS[FORMATS.length - 1][0]) return "Minecraft 1.21.9 or newer";
+  return "Minecraft " + best[1];
+}
+
+// recipe: what goes where on the sheet, exported from the world project
+
+let RC = null, rcLoading = null;
+const LIN = Float64Array.from({ length: 256 }, (_, v) => { const c = v / 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); });
+// icons are baked with a light of 2.2 on faces shaded 1, 0.8 and 0.6
+const SHADE = [2.2, 1.76, 1.32].map(m => Uint8Array.from(LIN, l => { const x = Math.min(1, l * m); return Math.round((x <= 0.0031308 ? x * 12.92 : 1.055 * Math.pow(x, 1 / 2.4) - 0.055) * 255); }));
+
+function loadRecipe() {
+  if (RC) return Promise.resolve(RC);
+  if (!rcLoading) rcLoading = (async () => {
+    const [rj, im] = await Promise.all([
+      fetch("recipe.json").then(r => { if (!r.ok) throw new Error("recipe " + r.status); return r.json(); }),
+      fetchBytes("iconmap.png").then(decodePng),
+    ]);
+    const icons = rj.icons.list.map(([cell, id, cut, name], j) => ({ cell, id, cut: !!cut, name: name || "Block " + id, j }));
+    const S2 = rj.icons.size, PR = rj.icons.perRow, per = S2 * S2;
+    const map = new Uint32Array(icons.length * per), uses = [];
+    for (const ic of icons) {
+      const gx = (ic.j % PR) * S2, gy = Math.floor(ic.j / PR) * S2, set = new Set();
+      for (let y = 0; y < S2; y++)
+        for (let x = 0; x < S2; x++) {
+          const o = ((gy + y) * im.w + gx + x) * 4, b = im.px[o + 2];
+          if (!(b & 128)) continue;
+          const tx = im.px[o] | ((b & 3) << 8), ty = im.px[o + 1] | (((b >> 2) & 3) << 8);
+          map[ic.j * per + y * S2 + x] = 1 | (((b >> 4) & 3) << 1) | (tx << 3) | (ty << 13);
+          set.add((ty >> 5) * 32 + (tx >> 5));
+        }
+      uses.push(set);
+    }
+    const rev = new Map();
+    for (const [o, n] of Object.entries({ ...rj.renames, ...MORE_RENAMES })) { if (!rev.has(n)) rev.set(n, []); rev.get(n).push(o); }
+    RC = {
+      ...rj, iconList: icons, iconPx: map, iconUses: uses, iconSize: S2,
+      cellIcon: new Map(icons.map(ic => [ic.cell, ic])),
+      itemCell: new Map(rj.items.map(([k, src]) => [k, src])),
+      mobSlot: new Map(rj.mobs.map(m => [m[0], m])),
+      sliceOf: new Map(rj.slices.map(s => [s[1], s])),
+      renamesRev: rev,
+      tileIndex: new Map(rj.atlas.tiles.map(([n], i) => [n, i])),
+    };
+    return RC;
+  })().catch(e => { rcLoading = null; throw e; });
+  return rcLoading;
+}
+
+const baseCache = {};
+function loadBase(k) {
+  if (!baseCache[k]) baseCache[k] = fetchBytes(BASES[k], p => { if (CV.busy) say("cv-status", "Downloading " + BASE_NAMES[k] + " " + Math.round(p * 100) + "%"); }).then(decodePng).then(img => {
+    if (!img || img.w !== SZ || img.h !== SZ) throw new Error("the start sheet did not load");
+    return img;
+  }).catch(e => { delete baseCache[k]; throw e; });
+  return baseCache[k];
+}
+
+// labels for the inspector and the report
+
+const words = s => s.replace(/_/g, " ");
+function tileLabel(n) {
+  let m;
+  if ((m = /^bed_(feet|head)_(top|side|end)(?::(\w+))?$/.exec(n))) return cap(words(m[3] || "red")) + " bed, " + m[1] + " " + m[2];
+  if ((m = /^bed_(under_feet|under_head|leg)$/.exec(n))) return "Bed " + words(m[1]);
+  if ((m = /^fire_0@(\d+)$/.exec(n))) return "Fire, frame " + (+m[1] + 1);
+  if ((m = /^destroy_stage_(\d)$/.exec(n))) return "Block cracks, step " + (+m[1] + 1);
+  if ((m = /^pumpkin_stem$/.exec(n))) return "Pumpkin stem";
+  return cap(words(n));
+}
+function tileGroup(n) {
+  let m;
+  if ((m = /^bed_\w+?(?::(\w+))?$/.exec(n))) return cap(words(m[1] || "red")) + " bed";
+  if (n.startsWith("chest_")) return "Chest";
+  if (n.startsWith("fire_0")) return "Fire";
+  if (n.startsWith("destroy_stage")) return "Block cracks";
+  return tileLabel(n.replace(/@\d+$/, ""));
+}
+function itemLabel(k, src) {
+  if (k >= 509) return "Bow pulling, step " + (k - 508);
+  if (src.startsWith("bed:")) return cap(words(src.slice(4))) + " bed";
+  return cap(words(src.replace(/^item\//, "").replace(/\.png$/, "")));
+}
+function mobLabel(mat) {
+  const n = mat.replace(/^M_Mob_|^M_/, "");
+  return { sheep_fur: "Sheep wool", Bobber: "Fishing bobber", MobHeart: "Love heart" }[n] || cap(words(n));
+}
+function uiLabel(n) {
+  let m;
+  if ((m = /^fire_1_f(\d+)$/.exec(n))) return "Burning overlay, frame " + (+m[1] + 1);
+  const special = { book_bg: "Recipe book", gui_trade: "Trading screen", gui_dirt_bg: "Menu background", misc_underwater: "Underwater overlay", icon_export: "Export icon", icon_import: "Import icon", icon_compass: "Compass icon", gui_chest_single: "Chest screen", gui_chest_double: "Large chest screen" };
+  if (special[n]) return special[n];
+  return cap(words(n.replace(/^(hud|gui|widget)_/, "").replace(/_crop$/, "").replace(/_hi$/, "_highlighted").replace(/_off$/, "_disabled")));
+}
+
+// what a spot on the sheet is, top down sheet coordinates
+function describe(x, y) {
+  if (!RC || x < 0 || y < 0 || x >= SZ || y >= SZ) return null;
+  const yu = SZ - 1 - y;
+  if (x < 1024 && yu < 1024) {
+    const i = (yu >> 5) * 32 + (x >> 5), t = RC.atlas.tiles[i], c = atlasCell(i);
+    if (!t) return { key: null, label: "Empty", rect: [c.x, c.top, 32, 32] };
+    const n = t[0].split(":")[0].replace(/@\d+$/, "");
+    const file = n.startsWith("bed_") ? "entity/bed/" + (t[0].split(":")[1] || "red") + ".png" : n.startsWith("chest_") ? "entity/chest/" + CHEST_SHEET[n] + ".png" : "block/" + n + ".png";
+    return { key: "t" + i, label: "Block texture: " + tileLabel(t[0]), file, rect: [c.x, c.top, 32, 32] };
+  }
+  if (x < 1024 && yu < 1536) {
+    const k = ((yu - 1024) >> 5) * 32 + (x >> 5), src = RC.itemCell.get(k), c = itemCell(k);
+    if (!src) return { key: null, label: "Empty", rect: [c.x - 8, c.top - 8, 32, 32] };
+    return { key: "i" + k, label: "Item: " + itemLabel(k, src), file: src.startsWith("bed:") ? "entity/bed/" + src.slice(4) + ".png" : src, rect: [c.x, c.top, 16, 16] };
+  }
+  if (x < 1024) {
+    const s = ((yu - 1536) >> 7) * 8 + (x >> 7), m = RC.mobSlot.get(s);
+    if (!m) return null;
+    const c = mobCell(s, m[2]);
+    if (x >= c.x + m[1] || y < c.top) return null;
+    const file = m[3] === "compose:villager" ? "entity/villager/villager.png" : m[3] === "compose:mooshroom" ? "entity/cow/red_mooshroom.png" : m[3];
+    return { key: "m" + s, label: "Mob: " + mobLabel(m[4]), file, rect: [c.x, c.top, m[1], m[2]] };
+  }
+  if (yu < 1536) {
+    const q = yu >= 1024 ? 1 : 0, cell = q * 256 + ((yu - q * 1024) >> 6) * 16 + ((x - 1024) >> 6), ic = RC.cellIcon.get(cell), c = iconCell(cell);
+    if (!ic) return { key: null, label: "Empty", rect: [c.x, c.top, 64, 64] };
+    return { key: "c" + cell, label: "Block icon: " + ic.name, note: "Drawn from the block textures. The converter redraws these for you.", rect: [c.x, c.top, 64, 64] };
+  }
+  for (const e of RC.ui) {
+    if (x >= e[0] && x < e[0] + e[2] && yu >= e[1] && yu < e[1] + e[3]) return { key: "u" + e[9], label: "Menus: " + uiLabel(e[9]), file: e[4], rect: [e[0], SZ - e[1] - e[3], e[2], e[3]] };
+  }
+  return { key: null, label: "Menus: Dig-n-Build art that packs do not change", rect: null };
+}
+
+// viewer, used by the converter and the sheet tools
+
+const ZOOMS = [0, 0.5, 1, 2, 4];
+class Viewer {
+  constructor(root, opts) {
+    this.root = root;
+    this.opts = opts || {};
+    root.innerHTML =
+      '<div class="vbar">' +
+      (this.opts.compare ? '<span class="seg" role="group" aria-label="Which sheet"><button class="btn sm" data-show="out" aria-pressed="true">YOUR SHEET</button><button class="btn sm" data-show="base" aria-pressed="false">START SHEET</button></span>' : "") +
+      '<label class="check"><input type="checkbox" data-v="areas" checked> Areas</label>' +
+      (this.opts.compare ? '<label class="check"><input type="checkbox" data-v="dim"> Only what changed</label>' : "") +
+      '<span class="zoom"><button class="btn sm ic" data-z="-1" aria-label="Zoom out">-</button><span class="zl">FIT</span><button class="btn sm ic" data-z="1" aria-label="Zoom in">+</button></span>' +
+      "</div>" +
+      '<div class="vbox"><div class="vwrap"><canvas class="vimg" width="2048" height="2048"></canvas><canvas class="vov" width="1024" height="1024"></canvas></div></div>' +
+      '<p class="vinfo" aria-live="polite">Point at the sheet to see what each spot is.</p>';
+    this.box = $(".vbox", root);
+    this.wrap = $(".vwrap", root);
+    this.cv = $(".vimg", root);
+    this.ov = $(".vov", root);
+    this.info = $(".vinfo", root);
+    this.z = 0;
+    this.show = "out";
+    this.imgs = {};
+    this.changed = null;
+    this.hot = null;
+    root.addEventListener("click", e => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      if (b.dataset.z) this.zoomBy(+b.dataset.z);
+      if (b.dataset.show) this.pick(b.dataset.show);
+    });
+    root.addEventListener("change", e => { if (e.target.dataset.v) this.drawOverlay(); });
+    this.cv.parentElement.addEventListener("mousemove", e => this.hover(e));
+    this.cv.parentElement.addEventListener("mouseleave", () => { this.hot = null; this.drawOverlay(); this.paintInfo(null); });
+    new ResizeObserver(() => this.layout()).observe(this.box);
+  }
+  set(which, img) {
+    this.imgs[which] = img;
+    if (which === this.show) this.paint();
+  }
+  pick(which) {
+    this.show = which;
+    this.root.querySelectorAll("[data-show]").forEach(b => b.setAttribute("aria-pressed", b.dataset.show === which ? "true" : "false"));
+    this.paint();
+  }
+  paint() {
+    const img = this.imgs[this.show], g = this.cv.getContext("2d");
+    g.clearRect(0, 0, SZ, SZ);
+    if (img) g.putImageData(new ImageData(new Uint8ClampedArray(img.px.buffer, img.px.byteOffset, SZ * SZ * 4), SZ, SZ), 0, 0);
+    this.layout();
+  }
+  zoomBy(d) {
+    let i = ZOOMS.indexOf(this.z) + d;
+    i = Math.max(0, Math.min(ZOOMS.length - 1, i));
+    const old = this.scale(), cx = (this.box.scrollLeft + this.box.clientWidth / 2) / old, cy = (this.box.scrollTop + this.box.clientHeight / 2) / old;
+    this.z = ZOOMS[i];
+    this.layout();
+    const s = this.scale();
+    this.box.scrollLeft = cx * s - this.box.clientWidth / 2;
+    this.box.scrollTop = cy * s - this.box.clientHeight / 2;
+  }
+  scale() {
+    if (this.z) return this.z;
+    return Math.max(0.1, Math.min(this.box.clientWidth, this.box.clientHeight) / SZ);
+  }
+  layout() {
+    const s = this.scale(), px = Math.floor(SZ * s);
+    this.wrap.style.width = px + "px";
+    this.wrap.style.height = px + "px";
+    $(".zl", this.root).textContent = this.z ? this.z + "X" : "FIT";
+    this.drawOverlay();
+  }
+  drawOverlay() {
+    const g = this.ov.getContext("2d"), k = this.ov.width / SZ;
+    g.clearRect(0, 0, this.ov.width, this.ov.height);
+    const dim = $("[data-v=dim]", this.root);
+    if (dim && dim.checked && this.changed && this.show === "out") {
+      g.fillStyle = "rgba(20, 19, 17, .78)";
+      g.fillRect(0, 0, this.ov.width, this.ov.height);
+      for (const r of this.changed) g.clearRect(r[0] * k, r[1] * k, r[2] * k, r[3] * k);
+    }
+    if ($("[data-v=areas]", this.root).checked) {
+      g.font = "11px Silkscreen, monospace";
+      g.textBaseline = "top";
+      for (const r of REGIONS) {
+        g.strokeStyle = "#fff";
+        g.lineWidth = 2;
+        g.strokeRect(r.x * k + 1, r.y * k + 1, r.w * k - 2, r.h * k - 2);
+        const tw = g.measureText(r.name).width + 10;
+        g.fillStyle = "#2f5545";
+        g.fillRect(r.x * k + 4, r.y * k + 4, tw, 17);
+        g.fillStyle = "#fff";
+        g.fillText(r.name, r.x * k + 9, r.y * k + 7);
+      }
+    }
+    if (this.hot && this.hot.rect) {
+      const r = this.hot.rect;
+      g.strokeStyle = "#ffd75e";
+      g.lineWidth = 2;
+      g.strokeRect(r[0] * k - 1, r[1] * k - 1, r[2] * k + 2, r[3] * k + 2);
+    }
+  }
+  hover(e) {
+    const r = this.cv.getBoundingClientRect();
+    const x = Math.floor((e.clientX - r.left) / r.width * SZ), y = Math.floor((e.clientY - r.top) / r.height * SZ);
+    const d = describe(x, y);
+    const same = d && this.hot && d.label === this.hot.label && String(d.rect) === String(this.hot.rect);
+    if (same) return;
+    this.hot = d;
+    this.drawOverlay();
+    this.paintInfo(d);
+  }
+  paintInfo(d) {
+    if (!d) { this.info.textContent = RC ? "Point at the sheet to see what each spot is." : "Loading the sheet map."; return; }
+    let html = "<b>" + esc(d.label) + "</b>";
+    const from = this.opts.from && d.key ? this.opts.from(d.key) : null;
+    if (from) html += "<br>" + esc(from);
+    else if (d.file) html += "<br>" + (this.opts.compare ? "From the start sheet. " : "") + "Java pack file: " + esc(d.file);
+    else if (this.opts.compare && d.key) html += "<br>From the start sheet.";
+    else if (d.note) html += "<br>" + esc(d.note);
+    this.info.innerHTML = html;
   }
 }
-function loadTemplate() {
-  if (texLoaded) return;
-  texLoaded = true;
-  const img = new Image();
-  img.onload = () => { if (!texImg) { texImg = img; drawMap(); } };
-  img.src = TEMPLATE;
-  drawMap();
+
+// converter
+
+const CV = { packs: [], base: "classic", cats: { blocks: true, items: true, mobs: true, ui: true }, out: null, res: null, run: 0, busy: false, timer: 0 };
+const CATS = [
+  { key: "blocks", name: "BLOCKS", note: "Block textures, plus the block icons that use them" },
+  { key: "items", name: "ITEMS", note: "Tools, food, armor and the rest" },
+  { key: "mobs", name: "MOBS", note: "Mob skins, arrows, the bobber and the minecart" },
+  { key: "ui", name: "MENUS AND HUD", note: "Hotbar, hearts, hunger, buttons and screens" },
+];
+let cvView = null, shView = null;
+
+function packRaw(pk, rel) {
+  const ld = pk.tex.get(rel);
+  if (!ld) return Promise.resolve(null);
+  return ld().then(decodePng).then(img => { if (img) img.path = rel; return img; }).catch(() => { pk.bad.add(rel); return null; });
 }
-function checkTexture(file) {
+function packGet(pk, rel) {
+  let p = pk.memo.get(rel);
+  if (!p) { p = packFind(pk, rel).catch(() => null); pk.memo.set(rel, p); }
+  return p;
+}
+async function packFind(pk, rel) {
+  if (pk.oldChests && /^entity\/chest\/normal(_left|_right)?\.png$/.test(rel)) return (await oldChests(pk))[rel] || null;
+  let img = await packRaw(pk, rel);
+  if (img) return img;
+  for (const alt of aliases(pk, rel)) {
+    img = await packRaw(pk, alt);
+    if (img) return img;
+  }
+  const s = pk.sliceOK && RC.sliceOf.get(rel);
+  if (s) return sliceOld(pk, s);
+  return null;
+}
+function aliases(pk, rel) {
+  const out = [...(RC.renamesRev.get(rel) || [])];
+  if (ENT_OLD[rel]) out.push(ENT_OLD[rel]);
+  if (pk.legacy) {
+    let m;
+    if ((m = /^block\/(.+)\.png$/.exec(rel))) out.push("blocks/" + (LEG_B[m[1]] || m[1]) + ".png");
+    else if ((m = /^item\/(.+)\.png$/.exec(rel))) out.push("items/" + (LEG_I[m[1]] || m[1]) + ".png");
+  }
+  return out;
+}
+// sprites cut out of the 256 wide sheets packs used before 1.20.2
+async function sliceOld(pk, s) {
+  const [sheet, , x, y, w, h, vw, vh] = s;
+  const src = await packGet(pk, sheet);
+  if (!src) return null;
+  const k = Math.floor(src.w / 256);
+  if (k < 1) return null;
+  const o = blank(vw * k, vh * k);
+  for (let yy = 0; yy < o.h; yy++)
+    for (let xx = 0; xx < o.w; xx++) {
+      const sx = x * k + Math.min(xx, w * k - 1), sy = y * k + Math.min(yy, h * k - 1);
+      if (sx >= src.w || sy >= src.h) continue;
+      const si = (sy * src.w + sx) * 4, di = (yy * o.w + xx) * 4;
+      o.px[di] = src.px[si]; o.px[di + 1] = src.px[si + 1]; o.px[di + 2] = src.px[si + 2]; o.px[di + 3] = src.px[si + 3];
+    }
+  o.path = (src.path || sheet) + ", cut out";
+  return o;
+}
+
+// chests before 1.15 had the lid top and inside swapped and the front in the back slot
+function oldChests(pk) {
+  if (!pk.chestP) pk.chestP = (async () => {
+    const out = {};
+    const s = fitTo(await packRaw(pk, "entity/chest/normal.png"), 64, 64), d = fitTo(await packRaw(pk, "entity/chest/normal_double.png"), 128, 64);
+    const P = (t, x, y) => (y * t.w + x) * 4;
+    const face = (s, sx, sy, d, dx, dy, w, h, vflip) => {
+      for (let y = 0; y < h; y++)
+        for (let x = 0; x < w; x++) {
+          const i = P(s, sx + x, sy + (vflip ? h - 1 - y : y)), o = P(d, dx + x, dy + y);
+          d.px[o] = s.px[i]; d.px[o + 1] = s.px[i + 1]; d.px[o + 2] = s.px[i + 2]; d.px[o + 3] = s.px[i + 3];
+        }
+    };
+    const box = (s, d, v, sw, dw, h, dd, colFront, colBack, sideL, sideR) => {
+      face(s, dd + sw + colFront, v, d, dd, v, dw, dd, true);
+      face(s, dd + colFront, v, d, dd + dw, v, dw, dd, true);
+      face(s, dd + colFront, v + dd, d, 2 * dd + dw, v + dd, dw, h, false);
+      face(s, 2 * dd + sw + colBack, v + dd, d, dd, v + dd, dw, h, false);
+      face(s, sideL, v + dd, d, 0, v + dd, dd, h, false);
+      face(s, sideR, v + dd, d, dd + dw, v + dd, dd, h, false);
+    };
+    const latch = (s, d, sx, dx, w) => face(s, sx, 1, d, dx, 1, w, 4, false);
+    if (s) {
+      const n = blank(64, 64);
+      box(s, n, 0, 14, 14, 5, 14, 0, 0, 0, 28);
+      box(s, n, 19, 14, 14, 10, 14, 0, 0, 0, 28);
+      latch(s, n, 1, 1, 2);
+      n.path = "entity/chest/normal.png, converted";
+      out["entity/chest/normal.png"] = n;
+    }
+    if (d) {
+      const l = blank(64, 64), r = blank(64, 64);
+      for (const v of [0, 19]) {
+        const h = v === 0 ? 5 : 10;
+        box(d, l, v, 30, 15, h, 14, 0, 15, 0, 0);
+        box(d, r, v, 30, 15, h, 14, 15, 0, 44, 44);
+      }
+      latch(d, l, 1, 1, 1);
+      latch(d, r, 2, 2, 1);
+      latch(d, l, 1, 3, 1);
+      latch(d, r, 2, 3, 1);
+      l.path = r.path = "entity/chest/normal_double.png, converted";
+      out["entity/chest/normal_left.png"] = l;
+      out["entity/chest/normal_right.png"] = r;
+    }
+    return out;
+  })();
+  return pk.chestP;
+}
+
+// block tiles work in unity order, row 0 at the bottom, same as the builder in the world project
+const F = n => new Float32Array(n * 4);
+function fget(t, x, yTop) { const i = (yTop * t.w + x) * 4; return [t.px[i] / 255, t.px[i + 1] / 255, t.px[i + 2] / 255, t.px[i + 3] / 255]; }
+function fset(a, k, c) { a[k * 4] = c[0]; a[k * 4 + 1] = c[1]; a[k * 4 + 2] = c[2]; a[k * 4 + 3] = c[3]; }
+function fcopy(d, dk, s, sk) { d[dk * 4] = s[sk * 4]; d[dk * 4 + 1] = s[sk * 4 + 1]; d[dk * 4 + 2] = s[sk * 4 + 2]; d[dk * 4 + 3] = s[sk * 4 + 3]; }
+function unityTile(img) {
+  const px = F(256);
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) fset(px, y * 16 + x, fget(img, x, 15 - y));
+  return px;
+}
+function bedTile(t, name) {
+  const px = F(256), head = name.includes("head");
+  if (name.endsWith("_top")) {
+    const ry = head ? 6 : 28;
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) fset(px, y * 16 + x, fget(t, 6 + x, ry + 15 - y));
+  } else if (name.startsWith("bed_under")) {
+    const uy = head ? 6 : 28;
+    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) fset(px, y * 16 + x, fget(t, 28 + x, uy + 15 - y));
+  } else if (name === "bed_leg") {
+    for (let k = 0; k < 3; k++)
+      for (let x = 0; x < 3; x++) {
+        const c = fget(t, 53 + x, 3 + k);
+        fset(px, k * 16 + x, c); fset(px, k * 16 + 13 + x, c); fset(px, (13 + k) * 16 + x, c); fset(px, (13 + k) * 16 + 13 + x, c);
+      }
+  } else if (name.endsWith("_side")) {
+    for (let k = 0; k < 6; k++) for (let x = 0; x < 16; x++) fset(px, (3 + k) * 16 + x, head ? fget(t, k, 6 + 15 - x) : fget(t, k, 28 + x));
+  } else {
+    const ex0 = head ? 6 : 22, ey0 = head ? 0 : 22;
+    for (let k = 0; k < 6; k++) for (let x = 0; x < 16; x++) fset(px, (3 + k) * 16 + x, fget(t, ex0 + x, ey0 + k));
+  }
+  return px;
+}
+function chestMap(len, a, b) {
+  const m = new Array(16).fill(0);
+  let o = 0;
+  for (let s = 0; s < len && o < 16; s++) { m[o++] = s; if ((s === a || s === b) && o < 16) m[o++] = s; }
+  return m;
+}
+function chestGrow(src, sw, dxA, dxB, dyA, dyB) {
+  const mx = chestMap(sw, dxA, dxB), my = chestMap(14, dyA, dyB), o = F(256);
+  for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) fcopy(o, y * 16 + x, src, my[y] * sw + mx[x]);
+  return o;
+}
+function chestFace(t, w, fx) {
+  const px = F(w * 14);
+  for (let r = 0; r < 9; r++) for (let x = 0; x < w; x++) fset(px, r * w + x, fget(t, fx + x, 42 - r));
+  for (let r = 0; r < 5; r++) for (let x = 0; x < w; x++) fset(px, (9 + r) * w + x, fget(t, fx + x, 18 - r));
+  return px;
+}
+function chestSym(src, sw) { for (let k = 0; k < 7; k++) for (let x = 0; x < sw; x++) fcopy(src, (13 - k) * sw + x, src, k * sw + x); }
+function chestShadow(f, sw, x0, x1, off) { for (let y = 0; y <= 2; y++) for (let x = x0; x <= x1; x++) fcopy(f, y * sw + x, f, y * sw + x + off); }
+function chestLatch(o, x0, x1) {
+  for (let y = 8; y <= 13; y++)
+    for (let x = x0; x <= x1; x++) {
+      if (x < 0 || x > 15) continue;
+      if (y >= 9 && y <= 12 && x > x0 && x < x1) continue;
+      const k = (y * 16 + x) * 4;
+      o[k] *= 0.8; o[k + 1] *= 0.8; o[k + 2] *= 0.8;
+    }
+}
+function chestTopHalf(t, seamRight) {
+  const px = F(15 * 14);
+  for (let y = 0; y < 14; y++) for (let x = 0; x < 15; x++) fset(px, y * 15 + x, fget(t, 29 + x, 13 - y));
+  chestSym(px, 15);
+  return chestGrow(px, 15, seamRight ? 3 : 11, -1, 3, 10);
+}
+function chestTile(name, t) {
+  if (name === "chest_top") {
+    const px = F(14 * 14);
+    for (let y = 0; y < 14; y++) for (let x = 0; x < 14; x++) fset(px, y * 14 + x, fget(t, 28 + x, 13 - y));
+    chestSym(px, 14);
+    return chestGrow(px, 14, 3, 10, 3, 10);
+  }
+  if (name === "chest_top_left") return chestTopHalf(t, true);
+  if (name === "chest_top_right") return chestTopHalf(t, false);
+  if (name === "chest_side") return chestGrow(chestFace(t, 14, 0), 14, 3, 10, 3, 6);
+  if (name === "chest_front") {
+    const f = chestFace(t, 14, 42);
+    chestShadow(f, 14, 5, 8, -4);
+    for (let k = 0; k < 4; k++) for (let x = 0; x < 2; x++) fset(f, (7 + k) * 14 + 6 + x, fget(t, 1 + x, 4 - k));
+    const o = chestGrow(f, 14, 3, 10, 3, 6);
+    chestLatch(o, 6, 9);
+    return o;
+  }
+  if (name === "chest_front_left") {
+    const f = chestFace(t, 15, 43);
+    chestShadow(f, 15, 13, 14, -4);
+    for (let k = 0; k < 4; k++) fset(f, (7 + k) * 15 + 14, fget(t, 1, 4 - k));
+    const o = chestGrow(f, 15, 3, -1, 3, 6);
+    chestLatch(o, 14, 16);
+    return o;
+  }
+  if (name === "chest_front_right") {
+    const f = chestFace(t, 15, 43);
+    chestShadow(f, 15, 0, 1, 4);
+    for (let k = 0; k < 4; k++) fset(f, (7 + k) * 15, fget(t, 3, 4 - k));
+    const o = chestGrow(f, 15, 11, -1, 3, 6);
+    chestLatch(o, -1, 1);
+    return o;
+  }
+  if (name === "chest_back_left") return chestGrow(chestFace(t, 15, 14), 15, 11, -1, 3, 6);
+  if (name === "chest_back_right") return chestGrow(chestFace(t, 15, 14), 15, 3, -1, 3, 6);
+  return null;
+}
+// bleed colors into clear texels so mips dont go dark around cutouts
+function dilate(px) {
+  const filled = new Uint8Array(256);
+  let any = false;
+  for (let k = 0; k < 256; k++) { filled[k] = px[k * 4 + 3] > 0.01 ? 1 : 0; if (!filled[k]) any = true; }
+  if (!any) return;
+  for (let pass = 0; pass < 16; pass++) {
+    let changed = false;
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        const k = y * 16 + x;
+        if (filled[k]) continue;
+        let r = 0, g = 0, b = 0, n = 0;
+        const add = j => { if (filled[j]) { r += px[j * 4]; g += px[j * 4 + 1]; b += px[j * 4 + 2]; n++; } };
+        if (x > 0) add(k - 1);
+        if (x < 15) add(k + 1);
+        if (y > 0) add(k - 16);
+        if (y < 15) add(k + 16);
+        if (!n) continue;
+        px[k * 4] = r / n; px[k * 4 + 1] = g / n; px[k * 4 + 2] = b / n; px[k * 4 + 3] = 0;
+        filled[k] = 1;
+        changed = true;
+      }
+    if (!changed) break;
+  }
+}
+const q8 = v => Math.round(Math.min(1, Math.max(0, v)) * 255);
+function writeTile(out, i, px) {
+  const bx = (i % 32) * 32, by = (i >> 5) * 32;
+  for (let cy = 0; cy < 32; cy++) {
+    const sy = Math.min(15, Math.max(0, cy - 8)), row = SZ - 1 - (by + cy);
+    for (let cx = 0; cx < 32; cx++) {
+      const sx = Math.min(15, Math.max(0, cx - 8)), k = (sy * 16 + sx) * 4, o = (row * SZ + bx + cx) * 4;
+      out[o] = q8(px[k]); out[o + 1] = q8(px[k + 1]); out[o + 2] = q8(px[k + 2]); out[o + 3] = q8(px[k + 3]);
+    }
+  }
+}
+function renderIcon(out, ic) {
+  const S2 = RC.iconSize, per = S2 * S2, base = ic.j * per, big = new Uint8Array(per * 4);
+  for (let p = 0; p < per; p++) {
+    const v = RC.iconPx[base + p];
+    if (!(v & 1)) continue;
+    const sh = (v >> 1) & 3, tx = (v >> 3) & 1023, ty = (v >> 13) & 1023, s = ((SZ - 1 - ty) * SZ + tx) * 4;
+    if (ic.cut && out[s + 3] < 128) continue;
+    const L = SHADE[sh];
+    big[p * 4] = L[out[s]]; big[p * 4 + 1] = L[out[s + 1]]; big[p * 4 + 2] = L[out[s + 2]]; big[p * 4 + 3] = 255;
+  }
+  const c = iconCell(ic.cell);
+  blit(out, resize({ w: S2, h: S2, px: big }, 64, 64), c.x, c.top);
+}
+function bedIcon(t) {
+  const o = blank(16, 16);
+  for (let y = 0; y < 16; y++)
+    for (let x = 0; x < 8; x++) {
+      const sy = y * 2, yy = sy < 16 ? 6 + sy : 28 + sy - 16, s = (yy * t.w + 6 + x * 2) * 4, d = (y * 16 + 4 + x) * 4;
+      o.px[d] = t.px[s]; o.px[d + 1] = t.px[s + 1]; o.px[d + 2] = t.px[s + 2]; o.px[d + 3] = t.px[s + 3];
+    }
+  return o;
+}
+
+async function find(rel) {
+  for (const pk of CV.packs) {
+    const img = await packGet(pk, rel);
+    if (img) return { img, pk, rel: img.path || rel };
+  }
+  return null;
+}
+
+async function convert() {
+  const my = ++CV.run;
+  if (!CV.packs.length) { CV.out = null; CV.res = null; CV.busy = false; paintConvert(); return; }
+  CV.busy = true;
+  paintDock();
+  say("cv-status", "Converting...");
+  try {
+    await loadRecipe();
+    const base = await loadBase(CV.base);
+    if (my !== CV.run) return;
+    const out = new Uint8Array(base.px);
+    const res = { from: new Map(), rects: [], cat: {}, perPack: new Map(), skipped: [] };
+    const tally = (cat, total) => (res.cat[cat] = { total, done: 0, kept: [] });
+    const took = (cat, key, hit, rect) => {
+      res.cat[cat].done++;
+      res.from.set(key, hit);
+      res.rects.push(rect);
+      for (const h of [].concat(hit)) res.perPack.set(h.pk.id, (res.perPack.get(h.pk.id) || 0) + 1);
+    };
+
+    if (CV.cats.blocks) {
+      const tiles = RC.atlas.tiles, T = tally("blocks", tiles.length), changed = new Set();
+      const got = await Promise.all(tiles.map(async ([name]) => {
+        if (name.startsWith("bed_")) {
+          const [n, color = "red"] = name.split(":"), hit = await find("entity/bed/" + color + ".png"), t = hit && fitTo(hit.img, 64, 64);
+          return t ? { px: bedTile(t, n), hit } : null;
+        }
+        if (name.startsWith("chest_")) {
+          const hit = await find("entity/chest/" + CHEST_SHEET[name] + ".png"), t = hit && fitTo(hit.img, 64, 64);
+          return t ? { px: chestTile(name, t), hit } : null;
+        }
+        const at = name.indexOf("@"), file = at >= 0 ? name.slice(0, at) : name, frame = at >= 0 ? +name.slice(at + 1) : 0;
+        const hit = await find("block/" + file + ".png");
+        return hit ? { px: unityTile(resize(frameOf(hit.img, frame), 16, 16)), hit } : null;
+      }));
+      if (my !== CV.run) return;
+      tiles.forEach(([name, tint], i) => {
+        const g = got[i];
+        if (!g) { T.kept.push(tileGroup(name)); return; }
+        // old packs ship water already blue, only the new gray water wants the tint
+        if (tint && !(name === "water_still" && g.hit.pk.legacy)) {
+          const r = ((tint >> 16) & 255) / 255, gg = ((tint >> 8) & 255) / 255, b = (tint & 255) / 255;
+          for (let k = 0; k < 256; k++) { g.px[k * 4] *= r; g.px[k * 4 + 1] *= gg; g.px[k * 4 + 2] *= b; }
+        }
+        dilate(g.px);
+        writeTile(out, i, g.px);
+        changed.add(i);
+        const c = atlasCell(i);
+        took("blocks", "t" + i, g.hit, [c.x, c.top, 32, 32]);
+      });
+      let icons = 0;
+      for (const ic of RC.iconList) {
+        const hits = [];
+        for (const t of RC.iconUses[ic.j]) if (changed.has(t)) hits.push(res.from.get("t" + t));
+        if (!hits.length) continue;
+        renderIcon(out, ic);
+        res.from.set("c" + ic.cell, hits);
+        const c = iconCell(ic.cell);
+        res.rects.push([c.x, c.top, 64, 64]);
+        icons++;
+      }
+      T.icons = icons;
+    }
+
+    if (CV.cats.items) {
+      const I = tally("items", RC.items.length);
+      const got = await Promise.all(RC.items.map(async ([k, src]) => {
+        if (src.startsWith("bed:")) {
+          const hit = await find("entity/bed/" + src.slice(4) + ".png"), t = hit && fitTo(hit.img, 64, 64);
+          if (t) return { img: bedIcon(t), hit };
+          if (src === "bed:red") { const h2 = await find("item/bed.png"); if (h2) return { img: resize(h2.img, 16, 16), hit: h2 }; }
+          return null;
+        }
+        const hit = await find(src);
+        return hit ? { img: resize(frameOf(hit.img, 0), 16, 16), hit } : null;
+      }));
+      if (my !== CV.run) return;
+      RC.items.forEach(([k, src], i) => {
+        const g = got[i];
+        if (!g) { I.kept.push(itemLabel(k, src)); return; }
+        const c = itemCell(k);
+        blit(out, g.img, c.x, c.top);
+        took("items", "i" + k, g.hit, [c.x, c.top, 16, 16]);
+      });
+    }
+
+    if (CV.cats.mobs) {
+      const Mo = tally("mobs", RC.mobs.length);
+      for (const [s, w, h, src, mat] of RC.mobs) {
+        const c = mobCell(s, h);
+        let img = null, hit = null;
+        if (src === "compose:villager") {
+          const body = await find("entity/villager/villager.png"), coat = await find("entity/villager/type/plains.png");
+          if (body && coat) {
+            const a = fitTo(body.img, 64, 64), b = fitTo(coat.img, 64, 64);
+            if (a && b) {
+              img = blank(64, 64);
+              img.px.set(a.px);
+              for (let p = 0; p < 4096; p++) if (b.px[p * 4 + 3] >= 128) img.px.set(b.px.subarray(p * 4, p * 4 + 4), p * 4);
+              hit = [body, coat];
+            }
+          } else if (body && (body.pk.legacy || (body.pk.fmt != null && body.pk.fmt <= 3))) {
+            img = fitTo(body.img, 64, 64);
+            hit = body;
+          } else if (body || coat) res.skipped.push("The villager needs both villager.png and type/plains.png from the same era, so it stayed the same.");
+        } else if (src === "compose:mooshroom") {
+          const cow = await find("entity/cow/red_mooshroom.png"), a = cow && fitTo(cow.img, 64, 32);
+          const ti = RC.tileIndex.get("red_mushroom"), mush = ti != null && res.from.has("t" + ti);
+          if (a || mush) {
+            img = region(out, c.x, c.top, 64, 48);
+            if (a) for (let y = 0; y < 32; y++) img.px.set(a.px.subarray(y * 256, y * 256 + 256), y * 256);
+            if (ti != null) {
+              const tc = atlasCell(ti), m = region(out, tc.x + 8, tc.top + 8, 16, 16);
+              for (let y = 0; y < 16; y++) img.px.set(m.px.subarray(y * 64, y * 64 + 64), (32 + y) * 256);
+            }
+            hit = [a ? cow : null, mush ? res.from.get("t" + ti) : null].filter(Boolean);
+          }
+        } else {
+          hit = await find(src);
+          if (hit) {
+            img = fitTo(hit.img, w, h);
+            if (!img) { res.skipped.push(mobLabel(mat) + " has a different shape in this pack (" + hit.img.w + " by " + hit.img.h + "), so it stayed the same."); hit = null; }
+          }
+        }
+        if (!img || !hit) { Mo.kept.push(mobLabel(mat)); continue; }
+        blit(out, img, c.x, c.top);
+        took("mobs", "m" + s, hit, [c.x, c.top, w, h]);
+      }
+    }
+
+    if (CV.cats.ui) {
+      const U = tally("ui", RC.ui.length);
+      const got = await Promise.all(RC.ui.map(e => find(e[4])));
+      if (my !== CV.run) return;
+      RC.ui.forEach((e, i) => {
+        const [x, y, w, h, src, sx, sy, srcW, srcH, name] = e, hit = got[i];
+        let img = null;
+        if (hit) {
+          const im = hit.img;
+          if (src.startsWith("block/") && srcH > srcW) {
+            const f = Math.floor(sy / srcW), fr = frameOf(im, f), k = fr.w / srcW;
+            img = resize(crop(fr, Math.round(sx * k), Math.round((sy - f * srcW) * k), Math.round(w * k), Math.round(h * k)), w, h);
+          } else {
+            const k = im.w / srcW;
+            if (Math.abs(im.h - srcH * k) <= k + 0.01) img = resize(crop(im, Math.round(sx * k), Math.round(sy * k), Math.round(w * k), Math.round(h * k)), w, h);
+          }
+        }
+        if (!img) { U.kept.push(uiLabel(name)); return; }
+        const top = SZ - y - h;
+        blit(out, img, x, top);
+        took("ui", "u" + name, hit, [x, top, w, h]);
+      });
+    }
+
+    if (my !== CV.run) return;
+    CV.out = { w: SZ, h: SZ, px: out };
+    CV.res = res;
+    CV.busy = false;
+    cvView.set("base", base);
+    cvView.changed = res.rects;
+    cvView.set("out", CV.out);
+    paintConvert();
+  } catch (e) {
+    if (my !== CV.run) return;
+    CV.busy = false;
+    CV.out = null;
+    paintConvert();
+    say("cv-status", "Converting failed: " + (e && e.message || e) + ". Try reloading the page.", "bad");
+  }
+}
+function queueConvert() {
+  clearTimeout(CV.timer);
+  CV.timer = setTimeout(convert, 30);
+}
+
+function paintDock() {
+  $("#cv-go").disabled = CV.busy || !CV.out;
+}
+function paintConvert() {
+  $("#cv-drop").hidden = CV.packs.length > 0;
+  $("#cv-main").hidden = CV.packs.length === 0;
+  $("#cv-order").hidden = CV.packs.length < 2;
+  const ul = $("#cv-packs");
+  ul.innerHTML = "";
+  CV.packs.forEach((pk, i) => {
+    const li = document.createElement("li");
+    li.className = "pk";
+    li.dataset.id = pk.id;
+    const used = CV.res && CV.res.perPack.get(pk.id) || 0;
+    const meta = [pk.version, pk.res ? pk.res + "x" : null, CV.res ? plural(used, "spot", "spots") + " used" : null].filter(Boolean).join(", ");
+    li.innerHTML = (pk.icon ? '<img alt="" src="' + pk.icon + '">' : '<span class="noicon"></span>') +
+      '<div><b></b><span class="desc"></span><span class="meta"></span></div>' +
+      '<div class="pacts"><button class="btn sm" data-act="up" title="Move up" aria-label="Move up"' + (i === 0 ? " disabled" : "") + '>&#9650;</button><button class="btn sm" data-act="down" title="Move down" aria-label="Move down"' + (i === CV.packs.length - 1 ? " disabled" : "") + '>&#9660;</button><button class="btn sm" data-act="remove" title="Remove" aria-label="Remove this pack">X</button></div>';
+    $("b", li).textContent = pk.name;
+    $(".desc", li).textContent = pk.desc;
+    $(".meta", li).textContent = meta;
+    ul.appendChild(li);
+  });
+
+  const cats = $("#cv-cats");
+  if (!cats.children.length) {
+    for (const c of CATS) {
+      const li = document.createElement("li");
+      li.className = "cat";
+      li.dataset.cat = c.key;
+      li.innerHTML = '<div class="top"><label class="check"><input type="checkbox" data-cat="' + c.key + '"' + (CV.cats[c.key] ? " checked" : "") + '><b>' + c.name + '</b></label><span class="ct"></span></div><div class="mini"><i></i></div><p class="muted sub"></p><details hidden><summary></summary><p class="kept"></p></details>';
+      cats.appendChild(li);
+    }
+  }
+  for (const c of CATS) {
+    const li = $('[data-cat="' + c.key + '"].cat', cats), t = CV.res && CV.res.cat[c.key];
+    $(".ct", li).textContent = !CV.cats[c.key] ? "OFF" : t ? t.done + " of " + t.total : "";
+    $(".mini i", li).style.width = t && CV.cats[c.key] ? (t.done / t.total * 100) + "%" : "0";
+    let sub = c.note + ".";
+    if (t && c.key === "blocks" && CV.cats.blocks) sub = t.done + " block textures and " + plural(t.icons || 0, "block icon", "block icons") + " came from your pack.";
+    $(".sub", li).textContent = sub;
+    const det = $("details", li), kept = t && CV.cats[c.key] ? [...new Set(t.kept)] : [];
+    det.hidden = !kept.length;
+    if (kept.length) {
+      $("summary", det).textContent = "Stayed the same (" + kept.length + ")";
+      $(".kept", det).textContent = kept.join(", ") + ".";
+    }
+  }
+
+  const notes = [];
+  for (const pk of CV.packs) notes.push(...pk.notes.map(n => (CV.packs.length > 1 ? pk.name + ": " : "") + n));
+  if (CV.res) notes.push(...new Set(CV.res.skipped));
+  const nl = $("#cv-notes");
+  nl.innerHTML = "";
+  for (const n of notes) { const li = document.createElement("li"); li.textContent = n; nl.appendChild(li); }
+
+  badge("nb-convert", CV.out ? "READY" : CV.packs.length ? "..." : "");
+  paintDock();
+  if (!CV.packs.length) say("cv-status", "Add a resource pack to start.");
+  else if (CV.out && CV.res) {
+    const n = CV.res.rects.length;
+    say("cv-status", n ? "Done. " + plural(n, "spot", "spots") + " on the sheet came from your " + (CV.packs.length > 1 ? "packs" : "pack") + ". Check the preview, then save it." : "Nothing in " + (CV.packs.length > 1 ? "these packs" : "this pack") + " matched the world. Your sheet is the same as the start sheet.", n ? "good" : "bad");
+  }
+}
+
+function fromText(key) {
+  if (!CV.res) return null;
+  const h = CV.res.from.get(key);
+  if (!h) return CV.res && key ? "From the start sheet." : null;
+  const list = [].concat(h);
+  if (key[0] === "c") {
+    const names = [...new Set(list.map(x => x.pk.name))];
+    return "Redrawn with the new block textures from " + names.join(" and ") + ".";
+  }
+  return "From " + list.map(x => x.pk.name + " (" + x.rel + ")").join(" and ") + ".";
+}
+
+function flatText(d) {
+  if (d == null) return "";
+  if (typeof d === "string") return d;
+  if (Array.isArray(d)) return d.map(flatText).join("");
+  if (typeof d === "object") return (d.text || d.translate || "") + (d.extra ? flatText(d.extra) : "");
+  return String(d);
+}
+
+async function makePack(name, entries, nested) {
+  const keys = [...entries.keys()], lower = keys.map(k => k.toLowerCase()), MARK = "assets/minecraft/textures/";
+  let root = null;
+  for (const l of lower) {
+    const i = l.indexOf(MARK);
+    if (i >= 0 && (root === null || i < root.length)) root = l.slice(0, i);
+  }
+  if (root === null) {
+    if (!nested) {
+      const inner = keys.find(k => /\.zip$/i.test(k));
+      if (inner) {
+        const z = readZip(await entries.get(inner)());
+        if (z) return makePack(name, z, true);
+      }
+    }
+    if (lower.some(l => l.endsWith("manifest.json")) && lower.some(l => l.includes("textures/blocks/"))) throw new Error("is a Bedrock Edition pack. The converter needs a Java Edition pack.");
+    if (lower.some(l => l.includes("assets/") && l.includes("/textures/"))) throw new Error("has textures for a mod, not for Minecraft itself.");
+    throw new Error("has no Minecraft textures in it. Make sure it is a Java Edition resource pack, not a mod, a world or a shader pack.");
+  }
+  const pre = root + MARK, tex = new Map();
+  keys.forEach((k, i) => { const l = lower[i]; if (l.startsWith(pre) && l.endsWith(".png")) tex.set(l.slice(pre.length), entries.get(k)); });
+  let meta = null, icon = null;
+  const mi = lower.indexOf(root + "pack.mcmeta");
+  if (mi >= 0) try { meta = JSON.parse(new TextDecoder().decode(await entries.get(keys[mi])()).replace(/^﻿/, "")); } catch (e) { }
+  const pi = lower.indexOf(root + "pack.png");
+  if (pi >= 0) try { icon = URL.createObjectURL(new Blob([await entries.get(keys[pi])()], { type: "image/png" })); } catch (e) { }
+  const pack = meta && meta.pack || {};
+  let f = pack.pack_format != null ? pack.pack_format : pack.min_format;
+  if (Array.isArray(f)) f = f[0];
+  const fmt = Number.isFinite(+f) && f !== null && f !== "" ? +f : null;
+  const has = p => [...tex.keys()].some(k => k.startsWith(p));
+  const legacy = (has("blocks/") || has("items/")) && !has("block/") && !has("item/");
+  const hasSprites = has("gui/sprites/");
+  const oldChests = tex.has("entity/chest/normal_double.png") || (fmt != null && fmt < 5 && tex.has("entity/chest/normal.png") && !tex.has("entity/chest/normal_left.png"));
+  const sliceOK = !hasSprites && (fmt == null || fmt < 18);
+  let res = 0;
+  const probe = ["block/stone.png", "blocks/stone.png", "block/dirt.png", "blocks/dirt.png", "block/oak_planks.png", "blocks/planks_oak.png"].find(p => tex.has(p)) || [...tex.keys()].find(k => /^blocks?\//.test(k));
+  if (probe) try {
+    const b = await tex.get(probe)();
+    if (b[12] === 73 && b[13] === 72) res = ((b[16] << 24) | (b[17] << 16) | (b[18] << 8) | b[19]) >>> 0;
+  } catch (e) { }
+  const version = versionOf(fmt) || (legacy ? "Minecraft 1.12 or older" : null);
+  const notes = [];
+  if (legacy) notes.push("Uses the old file names from Minecraft 1.12 and older. They were matched up to the new ones.");
+  if (res > 16) notes.push("Textures are " + res + "x. The world is 16x, so they get scaled down.");
+  else if (res && res < 16) notes.push("Textures are " + res + "x. They get scaled up to 16x.");
+  if (oldChests) notes.push("Chests use the layout from before 1.15 and get converted.");
+  if (sliceOK && (tex.has("gui/icons.png") || tex.has("gui/widgets.png"))) notes.push("Hearts, hunger, the hotbar and buttons get cut out of the old icons and widgets sheets.");
+  if (legacy && !tex.has("entity/bed/red.png")) notes.push("Beds in this pack are from before 1.12, so the bed blocks stay the same.");
+  if (fmt != null && fmt >= 55) notes.push("Made for 1.21.5 or newer. Cows, pigs and chickens changed shape in that update, so those skins may stay the same.");
+  return { id: ++uid, name: name.replace(/\.(zip|jar)$/i, ""), desc: flatText(pack.description).replace(/§./g, "").replace(/\s+/g, " ").trim(), icon, tex, fmt, version, legacy, res, oldChests, sliceOK, notes, memo: new Map(), bad: new Set() };
+}
+
+async function addPacks(sources) {
+  if (!sources.length) return;
+  showPage("convert");
+  const errs = [];
+  let added = 0;
+  for (const s of sources) {
+    say("cv-status", "Reading " + s.name + "...");
+    try {
+      let entries = s.entries;
+      if (!entries) {
+        if (s.file.size > 1024 * 1024 * 1024) throw new Error("is over 1 GB, which is too big to open here.");
+        const z = readZip(new Uint8Array(await s.file.arrayBuffer()));
+        if (!z) throw new Error(/\.(rar|7z)$/i.test(s.name) ? "is not a zip. Unpack it first, then add the folder." : "is not a zip file.");
+        entries = z;
+      }
+      const pk = await makePack(s.name, entries, false);
+      if (!pk.tex.size) throw new Error("has no textures in it.");
+      CV.packs.unshift(pk);
+      added++;
+    } catch (e) {
+      errs.push(s.name + " " + (e && e.message || "could not be read."));
+    }
+  }
+  if (added && $("#cv-name").value === "my-pack") $("#cv-name").value = CV.packs[0].name.replace(/[^\w.-]+/g, "-").replace(/^-+|-+$/g, "").toLowerCase().slice(0, 48) || "my-pack";
+  paintConvert();
+  if (added) await convert();
+  if (errs.length) say("cv-status", errs.join(" "), "bad");
+}
+
+function zipSources(files) {
+  return files.map(f => ({ name: f.name, file: f }));
+}
+function dirSource(name, list) {
+  const entries = new Map();
+  for (const [path, file] of list) entries.set(path, () => file.arrayBuffer().then(b => new Uint8Array(b)));
+  return { name, entries };
+}
+async function walk(entry, prefix, out) {
+  if (entry.isFile) {
+    out.push([prefix + entry.name, await new Promise((res, rej) => entry.file(res, rej))]);
+  } else if (entry.isDirectory) {
+    const rd = entry.createReader();
+    for (;;) {
+      const batch = await new Promise((res, rej) => rd.readEntries(res, rej));
+      if (!batch.length) break;
+      for (const e of batch) await walk(e, prefix + entry.name + "/", out);
+    }
+  }
+}
+
+$("#cv-zip").addEventListener("change", e => { const f = [...e.target.files]; e.target.value = ""; addPacks(zipSources(f)); });
+$("#cv-dir").addEventListener("change", e => {
+  const f = [...e.target.files];
+  e.target.value = "";
+  if (!f.length) return;
+  const top = (f[0].webkitRelativePath || f[0].name).split("/")[0];
+  addPacks([dirSource(top, f.map(x => [x.webkitRelativePath || x.name, x]))]);
+});
+$("#cv-packs").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]");
+  if (!b) return;
+  const id = +b.closest(".pk").dataset.id, i = CV.packs.findIndex(p => p.id === id);
+  if (i < 0) return;
+  if (b.dataset.act === "remove") {
+    const [pk] = CV.packs.splice(i, 1);
+    if (pk.icon) URL.revokeObjectURL(pk.icon);
+  } else {
+    const j = b.dataset.act === "up" ? i - 1 : i + 1;
+    if (j < 0 || j >= CV.packs.length) return;
+    [CV.packs[i], CV.packs[j]] = [CV.packs[j], CV.packs[i]];
+  }
+  paintConvert();
+  queueConvert();
+});
+document.querySelectorAll("input[name=cv-base]").forEach(r => r.addEventListener("change", () => { CV.base = r.value; queueConvert(); }));
+$("#cv-cats").addEventListener("change", e => {
+  const k = e.target.dataset.cat;
+  if (!k) return;
+  CV.cats[k] = e.target.checked;
+  queueConvert();
+});
+$("#cv-go").addEventListener("click", async () => {
+  if (!CV.out || CV.busy) return;
+  const b = $("#cv-go");
+  b.disabled = true;
+  say("cv-status", "Saving...");
+  try {
+    const blob = await encodePng(CV.out.px, SZ, SZ);
+    const name = fileName("cv-name", "my-pack", "png");
+    save(blob, name);
+    say("cv-status", "Saved " + name + ", " + mb(blob.size) + ". Put it online and paste the link on the TEXTURES tab in the world." + (blob.size > 5 * 1024 * 1024 ? " It is over 5 MB, so use GitHub Pages and not Imgur." : ""), "good");
+  } catch (e) {
+    say("cv-status", "Saving failed: " + (e && e.message || e), "bad");
+  }
+  paintDock();
+});
+
+// sheet tools
+
+let shLoaded = false;
+function loadSheetPage() {
+  if (shLoaded) return;
+  shLoaded = true;
+  loadRecipe().then(() => shView.paintInfo(null)).catch(() => { });
+  loadBase("dnb").then(img => { if (!shView.imgs.out) shView.set("out", img); }).catch(e => say("sh-status", "Could not load the template: " + e.message, "bad"));
+}
+async function checkSheet(file) {
   if (!file) return;
-  if (!/^image\//.test(file.type)) { say("tex-status", "That is not an image. A texture pack is a PNG.", "bad"); return; }
-  const img = new Image();
-  img.onload = () => {
-    texImg = img;
-    drawMap();
-    const w = img.naturalWidth, h = img.naturalHeight;
-    const jpg = file.type === "image/jpeg";
-    if (w !== 2048 || h !== 2048) say("tex-status", "This image is " + w + " by " + h + ". It has to be exactly 2048 by 2048 or the world will not load it.", "bad");
-    else if (jpg) say("tex-status", "The size is right, but it is a JPG. JPG has no see-through parts, so glass, leaves and the menus would turn solid. Save it as PNG.", "bad");
-    else say("tex-status", "Looks good, it is 2048 by 2048. Put it online and paste the link on the TEXTURES tab in the world.", "good");
-  };
-  img.onerror = () => say("tex-status", "Could not open that image.", "bad");
-  img.src = URL.createObjectURL(file);
+  if (!/^image\//.test(file.type) && !/\.png$/i.test(file.name)) { say("sh-status", "That is not an image. A texture pack is a PNG.", "bad"); return; }
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let img = null;
+  try { img = await decodePng(bytes); } catch (e) { }
+  if (!img) {
+    if (/jpe?g/i.test(file.type)) say("sh-status", "That is a JPG. JPG has no see-through parts, so glass, leaves and the menus would turn solid. Save it as PNG.", "bad");
+    else say("sh-status", "Could not open that image. Save it as a PNG.", "bad");
+    return;
+  }
+  if (img.w !== SZ || img.h !== SZ) { say("sh-status", "This image is " + img.w + " by " + img.h + ". It has to be exactly 2048 by 2048 or the world will not load it.", "bad"); return; }
+  shView.set("out", img);
+  let clear = 0;
+  for (let i = 3; i < img.px.length; i += 4) if (img.px[i] < 255) { clear++; break; }
+  say("sh-status", clear ? "Looks good, it is a 2048 by 2048 PNG. Put it online and paste the link on the TEXTURES tab in the world." : "The size is right, but nothing in it is see-through. Glass, leaves and the menus need clear pixels, so check that your editor saved the transparency.", clear ? "good" : "bad");
 }
-$("#tex-file").addEventListener("change", e => { checkTexture(e.target.files[0]); e.target.value = ""; });
-$("#tex-areas").addEventListener("change", drawMap);
+$("#sh-file").addEventListener("change", e => { const f = e.target.files[0]; e.target.value = ""; checkSheet(f); });
 
-// tabs, file buttons and drag and drop
+// pages, file buttons and drag and drop
 
-let tab = "sounds";
-function showTab(t) {
-  tab = t;
-  for (const b of document.querySelectorAll("[role=tab]")) b.setAttribute("aria-selected", b.dataset.tab === t ? "true" : "false");
-  for (const p of document.querySelectorAll(".tabpage")) p.hidden = p.id !== "tab-" + t;
-  if (t === "textures") loadTemplate();
+let page = "convert";
+const PAGES = ["convert", "sheet", "sounds", "music", "help"];
+function showPage(p, keepHash) {
+  if (!PAGES.includes(p)) p = "convert";
+  page = p;
+  for (const b of document.querySelectorAll(".navbtn")) {
+    if (b.dataset.page === p) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+  }
+  const nav = $(".navbtn[aria-current]"), bar = $(".nav");
+  if (nav && bar.scrollWidth > bar.clientWidth) bar.scrollLeft = nav.offsetLeft - 12;
+  for (const s of document.querySelectorAll(".page")) s.hidden = s.id !== "page-" + p;
+  if (!keepHash && location.hash !== "#" + p) history.replaceState(null, "", "#" + p);
+  if (p === "sheet") loadSheetPage();
+  if (p === "convert") loadRecipe().catch(() => { });
+  window.scrollTo(0, 0);
 }
-for (const b of document.querySelectorAll("[role=tab]")) b.addEventListener("click", () => showTab(b.dataset.tab));
+for (const b of document.querySelectorAll("[data-page]")) b.addEventListener("click", e => { e.preventDefault(); showPage(b.dataset.page); });
 for (const b of document.querySelectorAll("[data-pick]")) b.addEventListener("click", () => $("#" + b.dataset.pick).click());
+window.addEventListener("hashchange", () => showPage(location.hash.slice(1), true));
 
-const tool = $("#tool");
+const main = $("#main");
 let depth = 0;
 const hasFiles = e => e.dataTransfer && [...e.dataTransfer.types].includes("Files");
-document.addEventListener("dragenter", e => { if (hasFiles(e)) { depth++; tool.classList.add("drag"); } });
-document.addEventListener("dragleave", e => { if (hasFiles(e) && --depth <= 0) { depth = 0; tool.classList.remove("drag"); } });
+document.addEventListener("dragenter", e => { if (hasFiles(e)) { depth++; main.classList.add("drag"); } });
+document.addEventListener("dragleave", e => { if (hasFiles(e) && --depth <= 0) { depth = 0; main.classList.remove("drag"); } });
 document.addEventListener("dragover", e => { if (hasFiles(e)) e.preventDefault(); });
-document.addEventListener("drop", e => {
+document.addEventListener("drop", async e => {
   if (!hasFiles(e)) return;
   e.preventDefault();
   depth = 0;
-  tool.classList.remove("drag");
+  main.classList.remove("drag");
+  // entries have to be grabbed before the first await or the browser drops them
+  const items = [...(e.dataTransfer.items || [])].map(it => it.webkitGetAsEntry ? it.webkitGetAsEntry() : null);
   const files = [...e.dataTransfer.files];
+  const dirs = items.filter(x => x && x.isDirectory);
+  if (dirs.length) {
+    const srcs = [];
+    for (const d of dirs) {
+      const list = [];
+      try { await walk(d, "", list); } catch (err) { }
+      srcs.push(dirSource(d.name, list));
+    }
+    addPacks(srcs);
+    return;
+  }
   if (!files.length) return;
+  const zips = files.filter(f => /\.(zip|jar|rar|7z|mcpack)$/i.test(f.name) || /zip/.test(f.type));
   const bin = files.find(f => /\.bin$/i.test(f.name));
-  if (tab === "textures") checkTexture(files[0]);
-  else if (bin) openPack(bin, tab);
-  else if (tab === "music") addTracks(files);
-  else addSoundFiles(files);
+  const img = files.find(f => /^image\//.test(f.type));
+  if (zips.length) addPacks(zipSources(zips));
+  else if (bin) openPack(bin, page === "music" ? "music" : page === "sounds" ? "sounds" : null);
+  else if (img) { showPage("sheet"); checkSheet(img); }
+  else if (page === "music") addTracks(files);
+  else { if (page !== "sounds") showPage("sounds"); addSoundFiles(files); }
 });
 window.addEventListener("beforeunload", e => {
   if (S.mine.size || M.tracks.length) { e.preventDefault(); e.returnValue = ""; }
 });
 
+cvView = new Viewer($("#cv-view"), { compare: true, from: fromText });
+shView = new Viewer($("#sh-view"), {});
 buildGroups();
 applyFilter();
 paintTracks();
-if (document.fonts) document.fonts.ready.then(() => { if (texLoaded) drawMap(); });
+paintConvert();
+showPage(location.hash.slice(1) || "convert", true);
+if (document.fonts) document.fonts.ready.then(() => { cvView.drawOverlay(); shView.drawOverlay(); });
 </script>
 </body>
 </html>
