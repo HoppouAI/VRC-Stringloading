@@ -2,15 +2,35 @@
  "title": "Break-n-Haul",
  "updates": [
   {
-   "version": "1.4.14",
-   "date": "2026-11-18",
-   "title": "Double Major Switch",
-   "summary": "Double Major can be switched off now, so you can play as one major again whenever you want.",
+   "version": "1.5.0",
+   "date": "2026-11-19",
+   "title": "Old Farmhouse",
+   "summary": "A new uptown job is up on the whiteboards: the Old Farmhouse out in the country. There's also a job clock, a Times tab on the haul board, a switch for Double Major and a bunch of fixes from your reports.",
    "added": [
-    "If you own Double Major, its card in the Back Room has a Turn Off button. With it off only your major's courses are on, the same as before you had it. Press Turn On to get every course back"
+    "Old Farmhouse, a 3 star clear out with a $10,000 goal. It needs the Uptown Jobs contract. A farmhouse with a cellar, a timber barn with a hay loft, a silo and a chicken coop, out in the fields next to the neighbors' farms",
+    "Grandma and grandpa live there. Grandpa keeps a double barrel full of rock salt, two shells and then he reloads. A hit knocks you down for a few seconds and you drop what you're holding, but he can't cuff you. Grandma phones the cops. Thanks to sugarcaneoptimistic for the shotgun grandpa idea and kyle_goodsir for keeping it non lethal",
+    "Farm loot: a grandfather clock, a butter churn, an anvil, a sewing machine, a saddle, moonshine jugs and an old tractor. The tractor carries like the piano and only fits on the semis",
+    "Job clock. The haul receipt shows how long the job took, and the job clock checkbox on the Graphics settings page puts a running clock next to the status on your screen",
+    "Times tab on the haul board with your best time, your average and dollars a minute for every map and for all jobs together. Only jobs where you hit the goal count",
+    "If you own Double Major, its card in the Back Room has a Turn Off button. With it off only your major's courses are on, the same as before you had it. Press Turn On to get every course back",
+    "Cops call out when they get suspicious and when they spot you"
    ],
-   "changed": [],
-   "fixed": []
+   "changed": [
+    "Cops only tase you when they're facing you, and they need a moment after getting back up before they can spot you or tase you",
+    "Bags in the getaway count from their middle, so a bag rolled into a corner or up against the wall still counts",
+    "Spare gear goes back on the gear shelf between jobs"
+   ],
+   "fixed": [
+    "Dropped duffel bags could vanish. A bag dropped next to a wall went into it, fell out of the world and turned up back on the gear shelf. It lands at your feet now, and gear that falls out of a house mid job comes back to the drop spot",
+    "People could climb out through the hideout roof and take spare gear off the gear shelf. Getting down there respawns you and sends the gear back",
+    "In VR, belt gear stopped being grabbable whenever your hand was near a stair rail",
+    "A lockpick that snapped stayed ungrabbable on your belt in later jobs",
+    "Holding a heavy item in each hand in VR made the second one look dropped to everyone else",
+    "Heavy loot picked up in VR could look like it was still on the floor for other players for a moment, or dropped when the carrier lagged",
+    "NPCs could get stuck out of place on everyone's screen except the host's, like behind a door. They catch up now",
+    "Big amounts on the haul receipt wrapped onto two lines",
+    "The receipt paper on the haul board covered the Times tab"
+   ]
   },
   {
    "version": "1.4.13",
