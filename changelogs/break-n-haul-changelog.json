@@ -2,6 +2,15 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.5.1",
+   "date": "2026-11-19",
+   "title": "Job Clock Fix",
+   "summary": "A small fix for the job clock on desktop.",
+   "fixed": [
+    "The job clock ran off the edge of the status panel on desktop. It sits on its own on the row under the status now, next to the noise meter"
+   ]
+  },
+  {
    "version": "1.5.0",
    "date": "2026-11-19",
    "title": "Old Farmhouse",
