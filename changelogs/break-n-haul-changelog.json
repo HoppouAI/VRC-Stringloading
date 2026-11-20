@@ -2,6 +2,27 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.5.2",
+   "date": "2026-11-20",
+   "title": "VR Grab Update",
+   "summary": "VR grab fixes, a hold to grab option, jobs that start once most of the crew is ready and a fix for the farm lag.",
+   "added": [
+    "Hold to grab loot checkbox on the VR settings page. Loot drops when you let go of the grip instead of staying in your hand. Gear stays a toggle so its trigger still works"
+   ],
+   "changed": [
+    "A job starts once most of the crew is ready, so one AFK crewmate can't hold everyone up. On a tie it goes if the boss is ready. The board shows how many are ready and how many it needs",
+    "Heavy loot in reach of your free VR hand shows the pickup outline and gives a light tick. Gripping loot that's bolted down or locked in a cage gives two slow thumps, so you can tell what can't be grabbed",
+    "Reaching for loot on the floor next to your hip grabs the loot instead of pulling gear off your belt"
+   ],
+   "fixed": [
+    "Some VR players, mostly on PC, couldn't pick up anything heavier than cash or a console, gear got stuck on their belt and the VR hotbar put items in their hand that they couldn't use. VRChat can say you're on desktop for the first moment after you join, and the world kept believing it. It keeps checking now",
+    "Grabbing with the grip in VR froze the game for about 5 frames. It doesn't anymore",
+    "The farm map was drawing everything at once, which is why it lagged so badly after 1.5.0. It only draws what you can see now",
+    "Deadlift Camp didn't make big safes or fridges any faster to carry. Heavy stuff counts as a third of its weight for walk speed with it now, and Furniture Removal speeds up the heaviest stuff too",
+    "The crew cam TV in the hideout showed daytime sky while the crew was on a night job. It shows the night sky and fog of the house it's watching now"
+   ]
+  },
+  {
    "version": "1.5.1",
    "date": "2026-11-19",
    "title": "Farm Window Fix",
