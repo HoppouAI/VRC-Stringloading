@@ -4,9 +4,16 @@
   {
    "version": "1.5.1",
    "date": "2026-11-19",
-   "title": "Job Clock Fix",
-   "summary": "A small fix for the job clock on desktop.",
+   "title": "Farm Window Fix",
+   "summary": "Fixes for the farmhouse windows, the bank locks and a few other reports.",
+   "changed": [
+    "NPCs walk around you when you're hiding in Statue Mode or under the lampshade instead of bumping into you. They only push past if you're standing in the only way through"
+   ],
    "fixed": [
+    "You couldn't climb in through most of the farmhouse windows from outside, and nothing could be carried through them, not even a chair. Tip a chair on its side with O or P on desktop and it fits",
+    "The bank deposit boxes and the cage gate have a lock you can see now, and you pick that lock. The cage gate's pick spot was under its lock box before",
+    "Street lamps on the bank and pawn shop maps stood out over the gutter. They're on the sidewalk now",
+    "Grandma and grandpa could end up in the same bed. They each keep their own now",
     "The job clock ran off the edge of the status panel on desktop. It sits on its own on the row under the status now, next to the noise meter"
    ]
   },
