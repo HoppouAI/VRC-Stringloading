@@ -4,14 +4,17 @@
   {
    "version": "1.5.4",
    "date": "2026-11-22",
-   "title": "Punch and Heavy Grab Fix",
-   "summary": "VR punches work again and heavy loot grabs the same way as everything else in VR.",
+   "title": "Punch, Grab and Window Fix",
+   "summary": "VR punches work again, heavy loot grabs the same way as everything else in VR, and the Maple kitchen window can be climbed.",
    "changed": [
     "Heavy loot in VR now follows the Hold to grab loot checkbox. With it off, tap the grip to pick up a couch or chair and tap again to put it down, like other loot. With it on, you hold the grip like before"
    ],
    "fixed": [
     "Punching glass in VR almost never broke it. A punch that stopped at the glass didn't count, only one that went far past it. It breaks like it's supposed to now",
-    "VR punches on residents and cops count the same way, so you don't have to punch through their head"
+    "VR punches on residents and cops count the same way, so you don't have to punch through their head",
+    "The kitchen window on Maple couldn't be climbed from either side. It's taller now and you land past the sink counter",
+    "Climbing through a window didn't show the desktop Climb and Jump keys, and VR hands didn't plant on the sill. Both work on every window now",
+    "The gaming chair's headrest floated off the back of the chair. It sits on the backrest now"
    ]
   },
   {
