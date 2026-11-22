@@ -7,7 +7,8 @@
    "title": "Punch, Grab and Window Fix",
    "summary": "VR punches work again, heavy loot grabs the same way as everything else in VR, and the Maple kitchen window can be climbed.",
    "changed": [
-    "Heavy loot in VR now follows the Hold to grab loot checkbox. With it off, tap the grip to pick up a couch or chair and tap again to put it down, like other loot. With it on, you hold the grip like before"
+    "Heavy loot in VR now follows the Hold to grab loot checkbox. With it off, tap the grip to pick up a couch or chair and tap again to put it down, like other loot. With it on, you hold the grip like before",
+    "Heavy loot near your VR hand gets a white outline, and so does stuff a crewmate is carrying when you can help carry it on desktop. Anything bolted down or locked in a cage gets a red outline when your hand is near it or you look at it, so you know you have to break it loose first"
    ],
    "fixed": [
     "Punching glass in VR almost never broke it. A punch that stopped at the glass didn't count, only one that went far past it. It breaks like it's supposed to now",
