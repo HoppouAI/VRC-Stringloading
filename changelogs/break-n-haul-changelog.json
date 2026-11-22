@@ -2,6 +2,21 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.5.3",
+   "date": "2026-11-22",
+   "title": "Belt and Window Fix",
+   "summary": "Fixes for VR belt gear, cut windows, a stuck bank guard and loot sitting wrong in three houses.",
+   "fixed": [
+    "VR players sometimes couldn't grab any gear off their belt for a while. A free hand resting near loot, a shelf or a stair rail locked every tool on both hands. Only the hand that's actually at your belt counts now",
+    "After cutting the glass you couldn't open the window from outside, so you couldn't climb in either. It opens and you can climb through now",
+    "One of the bank night guards could spawn locked inside the CCTV office and never get out. Her rounds start in the hallway outside it now",
+    "The shoe racks in the mansion walk in closet sat tipped over on top of boots. The boots stand next to them now",
+    "The outboard motor in the pawn shop fell off its stand as soon as the job loaded. It stays on the stand now",
+    "Phones, cash and other small loot on the diner's wire shelves sat tilted between the wires. The shelves are solid now",
+    "Pressing the grip in VR still caused a small hitch inside the houses, worst in the bank. It's much smaller now"
+   ]
+  },
+  {
    "version": "1.5.2",
    "date": "2026-11-20",
    "title": "VR Grab Update",
