@@ -20,6 +20,8 @@
    "fixed": [
     "Punching glass in VR almost never broke it. A punch that stopped at the glass didn't count, only one that went far past it. It breaks like it's supposed to now",
     "VR punches on residents and cops count the same way, so you don't have to punch through their head",
+    "Brushing the edge of a truck ramp could launch you. It doesn't anymore",
+    "Climbing pipes, walls and roofs on desktop could spin you around. It doesn't anymore",
     "The kitchen window on Maple couldn't be climbed from either side. It's taller now and you land past the sink counter",
     "Climbing through a window didn't show the desktop Climb and Jump keys, and VR hands didn't plant on the sill. Both work on every window now",
     "The gaming chair's headrest floated off the back of the chair. It sits on the backrest now"
