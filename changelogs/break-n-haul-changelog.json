@@ -8,7 +8,10 @@
    "summary": "VR punches work again, heavy loot grabs the same way as everything else in VR, and the Maple kitchen window can be climbed.",
    "changed": [
     "Heavy loot in VR now follows the Hold to grab loot checkbox. With it off, tap the grip to pick up a couch or chair and tap again to put it down, like other loot. With it on, you hold the grip like before",
-    "Heavy loot near your VR hand gets a white outline, and so does stuff a crewmate is carrying when you can help carry it on desktop. Anything bolted down or locked in a cage gets a red outline when your hand is near it or you look at it, so you know you have to break it loose first"
+    "Heavy loot near your VR hand gets a white outline, and so does stuff a crewmate is carrying when you can help carry it on desktop. Anything bolted down or locked in a cage gets a red outline when your hand is near it or you look at it, so you know you have to break it loose first",
+    "Better frame rate in jobs with a full crew. Windows, doors, residents of other houses and gear sitting on the shelf don't do work when nothing is happening to them",
+    "Other players' flashlights cost a lot less. On PC up to 4 flashlights light the room and only yours and the closest one cast shadows. With Fancy lighting off it's 2",
+    "The Graphics page has separate checkboxes for bloom, color grading and vignette on PC, so you can turn off only the ones you don't want"
    ],
    "fixed": [
     "Punching glass in VR almost never broke it. A punch that stopped at the glass didn't count, only one that went far past it. It breaks like it's supposed to now",
