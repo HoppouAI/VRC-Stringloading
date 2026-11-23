@@ -4,8 +4,12 @@
   {
    "version": "1.5.4",
    "date": "2026-11-22",
-   "title": "Punch, Grab and Window Fix",
-   "summary": "VR punches work again, heavy loot grabs the same way as everything else in VR, and the Maple kitchen window can be climbed.",
+   "title": "Languages Update",
+   "summary": "The game is in Japanese, Chinese and Korean now, plus better frame rate, VR punches work again and heavy loot grabs the same way as everything else in VR.",
+   "added": [
+    "Japanese, Simplified Chinese and Korean. Boards, menus, hints and hover text follow your VRChat language, or pick one on the new LANGUAGE tab on the settings board or in the Tab menu",
+    "The translations are new, if something reads wrong in your language tell us in the Discord and we'll fix it"
+   ],
    "changed": [
     "Heavy loot in VR now follows the Hold to grab loot checkbox. With it off, tap the grip to pick up a couch or chair and tap again to put it down, like other loot. With it on, you hold the grip like before",
     "Heavy loot near your VR hand gets a white outline, and so does stuff a crewmate is carrying when you can help carry it on desktop. Anything bolted down or locked in a cage gets a red outline when your hand is near it or you look at it, so you know you have to break it loose first",
