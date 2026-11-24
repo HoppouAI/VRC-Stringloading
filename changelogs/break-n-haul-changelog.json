@@ -2,6 +2,28 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.5.5",
+   "date": "2026-11-24",
+   "title": "Bank ATMs",
+   "summary": "The bank's ATMs can be stolen now, 10 new skins and paint jobs in the back room shop, and fixes from your bug reports.",
+   "added": [
+    "The 3 ATMs in the bank lobby are loot now, worth $8,000 each. They're bolted down, so get them loose with the wrench or a hammer and haul them out to the getaway. Pulling one off the wall rings the bank's alarm and calls the cops, unless you cut the power at the breaker first",
+    "5 new gear skins in the back room shop: Blackout, Olive Drab, Whiteout, Red Carbon and Bubblegum. Hammer heads, zippers and other metal parts stay steel",
+    "5 new paint jobs for your rides: Matte Black, Gunmetal, Getaway Cab, Loan Shark and Inside Job",
+    "The new skins and paints are 250 credits each"
+   ],
+   "fixed": [
+    "VR punches on residents and cops often didn't count in full lobbies or at low frame rates. They count at any frame rate now",
+    "Knocking someone out took a moment to show for everyone but the crew leader. They go down the moment the hit lands now",
+    "The bank's breaker and the camera and laser buttons could be used from the other side of a wall. They only work from the room they're in now",
+    "VR players sometimes couldn't grab a tool back off their belt after picking it up off the floor, and a worn lampshade could slide down to your hip. Both stay where they're drawn now",
+    "Another player's bag or gear could shove the host's furniture around. It doesn't anymore",
+    "Old receipts on the haul board stayed half in English after switching language. They translate fully now",
+    "Some board notes ran off their paper in Japanese, Chinese and Korean. They wrap and stay on the paper now",
+    "BAIL on the HUD was translated as legal bail in Japanese, Chinese and Korean. It means run now"
+   ]
+  },
+  {
    "version": "1.5.4",
    "date": "2026-11-22",
    "title": "Languages Update",
