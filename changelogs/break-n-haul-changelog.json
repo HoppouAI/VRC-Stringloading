@@ -2,6 +2,27 @@
  "title": "Break-n-Haul",
  "updates": [
   {
+   "version": "1.5.6",
+   "date": "2026-11-26",
+   "title": "Getaway Update",
+   "summary": "The getaway shows its area and what's too heavy for your ride, residents and cops keep up for the whole crew, and fixes from your bug reports.",
+   "added": [
+    "A line on the ground shows the getaway area during a job, so you can see where the crew has to stand to leave",
+    "The getaway board shows how heavy a piece of loot your ride can take, and names anything in the back that's too heavy to count",
+    "The appraiser shows an item's weight next to its price. It's red when the item is too heavy for your ride"
+   ],
+   "fixed": [
+    "Residents and cops could be 2 to 3 seconds behind for everyone but the crew leader, so on your screen a cop could tase you through a wall. They keep up for everyone now",
+    "The Vintage Tractor counted for nothing in most rides and nothing said why. It weighs 2,600 kg, so only the trucks that take any weight can haul it, and the board tells you now",
+    "Loot left in the van from the last job could be grabbed again when you repeated the job. It can't be picked up until it's back in the house",
+    "You could join standing inside a walkway post in the hideout. The spawn point moved",
+    "Something you took over from another player could drop through the floor. It doesn't anymore",
+    "In VR with Hold to grab loot off, a heavy item could drop right after you grabbed it. A second press right after the grab is ignored now",
+    "VR belt gear could stay locked after a climb or after putting down something heavy. It unlocks on its own now, and holding a couch in one hand doesn't lock the belt for the other",
+    "Three night school lines that people kept asking about say what they mean now: satellite dishes are on the sides of houses, big things are wardrobes, fridges and bathtubs, and the glass perk says 50% harder"
+   ]
+  },
+  {
    "version": "1.5.5",
    "date": "2026-11-24",
    "title": "Bank ATMs",
